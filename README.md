@@ -137,6 +137,20 @@ The executed preflight found no Phase 07 hybrid-results artifact because Phase 0
 
 Phase 08 does not implement LLM generation, prompt construction, answer generation, LangGraph, or agentic control flow.
 
+## Phase 09 — Grounded prompt-engineering notebook
+
+`notebooks/08_prompt_engineering.ipynb` is an executed, notebook-first prompt-engineering experiment for the requested exact generator identifier, `Qwen2.5-7B-Instruct`. It loads only the real Phase 07 BM25 Top-3 context run associated with the project’s business-foundations question. That context preserves the retrieved chunk IDs, pages, chapter and section metadata, and BM25 scores. Because Phase 07 has no dense BGE-M3 results, the notebook does not describe the context as hybrid or reranked and does not manufacture either artifact.
+
+| Artifact | Current verified state |
+| --- | --- |
+| `notebooks/08_prompt_engineering.ipynb` | Executed. It displays the real retrieved context and prepares basic, role, explicit-constraint, grounded, few-shot, citation, query-rewriting, and query-decomposition prompt variants. Every variant contains the same evidence-only rule, abstention condition, and chunk/page citation requirement. |
+| `data/processed/introduction_to_business_prompt_engineering_results.json` | Saved. It retains the exact prompt designs, real BM25 context metadata, technique trade-offs, and an explicit non-generation record for each of the eight techniques. |
+| `data/processed/introduction_to_business_prompt_engineering_status.json` | Saved with `blocked_exact_model_or_permission_preflight`; it records zero generated answers, no model substitution, and no LangGraph or agentic control flow. |
+
+The executed preflight queried the live sandbox model catalog and found no matching `Qwen2.5-7B-Instruct` identifier. It also found that explicit OpenStax generative-AI permission was not confirmed. The textbook’s attribution notice prohibits its ingestion into a generative-AI offering without OpenStax permission. [2] The notebook therefore did not send any textbook context to an LLM, did not substitute another model, and did not fabricate example answers, citation outputs, rewritten queries, or decomposed subquestions. It instead displays the truthful `NOT GENERATED` outcome beside every designed prompt.
+
+The notebook includes the real, single-pass exact-model invocation path behind both preflight checks. After explicit OpenStax permission is confirmed and `Qwen2.5-7B-Instruct` is present in the live model catalog, rerunning the notebook unchanged will produce auditable output for the eight prompt techniques. Phase 09 does not implement LangGraph, an agent, tool calling, autonomous retrieval, or a self-correcting loop.
+
 ## References
 
 [1]: https://openstax.org/books/introduction-business/pages/preface "OpenStax — Introduction to Business: Preface"

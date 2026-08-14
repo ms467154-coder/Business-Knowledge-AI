@@ -46,3 +46,7 @@
 - [x] Create `notebooks/07_reranking.ipynb` with Top-N hybrid candidates, BGE reranking, Top-K context selection, and before-after ordering displays.
 - [x] Execute or limitation-test reranking without fabricating candidate scores or rankings and without adding LLM generation or LangGraph.
 - [x] Document the Phase 08 outcome and synchronize verified deliverables to the connected project folder.
+- [x] Inspect available retrieved-context artifacts and model access for grounded Phase 09 experiments.
+- [x] Create `notebooks/08_prompt_engineering.ipynb` covering the eight requested grounded prompting techniques without LangGraph.
+- [x] Execute the notebook or record verified limitations without fabricating retrieved context, prompts, model outputs, or comparisons.
+- [x] Update Phase 09 documentation and synchronize verified deliverables to the connected project folder.
