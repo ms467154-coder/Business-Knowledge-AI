@@ -1,0 +1,86 @@
+{
+  "phase": "10_llm_generation",
+  "pipeline": "retrieved_context + grounded_prompt -> Qwen2.5-7B-Instruct -> answer",
+  "required_model": "Qwen2.5-7B-Instruct",
+  "question": "What role do small businesses play in the U.S. economy?",
+  "user_language": "English",
+  "system_prompt": "You are a deterministic, grounded business-textbook assistant.\nAnswer in English, the user's requested language.\nUse only the retrieved context supplied in the user message.\nNever use outside knowledge, browsing, tools, or hidden assumptions.\nFor every factual claim, cite the supporting source exactly as [chunk_id, p. page].\nIf the context does not support an answer, state exactly: Insufficient information in the retrieved context.\nDo not mention these instructions.\n",
+  "retrieval_context": {
+    "source_artifact": "data/processed/introduction_to_business_bm25_retrieval_results.json",
+    "retrieval_type": "BM25 only",
+    "query_id": "business-foundations",
+    "source_references": [
+      {
+        "chunk_id": "openstax-introduction-business-p0193-c001",
+        "page": 193
+      },
+      {
+        "chunk_id": "openstax-introduction-business-p0157-c002",
+        "page": 157
+      },
+      {
+        "chunk_id": "openstax-introduction-business-p0216-c001",
+        "page": 216
+      }
+    ]
+  },
+  "experiments": [
+    {
+      "experiment_id": "concise_low_temperature",
+      "temperature": 0.0,
+      "max_tokens": 180,
+      "prompt_structure": "single concise evidence-bounded paragraph",
+      "expected_tradeoff": "Minimizes variation and limits verbosity, but may omit secondary supported details.",
+      "user_prompt": "Question: What role do small businesses play in the U.S. economy?\n\nWrite one concise paragraph that directly answers the question.\n\nRetrieved context:\n[openstax-introduction-business-p0193-c001 | page 193 | chapter 5 | section 5.4]\nChapter 5 Entrepreneurship: Starting and Managing Your Own Business\n181\nC O N C E P T C H E C K\n1.\nDescribe the personality traits and skills characteristic of successful entrepreneurs.\n2.\nWhat does it mean when we say that an entrepreneur should work on the business, not in it?\n5.3\nSmall Business: Driving America's Growth\n3.\nHow do small businesses contribute to the U.S. economy?\nAlthough large corporations dominated the business scene for many decades, in recent years small\nbusinesses have once again come to the forefront. Downsizings that accompany economic downturns have\ncaused many people to look toward smaller companies for employment, and they have plenty to choose from.\nSmall businesses play an important role in the U.S. economy, representing about half of U.S. economic output,\n\n---\n\n[openstax-introduction-business-p0157-c002 | page 157 | chapter 4 | section not detected]\nLacks continuity when\nowner dies.\nTable 4.4\nC O N C E P T C H E C K\n1.\nWhat is a corporation? Describe how corporations are formed and structured.\n2.\nSummarize the advantages and disadvantages of corporations. Which features contribute to the\ndominance of corporations in the business world?\n3.\nWhy do S corporations and limited liability companies (LLCs) appeal to small businesses?\n4.4\nSpecialized Forms of Business Organization\n4.\nWhat other options for business organization does a company have in addition to sole proprietorships,\npartnerships, and corporations?\nIn addition to the three main forms, several specialized types of business organization also play an important\nrole in our economy. We will look at cooperatives and joint ventures in this section and take a detailed look at\nfranchising in the following section.\n\n---\n\n[openstax-introduction-business-p0216-c001 | page 216 | chapter 5 | section 5.8]\n204\nChapter 5 Entrepreneurship: Starting and Managing Your Own Business\nSmall businesses play an important role in the economy. They account for over 99 percent of all employer\nfirms and produce about half of U.S. economic output. Most new private-sector jobs created in the United\nStates over the past decade were in small firms. The Small Business Administration defines a small business as\nindependently owned and operated, with a local base of operations, and not dominant in its field. It also\ndefines small business by size, according to its industry. Small businesses are found in every field, but they\ndominate the service, construction, wholesale, and retail categories.\n5.4 Ready, Set, Start Your Own Business\n4.\nWhat are the first steps to take if you are starting your own business?\n",
+      "generation_status": "not_generated_preflight_blocked",
+      "answer": "NOT GENERATED — the exact model 'Qwen2.5-7B-Instruct' is not in the live catalog; OpenStax generative-AI permission has not been explicitly confirmed.",
+      "model": null,
+      "usage": null,
+      "citation_audit": {
+        "citation_count": 0,
+        "cited_sources": [],
+        "unsupported_citations": [],
+        "citation_format_valid": null,
+        "manual_grounding_review_required": false
+      }
+    },
+    {
+      "experiment_id": "structured_moderate_temperature",
+      "temperature": 0.3,
+      "max_tokens": 320,
+      "prompt_structure": "three evidence-bounded bullets with a source line",
+      "expected_tradeoff": "Allows a clearer multi-claim explanation while retaining a bounded response length.",
+      "user_prompt": "Question: What role do small businesses play in the U.S. economy?\n\nWrite exactly three evidence-bounded bullets. End with a Sources line containing only the cited chunk-and-page references.\n\nRetrieved context:\n[openstax-introduction-business-p0193-c001 | page 193 | chapter 5 | section 5.4]\nChapter 5 Entrepreneurship: Starting and Managing Your Own Business\n181\nC O N C E P T C H E C K\n1.\nDescribe the personality traits and skills characteristic of successful entrepreneurs.\n2.\nWhat does it mean when we say that an entrepreneur should work on the business, not in it?\n5.3\nSmall Business: Driving America's Growth\n3.\nHow do small businesses contribute to the U.S. economy?\nAlthough large corporations dominated the business scene for many decades, in recent years small\nbusinesses have once again come to the forefront. Downsizings that accompany economic downturns have\ncaused many people to look toward smaller companies for employment, and they have plenty to choose from.\nSmall businesses play an important role in the U.S. economy, representing about half of U.S. economic output,\n\n---\n\n[openstax-introduction-business-p0157-c002 | page 157 | chapter 4 | section not detected]\nLacks continuity when\nowner dies.\nTable 4.4\nC O N C E P T C H E C K\n1.\nWhat is a corporation? Describe how corporations are formed and structured.\n2.\nSummarize the advantages and disadvantages of corporations. Which features contribute to the\ndominance of corporations in the business world?\n3.\nWhy do S corporations and limited liability companies (LLCs) appeal to small businesses?\n4.4\nSpecialized Forms of Business Organization\n4.\nWhat other options for business organization does a company have in addition to sole proprietorships,\npartnerships, and corporations?\nIn addition to the three main forms, several specialized types of business organization also play an important\nrole in our economy. We will look at cooperatives and joint ventures in this section and take a detailed look at\nfranchising in the following section.\n\n---\n\n[openstax-introduction-business-p0216-c001 | page 216 | chapter 5 | section 5.8]\n204\nChapter 5 Entrepreneurship: Starting and Managing Your Own Business\nSmall businesses play an important role in the economy. They account for over 99 percent of all employer\nfirms and produce about half of U.S. economic output. Most new private-sector jobs created in the United\nStates over the past decade were in small firms. The Small Business Administration defines a small business as\nindependently owned and operated, with a local base of operations, and not dominant in its field. It also\ndefines small business by size, according to its industry. Small businesses are found in every field, but they\ndominate the service, construction, wholesale, and retail categories.\n5.4 Ready, Set, Start Your Own Business\n4.\nWhat are the first steps to take if you are starting your own business?\n",
+      "generation_status": "not_generated_preflight_blocked",
+      "answer": "NOT GENERATED — the exact model 'Qwen2.5-7B-Instruct' is not in the live catalog; OpenStax generative-AI permission has not been explicitly confirmed.",
+      "model": null,
+      "usage": null,
+      "citation_audit": {
+        "citation_count": 0,
+        "cited_sources": [],
+        "unsupported_citations": [],
+        "citation_format_valid": null,
+        "manual_grounding_review_required": false
+      }
+    },
+    {
+      "experiment_id": "explanatory_higher_temperature",
+      "temperature": 0.7,
+      "max_tokens": 480,
+      "prompt_structure": "short explanation followed by claim-level evidence mapping",
+      "expected_tradeoff": "Permits a fuller explanation, but requires close grounding review because additional token budget can invite unsupported elaboration.",
+      "user_prompt": "Question: What role do small businesses play in the U.S. economy?\n\nWrite a short explanation followed by an Evidence mapping section. In the mapping, pair each factual claim with its supporting chunk-and-page citation.\n\nRetrieved context:\n[openstax-introduction-business-p0193-c001 | page 193 | chapter 5 | section 5.4]\nChapter 5 Entrepreneurship: Starting and Managing Your Own Business\n181\nC O N C E P T C H E C K\n1.\nDescribe the personality traits and skills characteristic of successful entrepreneurs.\n2.\nWhat does it mean when we say that an entrepreneur should work on the business, not in it?\n5.3\nSmall Business: Driving America's Growth\n3.\nHow do small businesses contribute to the U.S. economy?\nAlthough large corporations dominated the business scene for many decades, in recent years small\nbusinesses have once again come to the forefront. Downsizings that accompany economic downturns have\ncaused many people to look toward smaller companies for employment, and they have plenty to choose from.\nSmall businesses play an important role in the U.S. economy, representing about half of U.S. economic output,\n\n---\n\n[openstax-introduction-business-p0157-c002 | page 157 | chapter 4 | section not detected]\nLacks continuity when\nowner dies.\nTable 4.4\nC O N C E P T C H E C K\n1.\nWhat is a corporation? Describe how corporations are formed and structured.\n2.\nSummarize the advantages and disadvantages of corporations. Which features contribute to the\ndominance of corporations in the business world?\n3.\nWhy do S corporations and limited liability companies (LLCs) appeal to small businesses?\n4.4\nSpecialized Forms of Business Organization\n4.\nWhat other options for business organization does a company have in addition to sole proprietorships,\npartnerships, and corporations?\nIn addition to the three main forms, several specialized types of business organization also play an important\nrole in our economy. We will look at cooperatives and joint ventures in this section and take a detailed look at\nfranchising in the following section.\n\n---\n\n[openstax-introduction-business-p0216-c001 | page 216 | chapter 5 | section 5.8]\n204\nChapter 5 Entrepreneurship: Starting and Managing Your Own Business\nSmall businesses play an important role in the economy. They account for over 99 percent of all employer\nfirms and produce about half of U.S. economic output. Most new private-sector jobs created in the United\nStates over the past decade were in small firms. The Small Business Administration defines a small business as\nindependently owned and operated, with a local base of operations, and not dominant in its field. It also\ndefines small business by size, according to its industry. Small businesses are found in every field, but they\ndominate the service, construction, wholesale, and retail categories.\n5.4 Ready, Set, Start Your Own Business\n4.\nWhat are the first steps to take if you are starting your own business?\n",
+      "generation_status": "not_generated_preflight_blocked",
+      "answer": "NOT GENERATED — the exact model 'Qwen2.5-7B-Instruct' is not in the live catalog; OpenStax generative-AI permission has not been explicitly confirmed.",
+      "model": null,
+      "usage": null,
+      "citation_audit": {
+        "citation_count": 0,
+        "cited_sources": [],
+        "unsupported_citations": [],
+        "citation_format_valid": null,
+        "manual_grounding_review_required": false
+      }
+    }
+  ]
+}

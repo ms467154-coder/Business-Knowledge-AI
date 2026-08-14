@@ -1,0 +1,39 @@
+{
+  "phase": "10_llm_generation",
+  "required_model": "Qwen2.5-7B-Instruct",
+  "model_catalog_checked": true,
+  "exact_model_available": false,
+  "matching_qwen_model_ids": [],
+  "openstax_generative_ai_permission_confirmed": false,
+  "retrieved_context_source": "data/processed/introduction_to_business_bm25_retrieval_results.json",
+  "retrieval_type": "BM25 only",
+  "retrieved_context_is_real": true,
+  "hybrid_or_reranked_context_available": false,
+  "temperature_values": [
+    0.0,
+    0.3,
+    0.7
+  ],
+  "max_tokens_values": [
+    180,
+    320,
+    480
+  ],
+  "prompt_structures": [
+    "single concise evidence-bounded paragraph",
+    "three evidence-bounded bullets with a source line",
+    "short explanation followed by claim-level evidence mapping"
+  ],
+  "experiment_count": 3,
+  "model_invocation_implemented": true,
+  "model_invocation_executed": false,
+  "generated_answer_count": 0,
+  "result_artifact": "data/processed/introduction_to_business_llm_generation_results.json",
+  "langgraph_implemented": false,
+  "agentic_control_flow_implemented": false,
+  "no_model_substitution": true,
+  "no_fabricated_answers": true,
+  "status": "blocked_exact_model_or_permission_preflight",
+  "limitation": "No Qwen2.5-7B-Instruct generation was run. Execution requires both the exact model in the live catalog and explicit OpenStax permission confirmation; no substitute model, fabricated answer, citation, or parameter comparison was used.",
+  "executed_at_utc": "2026-08-14T13:28:09.020429+00:00"
+}

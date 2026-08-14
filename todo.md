@@ -50,3 +50,7 @@
 - [x] Create `notebooks/08_prompt_engineering.ipynb` covering the eight requested grounded prompting techniques without LangGraph.
 - [x] Execute the notebook or record verified limitations without fabricating retrieved context, prompts, model outputs, or comparisons.
 - [x] Update Phase 09 documentation and synchronize verified deliverables to the connected project folder.
+- [x] Verify exact Qwen2.5-7B-Instruct availability, OpenStax permission state, and reusable retrieved-context readiness for Phase 10.
+- [x] Create `notebooks/09_llm_generation.ipynb` with grounded Qwen context-to-answer generation and temperature, max-token, and prompt-structure experiments without LangGraph.
+- [x] Execute the notebook or record verified limitations without substituting a model or fabricating answers, citations, or parameter comparisons.
+- [x] Update Phase 10 documentation and synchronize verified deliverables to the connected project folder.

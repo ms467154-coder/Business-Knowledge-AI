@@ -151,6 +151,20 @@ The executed preflight queried the live sandbox model catalog and found no match
 
 The notebook includes the real, single-pass exact-model invocation path behind both preflight checks. After explicit OpenStax permission is confirmed and `Qwen2.5-7B-Instruct` is present in the live model catalog, rerunning the notebook unchanged will produce auditable output for the eight prompt techniques. Phase 09 does not implement LangGraph, an agent, tool calling, autonomous retrieval, or a self-correcting loop.
 
+## Phase 10 — Grounded Qwen generation notebook
+
+`notebooks/09_llm_generation.ipynb` is an executed, notebook-first implementation of the requested single-pass generation stage: **retrieved context + grounded prompt → `Qwen2.5-7B-Instruct` → cited answer**. It reuses only the real Phase 07 BM25 Top-3 context for the business-foundations question and keeps its chunk IDs and page provenance. The notebook does not represent that context as dense, hybrid, or reranked, because those upstream artifacts have not been validly generated.
+
+| Artifact | Current verified state |
+| --- | --- |
+| `notebooks/09_llm_generation.ipynb` | Executed. It defines the exact Qwen invocation and experiments with temperatures `0.0`, `0.3`, and `0.7`; maximum token budgets `180`, `320`, and `480`; and concise-paragraph, evidence-bullet, and claim-to-evidence prompt structures. Each prompt requires the user’s language, retrieved-context-only claims, explicit insufficiency statements, and `[chunk_id, p. page]` citations. |
+| `data/processed/introduction_to_business_llm_generation_results.json` | Saved. It retains real BM25 context provenance, the full prompt/parameter matrix, and one truthful non-generation record per experiment. |
+| `data/processed/introduction_to_business_llm_generation_status.json` | Saved with `blocked_exact_model_or_permission_preflight`; it records `model_invocation_implemented: true`, `model_invocation_executed: false`, `generated_answer_count: 0`, no model substitution, and no LangGraph or agentic control flow. |
+
+The executed preflight again found no `Qwen2.5-7B-Instruct` identifier in the live sandbox catalog and no explicit OpenStax generative-AI permission confirmation. OpenStax’s attribution notice prohibits ingesting the textbook into a generative-AI offering without that permission. [2] Consequently, the notebook did not transmit textbook context to a model, substitute a different model, fabricate a generated answer or citation, or claim observed differences among the temperature, token, or prompt-structure conditions. It displays the real fixed invocation pathway plus `NOT GENERATED` records instead.
+
+After both conditions are satisfied, rerun the notebook unchanged to obtain exact-model, evidence-grounded output and inspect its automated citation format audit plus manual grounding review requirement. Phase 10 deliberately does not implement LangGraph, tool calling, autonomous agents, self-correcting retrieval, or multi-stage agentic control flow.
+
 ## References
 
 [1]: https://openstax.org/books/introduction-business/pages/preface "OpenStax — Introduction to Business: Preface"
