@@ -66,3 +66,10 @@
 - [x] Create `notebooks/12_memory.ipynb` demonstrating two deterministic conversational turns with MemorySaver checkpointing and a contextual follow-up answer without agents.
 - [x] Execute the checkpointed memory graph and persist verifiable thread state, history, and document-context separation evidence.
 - [x] Update Phase 13 documentation and synchronize verified deliverables to the connected project folder.
+- [x] Inspect OpenStax provenance, verified source artifacts, and all retrieval/generation pipeline statuses to determine which Phase 14 metrics can be truthfully computed.
+- [x] Create `notebooks/13_evaluation.ipynb` with a source-grounded evaluation dataset, metric definitions, pipeline-variant comparison matrix, and strict no-fabrication guards.
+- [x] Execute only eligible retrieval/generation evaluation calculations and persist actual metrics or detailed unavailable-artifact records without inventing ground truth or scores.
+- [x] Update Phase 14 documentation and synchronize verified deliverables to the connected project folder.
+- [x] Preserve Phase 14 evaluation-artifact checksums before correcting only the validation test’s notebook cell-location assertion.
+- [x] Correct the Phase 14 artifact-validation test to inspect Markdown and code cells without changing evaluation methodology or artifacts.
+- [x] Run focused, Phase 14, and full regression tests, then verify notebook JSON and stored evaluation-artifact integrity.

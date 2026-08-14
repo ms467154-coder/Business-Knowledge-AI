@@ -1,0 +1,109 @@
+{
+  "dataset_name": "openstax_introduction_to_business_evidence_anchor_eval",
+  "dataset_version": "1.0",
+  "source_provenance_file": "data/raw/SOURCE.md",
+  "labeling_policy": "Each relevance label is a direct quote verified against a cited official OpenStax chunk; no generated reference answers are stored.",
+  "examples": [
+    {
+      "query_id": "business-foundations",
+      "question": "What role do businesses play in an economy?",
+      "source_evidence_anchor": {
+        "chunk_id": "openstax-introduction-business-p0193-c001",
+        "page": 193,
+        "chapter": {
+          "number": 5,
+          "title": "Entrepreneurship: Starting and Managing Your Own Business"
+        },
+        "section": {
+          "number": "5.4",
+          "title": "provides a more detailed look at small-business owners."
+        },
+        "quote": "Small businesses play an important role in the U.S. economy, representing about half of U.S. economic output",
+        "official_source": "https://openstax.org/details/books/introduction-business"
+      },
+      "label_type": "direct_official_source_evidence_anchor",
+      "why_relevant": "The quotation directly addresses the economic role described by the question.",
+      "reference_answer": null,
+      "reference_answer_reason": "Not created: this dataset avoids fabricated or model-written ground-truth answers."
+    },
+    {
+      "query_id": "ownership-choice",
+      "question": "What factors should an entrepreneur consider when choosing a business ownership structure?",
+      "source_evidence_anchor": {
+        "chunk_id": "openstax-introduction-business-p0143-c001",
+        "page": 143,
+        "chapter": {
+          "number": 4,
+          "title": "Forms of Business Ownership"
+        },
+        "section": null,
+        "quote": "Will you attract employees? How will the business be taxed, and who will be liable for the company’s debts?",
+        "official_source": "https://openstax.org/details/books/introduction-business"
+      },
+      "label_type": "direct_official_source_evidence_anchor",
+      "why_relevant": "The quotation supplies concrete ownership-form selection considerations from the textbook.",
+      "reference_answer": null,
+      "reference_answer_reason": "Not created: this dataset avoids fabricated or model-written ground-truth answers."
+    },
+    {
+      "query_id": "management-planning",
+      "question": "How does the planning process help managers set organizational goals?",
+      "source_evidence_anchor": {
+        "chunk_id": "openstax-introduction-business-p0252-c004",
+        "page": 252,
+        "chapter": {
+          "number": 6,
+          "title": "Management and Leadership in Today's Organizations"
+        },
+        "section": {
+          "number": "6.2",
+          "title": "Planning"
+        },
+        "quote": "Planning is deciding what needs to be done, identifying when and how it will be done, and determining who should do it.",
+        "official_source": "https://openstax.org/details/books/introduction-business"
+      },
+      "label_type": "direct_official_source_evidence_anchor",
+      "why_relevant": "The quotation is the textbook definition of planning used to ground the management question.",
+      "reference_answer": null,
+      "reference_answer_reason": "Not created: this dataset avoids fabricated or model-written ground-truth answers."
+    },
+    {
+      "query_id": "marketing-selling",
+      "question": "How is marketing different from selling?",
+      "source_evidence_anchor": {
+        "chunk_id": "openstax-introduction-business-p0428-c002",
+        "page": 428,
+        "chapter": {
+          "number": 11,
+          "title": "Creating Products and Pricing Strategies to Meet Customers' Needs"
+        },
+        "section": null,
+        "quote": "marketing encompasses much more than just promotion.",
+        "official_source": "https://openstax.org/details/books/introduction-business"
+      },
+      "label_type": "direct_official_source_evidence_anchor",
+      "why_relevant": "The quotation directly distinguishes the broader marketing concept from a visible promotional activity.",
+      "reference_answer": null,
+      "reference_answer_reason": "Not created: this dataset avoids fabricated or model-written ground-truth answers."
+    },
+    {
+      "query_id": "financial-statements",
+      "question": "How do financial statements help business owners make decisions?",
+      "source_evidence_anchor": {
+        "chunk_id": "openstax-introduction-business-p0563-c001",
+        "page": 563,
+        "chapter": {
+          "number": 14,
+          "title": "Using Financial Information and Accounting"
+        },
+        "section": null,
+        "quote": "Finally, individuals analyze these reports and make decisions based on the information in them.",
+        "official_source": "https://openstax.org/details/books/introduction-business"
+      },
+      "label_type": "direct_official_source_evidence_anchor",
+      "why_relevant": "The quotation directly states how financial reports support decisions.",
+      "reference_answer": null,
+      "reference_answer_reason": "Not created: this dataset avoids fabricated or model-written ground-truth answers."
+    }
+  ]
+}

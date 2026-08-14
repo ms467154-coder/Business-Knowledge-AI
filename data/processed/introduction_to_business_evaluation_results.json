@@ -1,0 +1,269 @@
+{
+  "phase": "14_evaluation",
+  "source_policy": "Official OpenStax Introduction to Business evidence anchors only; no fabricated ground-truth answers.",
+  "retrieval": {
+    "status": "partially_evaluated",
+    "eligible_variant": "bm25_sparse_baseline",
+    "metric_definition": {
+      "recall_at_k": "Whether the direct source-evidence anchor was returned in the first K results.",
+      "precision_at_k": "Evidence-anchor hits divided by K.",
+      "mrr": "Reciprocal rank of the first evidence-anchor hit.",
+      "context_relevance": "Source-anchored context relevance: evidence-anchor hits divided by returned contexts."
+    },
+    "per_query": [
+      {
+        "query_id": "business-foundations",
+        "k": 3,
+        "anchor_chunk_id": "openstax-introduction-business-p0193-c001",
+        "observed_anchor_rank": 1,
+        "recall_at_k": 1.0,
+        "precision_at_k": 0.3333333333333333,
+        "mrr": 1.0,
+        "source_anchored_context_relevance": 0.3333333333333333
+      },
+      {
+        "query_id": "ownership-choice",
+        "k": 3,
+        "anchor_chunk_id": "openstax-introduction-business-p0143-c001",
+        "observed_anchor_rank": null,
+        "recall_at_k": 0.0,
+        "precision_at_k": 0.0,
+        "mrr": 0.0,
+        "source_anchored_context_relevance": 0.0
+      },
+      {
+        "query_id": "management-planning",
+        "k": 3,
+        "anchor_chunk_id": "openstax-introduction-business-p0252-c004",
+        "observed_anchor_rank": 3,
+        "recall_at_k": 1.0,
+        "precision_at_k": 0.3333333333333333,
+        "mrr": 0.3333333333333333,
+        "source_anchored_context_relevance": 0.3333333333333333
+      },
+      {
+        "query_id": "marketing-selling",
+        "k": 3,
+        "anchor_chunk_id": "openstax-introduction-business-p0428-c002",
+        "observed_anchor_rank": 2,
+        "recall_at_k": 1.0,
+        "precision_at_k": 0.3333333333333333,
+        "mrr": 0.5,
+        "source_anchored_context_relevance": 0.3333333333333333
+      },
+      {
+        "query_id": "financial-statements",
+        "k": 3,
+        "anchor_chunk_id": "openstax-introduction-business-p0563-c001",
+        "observed_anchor_rank": 2,
+        "recall_at_k": 1.0,
+        "precision_at_k": 0.3333333333333333,
+        "mrr": 0.5,
+        "source_anchored_context_relevance": 0.3333333333333333
+      },
+      {
+        "query_id": "business-foundations",
+        "k": 5,
+        "anchor_chunk_id": "openstax-introduction-business-p0193-c001",
+        "observed_anchor_rank": 1,
+        "recall_at_k": 1.0,
+        "precision_at_k": 0.2,
+        "mrr": 1.0,
+        "source_anchored_context_relevance": 0.2
+      },
+      {
+        "query_id": "ownership-choice",
+        "k": 5,
+        "anchor_chunk_id": "openstax-introduction-business-p0143-c001",
+        "observed_anchor_rank": null,
+        "recall_at_k": 0.0,
+        "precision_at_k": 0.0,
+        "mrr": 0.0,
+        "source_anchored_context_relevance": 0.0
+      },
+      {
+        "query_id": "management-planning",
+        "k": 5,
+        "anchor_chunk_id": "openstax-introduction-business-p0252-c004",
+        "observed_anchor_rank": 3,
+        "recall_at_k": 1.0,
+        "precision_at_k": 0.2,
+        "mrr": 0.3333333333333333,
+        "source_anchored_context_relevance": 0.2
+      },
+      {
+        "query_id": "marketing-selling",
+        "k": 5,
+        "anchor_chunk_id": "openstax-introduction-business-p0428-c002",
+        "observed_anchor_rank": 2,
+        "recall_at_k": 1.0,
+        "precision_at_k": 0.2,
+        "mrr": 0.5,
+        "source_anchored_context_relevance": 0.2
+      },
+      {
+        "query_id": "financial-statements",
+        "k": 5,
+        "anchor_chunk_id": "openstax-introduction-business-p0563-c001",
+        "observed_anchor_rank": 2,
+        "recall_at_k": 1.0,
+        "precision_at_k": 0.2,
+        "mrr": 0.5,
+        "source_anchored_context_relevance": 0.2
+      },
+      {
+        "query_id": "business-foundations",
+        "k": 8,
+        "anchor_chunk_id": "openstax-introduction-business-p0193-c001",
+        "observed_anchor_rank": 1,
+        "recall_at_k": 1.0,
+        "precision_at_k": 0.125,
+        "mrr": 1.0,
+        "source_anchored_context_relevance": 0.125
+      },
+      {
+        "query_id": "ownership-choice",
+        "k": 8,
+        "anchor_chunk_id": "openstax-introduction-business-p0143-c001",
+        "observed_anchor_rank": null,
+        "recall_at_k": 0.0,
+        "precision_at_k": 0.0,
+        "mrr": 0.0,
+        "source_anchored_context_relevance": 0.0
+      },
+      {
+        "query_id": "management-planning",
+        "k": 8,
+        "anchor_chunk_id": "openstax-introduction-business-p0252-c004",
+        "observed_anchor_rank": 3,
+        "recall_at_k": 1.0,
+        "precision_at_k": 0.125,
+        "mrr": 0.3333333333333333,
+        "source_anchored_context_relevance": 0.125
+      },
+      {
+        "query_id": "marketing-selling",
+        "k": 8,
+        "anchor_chunk_id": "openstax-introduction-business-p0428-c002",
+        "observed_anchor_rank": 2,
+        "recall_at_k": 1.0,
+        "precision_at_k": 0.125,
+        "mrr": 0.5,
+        "source_anchored_context_relevance": 0.125
+      },
+      {
+        "query_id": "financial-statements",
+        "k": 8,
+        "anchor_chunk_id": "openstax-introduction-business-p0563-c001",
+        "observed_anchor_rank": 2,
+        "recall_at_k": 1.0,
+        "precision_at_k": 0.125,
+        "mrr": 0.5,
+        "source_anchored_context_relevance": 0.125
+      }
+    ],
+    "macro_average": [
+      {
+        "variant": "bm25_sparse_baseline",
+        "k": 3,
+        "recall_at_k": 0.8,
+        "precision_at_k": 0.26666666666666666,
+        "mrr": 0.4666666666666666,
+        "source_anchored_context_relevance": 0.26666666666666666
+      },
+      {
+        "variant": "bm25_sparse_baseline",
+        "k": 5,
+        "recall_at_k": 0.8,
+        "precision_at_k": 0.16,
+        "mrr": 0.4666666666666666,
+        "source_anchored_context_relevance": 0.16
+      },
+      {
+        "variant": "bm25_sparse_baseline",
+        "k": 8,
+        "recall_at_k": 0.8,
+        "precision_at_k": 0.1,
+        "mrr": 0.4666666666666666,
+        "source_anchored_context_relevance": 0.1
+      }
+    ]
+  },
+  "generation": {
+    "status": "not_evaluable",
+    "preflight": {
+      "ragas_package_detected": true,
+      "ragas_importable": false,
+      "ragas_version": null,
+      "ragas_import_error": "ModuleNotFoundError: No module named 'langchain_community.chat_models.vertexai'",
+      "real_generated_answer_count": 0,
+      "eligible_for_generation_metrics": false,
+      "blocked_reasons": [
+        "No real generated answers were found in the Phase 09, Phase 10, or Phase 12 status artifacts.",
+        "The exact Qwen2.5-7B-Instruct path remains unavailable and OpenStax generative-AI permission is unconfirmed in prior verified records.",
+        "Ragas is not importable in this environment: ModuleNotFoundError: No module named 'langchain_community.chat_models.vertexai'"
+      ]
+    },
+    "metrics": {
+      "faithfulness": {
+        "value": null,
+        "status": "not_evaluable",
+        "reason": "No real generated answers were found in the Phase 09, Phase 10, or Phase 12 status artifacts.; The exact Qwen2.5-7B-Instruct path remains unavailable and OpenStax generative-AI permission is unconfirmed in prior verified records.; Ragas is not importable in this environment: ModuleNotFoundError: No module named 'langchain_community.chat_models.vertexai'"
+      },
+      "answer_relevance": {
+        "value": null,
+        "status": "not_evaluable",
+        "reason": "No real generated answers were found in the Phase 09, Phase 10, or Phase 12 status artifacts.; The exact Qwen2.5-7B-Instruct path remains unavailable and OpenStax generative-AI permission is unconfirmed in prior verified records.; Ragas is not importable in this environment: ModuleNotFoundError: No module named 'langchain_community.chat_models.vertexai'"
+      },
+      "context_utilization": {
+        "value": null,
+        "status": "not_evaluable",
+        "reason": "No real generated answers were found in the Phase 09, Phase 10, or Phase 12 status artifacts.; The exact Qwen2.5-7B-Instruct path remains unavailable and OpenStax generative-AI permission is unconfirmed in prior verified records.; Ragas is not importable in this environment: ModuleNotFoundError: No module named 'langchain_community.chat_models.vertexai'"
+      }
+    }
+  },
+  "requested_variant_comparison": [
+    {
+      "variant": "Dense RAG",
+      "retrieval_status": "not_evaluable",
+      "generation_status": "not_evaluable",
+      "reason": "No real BAAI/bge-m3 embedding artifact exists after the verified resource preflight block."
+    },
+    {
+      "variant": "Hybrid RAG",
+      "retrieval_status": "not_evaluable",
+      "generation_status": "not_evaluable",
+      "reason": "Dense retrieval is blocked, so the hybrid fusion artifact was not produced."
+    },
+    {
+      "variant": "Hybrid + Reranking",
+      "retrieval_status": "not_evaluable",
+      "generation_status": "not_evaluable",
+      "reason": "No real hybrid candidates exist for BAAI/bge-reranker-v2-m3."
+    },
+    {
+      "variant": "RAG + basic prompt",
+      "retrieval_status": "not_evaluable",
+      "generation_status": "not_evaluable",
+      "reason": "No real Qwen answer artifact is available for the basic-prompt path."
+    },
+    {
+      "variant": "RAG + prompt engineering",
+      "retrieval_status": "not_evaluable",
+      "generation_status": "not_evaluable",
+      "reason": "Phase 09 defined prompts but recorded no real model answers."
+    },
+    {
+      "variant": "Deterministic LangGraph RAG",
+      "retrieval_status": "partially_executed_bm25_only",
+      "generation_status": "not_evaluable",
+      "reason": "The fixed graph executed its BM25 retrieve stage, but reranking and answer generation were blocked by verified prerequisites."
+    }
+  ],
+  "no_fabrication_assertions": {
+    "generated_reference_answers": false,
+    "generated_model_answers": false,
+    "invented_retrieval_scores": false,
+    "invented_generation_scores": false
+  }
+}

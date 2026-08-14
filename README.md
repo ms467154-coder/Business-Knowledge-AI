@@ -209,6 +209,24 @@ The notebook separates `conversation_history` from `retrieved_document_context` 
 
 Phase 13 is not an agent and does not implement retrieval, RAG, an LLM call, tool calling, autonomous decisions, a control loop, or self-correction. The responses are fixed deterministic teaching outputs; no textbook content, retrieved chunks, or fabricated source citations are used.
 
+## Phase 14 — Reproducible source-grounded evaluation notebook
+
+`notebooks/13_evaluation.ipynb` is an executed, reproducible evaluation workflow grounded only in verified OpenStax *Introduction to Business* chunks and the real Phase 07 BM25 retrieval record. Its five evaluation examples use direct quotations that are asserted to exist in named source chunks; the dataset stores no generated or model-written reference answers. The official textbook provenance is retained in `data/raw/SOURCE.md`, and every evaluation anchor preserves its chunk ID, page, chapter, section, quotation, and official book URL. [1] [2]
+
+| Artifact | Verified execution evidence |
+| --- | --- |
+| `notebooks/13_evaluation.ipynb` | Executed. It builds and validates the source-anchor dataset, defines each metric, computes only eligible BM25 retrieval measurements, records unavailable variants, and contains a guarded Ragas integration path. |
+| `data/processed/introduction_to_business_evaluation_dataset.json` | Saved. It contains five direct, source-verified evidence anchors and explicitly stores `reference_answer: null` for every example. |
+| `data/processed/introduction_to_business_evaluation_results.json` | Saved. It contains per-query and macro BM25 Recall@K, Precision@K, MRR, and source-anchored context-relevance results, plus `null` generation metrics with recorded reasons. |
+| `data/processed/introduction_to_business_evaluation_bm25_metrics.png` | Saved chart of only the executed BM25 evidence-anchor metrics at K = 3, 5, and 8. |
+| `data/processed/introduction_to_business_evaluation_status.json` | Saved with `partially_evaluated_real_bm25_only`; it records all unavailable-artifact limitations. |
+
+The notebook calculated **actual** BM25 evidence-anchor macro metrics from 15 pre-existing retrieval runs: Recall@K = `0.80` at K = 3, 5, and 8; MRR = `0.4667`; Precision@K and source-anchored context relevance equal `0.2667`, `0.1600`, and `0.1000` at K = 3, 5, and 8 respectively. These narrow metrics assess whether each direct textbook evidence anchor was retrieved; they are not claims about dense, hybrid, reranked, or answer quality.
+
+Dense RAG, hybrid RAG, and hybrid-plus-reranking remain unevaluable because there are no real BGE-M3 embeddings, dense searches, hybrid candidates, or reranker outputs. The basic-prompt, prompt-engineering, and deterministic LangGraph-RAG generation variants also remain unevaluable because no valid Qwen answer artifact exists and OpenStax generative-AI permission is unconfirmed. Generation values for faithfulness, answer relevance, and context utilization are therefore recorded as `null`, never as zero or estimated scores. Ragas was installed for the guarded path but could not import in this environment because an optional `langchain_community.chat_models.vertexai` module is absent; this is likewise recorded as a limitation rather than bypassed with a substitute evaluator.
+
+Phase 14 does not fabricate ground truth, generated answers, citations, dense vectors, hybrid results, reranker scores, Ragas scores, or cross-variant comparisons. Full evaluation can run only after real upstream artifacts and explicit OpenStax permission exist; the same source-anchor dataset and metric definitions can then be reused unchanged.
+
 ## References
 
 [1]: https://openstax.org/books/introduction-business/pages/preface "OpenStax — Introduction to Business: Preface"
