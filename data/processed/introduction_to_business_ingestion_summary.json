@@ -1,0 +1,26 @@
+{
+  "source": {
+    "title": "Introduction to Business",
+    "publisher": "OpenStax, Rice University",
+    "official_book_url": "https://openstax.org/details/books/introduction-business",
+    "official_pdf_url": "https://assets.openstax.org/oscms-prodcms/media/documents/IntroductionToBusiness-OP_8D04gAa.pdf",
+    "local_filename": "data/raw/introduction-to-business-openstax.pdf"
+  },
+  "pdf_page_count": 744,
+  "record_count": 744,
+  "pages_with_text": 742,
+  "quality_flag_counts": {
+    "empty_text": 2
+  },
+  "record_fields": [
+    "chapter",
+    "cleaned_text",
+    "extracted_text",
+    "extraction_metrics",
+    "page_number",
+    "quality_flags",
+    "section",
+    "source"
+  ],
+  "phase_scope": "PDF extraction and structured page records only; no embeddings, vector store, retrieval, reranking, LLM, or LangGraph."
+}

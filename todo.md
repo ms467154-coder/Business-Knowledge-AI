@@ -11,3 +11,8 @@
 - [x] Revalidate the local PDF’s existence, checksum, and readability after Git exclusion.
 - [x] Check whether Phase 01 artifacts are present in the user-connected Business Knowledge AI folder.
 - [x] Synchronize any missing Phase 01 artifacts to the user-connected Business Knowledge AI folder without starting Phase 02.
+- [x] Inspect the retained source PDF and existing connected-folder structure for Phase 02.
+- [x] Define structured page records that preserve page number, chapter, section, source, extracted text, cleaned text, and quality flags.
+- [x] Create `notebooks/01_document_ingestion.ipynb` with a visible PyMuPDF extraction and cleaning workflow.
+- [x] Save processed page records under `data/processed/` and validate output completeness and metadata preservation.
+- [x] Document the Phase 02 notebook-only scope without adding embeddings, retrieval, LLM, or LangGraph components.

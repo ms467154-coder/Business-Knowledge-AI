@@ -38,6 +38,17 @@ The downloaded file begins with the expected `%PDF-` signature. `pdfinfo` succes
 
 Phase 01 is limited to lawful source acquisition, verification, and documentation. No RAG component, notebook, embedding, vector index, FastAPI service, or frontend implementation has been added.
 
+## Phase 02 — Document ingestion notebook
+
+`notebooks/01_document_ingestion.ipynb` is an executed, notebook-first PyMuPDF workflow that loads the retained OpenStax PDF, reports its page count, extracts text page-by-page, shows raw and cleaned page samples, flags obvious extraction issues, and saves structured records under `data/processed/`. Each record retains `page_number`, detected `chapter`, detected `section`, `source`, `extracted_text`, `cleaned_text`, `quality_flags`, and extraction metrics.
+
+| Processed artifact | Purpose |
+| --- | --- |
+| `data/processed/introduction_to_business_page_records.jsonl` | One structured, auditable page record per PDF page. |
+| `data/processed/introduction_to_business_ingestion_summary.json` | Page coverage, record-count, quality-flag, source, and scope summary. |
+
+Phase 02 contains **only** PDF extraction, conservative text cleanup, quality checks, contextual metadata detection, and structured-record persistence. It does not implement embeddings, Qdrant, sparse retrieval, reranking, LLM calls, LangGraph, prompting, or query functionality.
+
 ## References
 
 [1]: https://openstax.org/books/introduction-business/pages/preface "OpenStax — Introduction to Business: Preface"
