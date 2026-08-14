@@ -1,0 +1,19 @@
+{
+  "phase": "08_reranking",
+  "reranker_model": "BAAI/bge-reranker-v2-m3",
+  "hybrid_status_path": "data/processed/introduction_to_business_hybrid_retrieval_status.json",
+  "hybrid_candidates_path": "data/processed/introduction_to_business_hybrid_retrieval_results.json",
+  "embedding_artifact_exists": false,
+  "dense_retrieval_ready": false,
+  "hybrid_retrieval_ready": false,
+  "hybrid_candidates_exist": false,
+  "reranking_ready": false,
+  "top_n_candidates": 12,
+  "top_k_final_context": 5,
+  "reranking_performed": false,
+  "llm_generation_implemented": false,
+  "langgraph_implemented": false,
+  "status": "blocked_missing_real_hybrid_candidates",
+  "limitation": "Phase 07 has no real BGE-M3 dense output or fused hybrid candidate artifact. No candidate ordering, BGE reranker score, or final context was fabricated.",
+  "flagembedding_version": "1.4.0"
+}

@@ -41,3 +41,8 @@
 - [x] Create `notebooks/06_hybrid_retrieval.ipynb` with strict no-fabrication preflight for unavailable real vectors.
 - [x] Execute or limitation-test dense-only, BM25-only, and hybrid candidate-set paths without adding reranking or LangGraph.
 - [x] Document the Phase 07 outcome and synchronize verified deliverables to the connected project folder.
+- [x] Inspect the Phase 07 hybrid-retrieval status and candidate artifact for real reranking readiness.
+- [x] Verify exact `BAAI/bge-reranker-v2-m3` availability and define a no-substitution reranking preflight.
+- [x] Create `notebooks/07_reranking.ipynb` with Top-N hybrid candidates, BGE reranking, Top-K context selection, and before-after ordering displays.
+- [x] Execute or limitation-test reranking without fabricating candidate scores or rankings and without adding LLM generation or LangGraph.
+- [x] Document the Phase 08 outcome and synchronize verified deliverables to the connected project folder.

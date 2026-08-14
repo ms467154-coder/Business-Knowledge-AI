@@ -123,6 +123,20 @@ For example, the executed BM25 result set for “What role do businesses play in
 
 Phase 07 does not implement reranking, LLM calls, answer generation, LangGraph, query rewriting, or agentic control flow.
 
+## Phase 08 — BGE reranking notebook
+
+`notebooks/07_reranking.ipynb` contains the exact cross-encoder reranking path for `BAAI/bge-reranker-v2-m3`. The official BGE documentation identifies it as a 568M multilingual cross-encoder and demonstrates `FlagReranker.compute_score` with normalized query-passage relevance scores. [8] The notebook loads only Phase 07’s real hybrid candidates, takes Top-N = 12 candidate chunks, batches query-passage scoring, preserves every candidate’s source fields, compares original hybrid rank with reranked rank, and selects Top-K = 5 final-context chunks.
+
+| Artifact | Current verified state |
+| --- | --- |
+| `notebooks/07_reranking.ipynb` | Executed. It includes the exact BGE reranker, batched scoring path, rank-change display, final-context selection, and strict hybrid-candidate preflight. |
+| `data/processed/introduction_to_business_reranking_status.json` | Saved with `blocked_missing_real_hybrid_candidates`; it records `FlagEmbedding` 1.4.0 and `reranking_performed: false`. |
+| `data/processed/introduction_to_business_reranked_contexts.json` | Intentionally absent. It will be written only after real BGE-M3/Qdrant/BM25 fused candidate runs are available. |
+
+The executed preflight found no Phase 07 hybrid-results artifact because Phase 04 has not generated real BGE-M3 vectors. Accordingly, the notebook created **no candidate ordering, no reranker score, and no final context**. It did not substitute sparse-only BM25 candidates for a hybrid candidate set and did not fabricate an example of changed ordering.
+
+Phase 08 does not implement LLM generation, prompt construction, answer generation, LangGraph, or agentic control flow.
+
 ## References
 
 [1]: https://openstax.org/books/introduction-business/pages/preface "OpenStax — Introduction to Business: Preface"
@@ -132,3 +146,4 @@ Phase 07 does not implement reranking, LLM calls, answer generation, LangGraph, 
 [5]: https://github.com/qdrant/qdrant-client "Qdrant Python client — local mode"
 [6]: https://qdrant.tech/documentation/manage-data/collections/ "Qdrant — Collections"
 [7]: https://qdrant.tech/documentation/search/filtering/ "Qdrant — Filtering"
+[8]: https://bge-model.com/tutorial/5_Reranking/5.2.html "BGE — Reranker tutorial"
