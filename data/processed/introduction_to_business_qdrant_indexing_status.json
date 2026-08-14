@@ -1,0 +1,12 @@
+{
+  "phase": "05_qdrant_indexing",
+  "collection_name": "openstax_introduction_to_business_bge_m3",
+  "embedding_model": "BAAI/bge-m3",
+  "embedding_status": "blocked_by_resource_preflight",
+  "embeddings_generated": false,
+  "embedding_artifact_exists": false,
+  "no_vector_substitution": true,
+  "no_collection_created_without_real_embeddings": true,
+  "status": "blocked_missing_real_embeddings",
+  "limitation": "Phase 04 did not produce a real BAAI/bge-m3 embedding artifact. No Qdrant collection is created because vectors must not be substituted or fabricated."
+}

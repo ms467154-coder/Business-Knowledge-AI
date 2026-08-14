@@ -26,3 +26,8 @@
 - [x] Create `notebooks/03_embeddings.ipynb` with real BGE-M3 batching, dimension inspection, normalization, and metadata preservation.
 - [x] Save and validate a reusable embedding artifact, or record the verified model-availability limitation without fabricating embeddings.
 - [x] Document the Phase 04 no-Qdrant boundary and synchronize verified deliverables to the connected project folder.
+- [x] Inspect the Phase 04 embedding status and confirm whether a real BGE-M3 embedding artifact exists.
+- [x] Define the in-memory Qdrant collection, payload schema, metadata filter, and idempotent re-indexing validation for real vectors.
+- [x] Create `notebooks/04_qdrant_indexing.ipynb` with a strict no-fabrication embedding preflight.
+- [x] Execute or limitation-test the Qdrant notebook and verify collection statistics, filtering, and duplicate-free re-indexing when real embeddings are available.
+- [x] Document the Phase 05 outcome and synchronize verified deliverables to the connected project folder without implementing retrieval.

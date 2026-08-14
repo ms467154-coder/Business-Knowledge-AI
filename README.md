@@ -74,9 +74,26 @@ The official model endpoint was accessible, but the official `pytorch_model.bin`
 
 Phase 04 does not implement Qdrant, a vector store, retrieval, BM25, reranking, LLM calls, or LangGraph. To generate the reusable embeddings artifact, rerun the notebook in a sufficiently provisioned environment after confirming the OpenStax permission required for the intended AI use.
 
+## Phase 05 — Qdrant indexing notebook
+
+`notebooks/04_qdrant_indexing.ipynb` contains a real in-memory Qdrant indexing path that runs only when Phase 04 has produced an actual `BAAI/bge-m3` embedding artifact. It derives the collection vector dimension from the artifact, requires the expected 1,024-dimensional dense vector, configures cosine distance, upserts deterministic UUIDv5 point IDs, and stores `chunk_id`, `text`, `source`, `page`, `chapter`, and `section` in the payload. It then reports collection statistics, scrolls a chapter metadata filter, and re-upserts the same points to verify that the count remains stable. Qdrant documents local client use, collection configuration, point upserts, and payload filtering. [5] [6] [7]
+
+| Artifact | Current verified state |
+| --- | --- |
+| `notebooks/04_qdrant_indexing.ipynb` | Executed. It visibly includes the real Qdrant path and strict preflight. |
+| `data/processed/introduction_to_business_qdrant_indexing_status.json` | Saved with `blocked_missing_real_embeddings`. |
+| In-memory collection | Intentionally not created: Phase 04 has no real BGE-M3 vectors. |
+
+The Qdrant Python client is installed for the notebook’s real-indexing path, but the executed notebook detected that `introduction_to_business_bge_m3_embeddings.jsonl` does not exist and that Phase 04 recorded `embeddings_generated: false`. It therefore created **no collection, no points, and no substitute vectors**. Rerunning the notebook after real Phase 04 output exists will complete the collection-statistics, metadata-filter, and duplicate-free re-indexing checks.
+
+Phase 05 remains limited to collection-management verification; it does not implement user-query retrieval, BM25, hybrid search, reranking, LLM calls, or LangGraph.
+
 ## References
 
 [1]: https://openstax.org/books/introduction-business/pages/preface "OpenStax — Introduction to Business: Preface"
 [2]: https://openstax.org/books/introduction-business/pages/1-introduction "OpenStax — Introduction to Business: Chapter 1 Introduction"
 [3]: https://assets.openstax.org/oscms-prodcms/media/documents/IntroductionToBusiness-OP_8D04gAa.pdf "OpenStax-hosted Introduction to Business PDF"
 [4]: https://huggingface.co/BAAI/bge-m3 "BAAI/bge-m3 official model card"
+[5]: https://github.com/qdrant/qdrant-client "Qdrant Python client — local mode"
+[6]: https://qdrant.tech/documentation/manage-data/collections/ "Qdrant — Collections"
+[7]: https://qdrant.tech/documentation/search/filtering/ "Qdrant — Filtering"
