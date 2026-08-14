@@ -88,6 +88,20 @@ The Qdrant Python client is installed for the notebook’s real-indexing path, b
 
 Phase 05 remains limited to collection-management verification; it does not implement user-query retrieval, BM25, hybrid search, reranking, LLM calls, or LangGraph.
 
+## Phase 06 — Basic dense retrieval notebook
+
+`notebooks/05_basic_retrieval.ipynb` contains the real dense-only retrieval workflow: sample business questions are encoded using the exact `BAAI/bge-m3` model, L2-normalized, searched against a reconstructed in-memory Qdrant cosine collection, and compared at Top-K values of 3, 5, and 8. When real artifacts are present, the notebook visibly reports the score, text, page, chapter, section, source, and chunk ID for every returned result, then creates a manual relevance, coverage, citation-metadata, and redundancy review worksheet.
+
+| Artifact | Current verified state |
+| --- | --- |
+| `notebooks/05_basic_retrieval.ipynb` | Executed. It includes the full real BGE-M3 → Qdrant → Top-K path, the sample question set, K experiments, and no-fabrication preflight. |
+| `data/processed/introduction_to_business_basic_retrieval_status.json` | Saved with `blocked_missing_real_bge_m3_embeddings`. |
+| `data/processed/introduction_to_business_basic_retrieval_results.json` | Intentionally absent. It will be written only after real query embeddings and Qdrant scores are produced. |
+
+The executed preflight confirmed the existing Phase 04 and Phase 05 limitations: there is no real BGE-M3 embedding artifact and therefore no eligible Qdrant collection. The notebook consequently created **no query vectors, no search scores, no Top-K chunks, and no fabricated quality assessment**. After exact BGE-M3 embeddings are generated in a suitable environment, rerun this notebook to perform the documented experiments and manual review.
+
+Phase 06 does not implement BM25, sparse or hybrid retrieval, result fusion, reranking, LLM calls, answer generation, or LangGraph.
+
 ## References
 
 [1]: https://openstax.org/books/introduction-business/pages/preface "OpenStax — Introduction to Business: Preface"

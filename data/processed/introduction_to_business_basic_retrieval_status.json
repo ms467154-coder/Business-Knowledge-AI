@@ -1,0 +1,22 @@
+{
+  "phase": "06_basic_retrieval",
+  "query_embedding_model": "BAAI/bge-m3",
+  "embedding_generation_status": "blocked_by_resource_preflight",
+  "qdrant_indexing_status": "blocked_missing_real_embeddings",
+  "embedding_artifact_exists": false,
+  "embeddings_generated": false,
+  "top_k_values": [
+    3,
+    5,
+    8
+  ],
+  "no_model_substitution": true,
+  "no_fabricated_embeddings_scores_or_results": true,
+  "bm25_implemented": false,
+  "hybrid_retrieval_implemented": false,
+  "reranking_implemented": false,
+  "llm_implemented": false,
+  "langgraph_implemented": false,
+  "status": "blocked_missing_real_bge_m3_embeddings",
+  "limitation": "Phase 04 did not produce a real BAAI/bge-m3 embedding artifact. Query embedding, Qdrant search, scores, and Top-K results are intentionally not generated."
+}

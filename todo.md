@@ -31,3 +31,8 @@
 - [x] Create `notebooks/04_qdrant_indexing.ipynb` with a strict no-fabrication embedding preflight.
 - [x] Execute or limitation-test the Qdrant notebook and verify collection statistics, filtering, and duplicate-free re-indexing when real embeddings are available.
 - [x] Document the Phase 05 outcome and synchronize verified deliverables to the connected project folder without implementing retrieval.
+- [x] Inspect Phase 04 embedding and Phase 05 Qdrant status records for real-artifact readiness.
+- [x] Define sample business questions, Top-K configurations, displayed result fields, and manual quality-review criteria.
+- [x] Create `notebooks/05_basic_retrieval.ipynb` with exact BGE-M3 query embedding and Qdrant Top-K retrieval logic protected by a no-fabrication preflight.
+- [x] Execute or limitation-test the basic-retrieval notebook without implementing BM25, hybrid retrieval, reranking, LLM, or LangGraph.
+- [x] Document the Phase 06 outcome and synchronize verified deliverables to the connected project folder.
