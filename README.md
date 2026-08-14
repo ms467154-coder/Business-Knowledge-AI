@@ -245,6 +245,22 @@ The live endpoint test confirmed `GET /api/health` responds with `status: ok`, B
 
 The included production runtime package starts the existing Node host and FastAPI service in one container, using the platform-provided port. The source PDF remains Git-excluded; the backend consumes only processed artifacts. FastAPI endpoint contracts, TypeScript type checking, and the full project test suite were validated locally before synchronization.
 
+## Phase 16 — Source-grounded React chat frontend
+
+`client/src/pages/Chat.tsx` provides the primary Business Knowledge AI experience at `/` and `/chat`. It uses in-memory conversation history with a new-conversation action, a desktop sidebar, a mobile conversation drawer, distinct user and assistant message treatments, an inline retrieval loading state, and a clear request-error state. The interface calls `POST /api/chat` directly through the existing Node proxy with the active `conversation_id` and `top_k: 5`; it does not use tRPC for the Python service.
+
+| UI element | Verified behavior |
+| --- | --- |
+| Grounded answer state | When the backend reports `answer_status: generated`, the answer is rendered as Markdown with the accompanying source records. |
+| Honest unavailable state | When `answer_status: unavailable`, the UI shows the backend-provided reason and does not invent an answer. |
+| Citation cards | Each card exposes the OpenStax source title, page, chapter, section, and official book URL when provided by FastAPI. |
+| Retrieved passages | The real BM25 documents are rendered separately, including rank, page, chapter, section, and passage text. |
+| Responsive navigation | Conversation history is persistent on desktop and opens from a menu control on mobile. |
+
+The generic template `AIChatBox` and `DashboardLayout` components were evaluated but not used as the page shell because they do not expose the citation, retrieved-passage, unavailable-answer, and public no-sign-in behaviors required by this application. The Phase 16 component continues to use the existing shared UI primitives, theme tokens, icon set, and markdown renderer.
+
+Desktop, mobile, and live service checks were completed. A real query for “What are the four functions of management?” displayed the current truthful unavailable-generation notice, five OpenStax citation cards, and five retrieved textbook passages. This UI preserves the backend limitation: the exact Qwen model is unavailable and OpenStax generative-AI permission is not confirmed, so only sourced retrieval material is displayed. No autonomous agent UI, tool activity, hidden reasoning view, retrieval loop, self-correction control, model substitution, or fabricated citation was added. Detailed implementation and verification notes are retained in [`PHASE_16_FRONTEND.md`](PHASE_16_FRONTEND.md).
+
 ## References
 
 [1]: https://openstax.org/books/introduction-business/pages/preface "OpenStax — Introduction to Business: Preface"

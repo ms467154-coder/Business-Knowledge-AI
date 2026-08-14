@@ -77,3 +77,9 @@
 - [x] Define a modular `/api/health` and `/api/chat` FastAPI contract that preserves the fixed process_query → retrieve → rerank → build_prompt → generate_answer → format_response workflow.
 - [x] Implement the production FastAPI service and deterministic LangGraph adapter without agents, tool calling, retrieval loops, or self-correction.
 - [x] Add endpoint tests, document real-artifact/model preflight behavior, and synchronize verified Phase 15 deliverables to the connected project folder.
+- [x] Inspect the existing React structure, reusable AI chat component, and `/api/chat` response schema for Phase 16 integration.
+- [x] Define a responsive grounded-chat UX with conversation history, loading/error states, citations, source cards, and page/chapter provenance.
+- [x] Implement the React chat interface, local conversation state, and `POST /api/chat` integration without agent-specific UI.
+- [x] Add frontend tests, visually verify desktop and mobile layouts, document Phase 16, and synchronize verified deliverables to the connected project folder.
+- [x] Add rendered-UI behavior tests for the API send flow, loading state, unavailable-answer state, error state, conversation history, and citation/source-card rendering.
+- [x] Run the rendered-UI behavior tests and retain static artifact checks as supplemental Phase 16 coverage.
