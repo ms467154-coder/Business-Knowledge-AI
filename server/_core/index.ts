@@ -12,6 +12,7 @@ import { serveStatic, setupVite } from "./vite";
 
 const fastApiPort = parseInt(process.env.FASTAPI_PORT || "8000");
 const fastApiBaseUrl = `http://127.0.0.1:${fastApiPort}`;
+const fastApiStartupTimeoutMs = 8_000;
 let fastApiProcess: ChildProcess | undefined;
 let fastApiRestartTimer: NodeJS.Timeout | undefined;
 let isShuttingDown = false;
@@ -57,9 +58,36 @@ function stopFastApiService() {
   if (fastApiProcess && !fastApiProcess.killed) fastApiProcess.kill("SIGTERM");
 }
 
+async function waitForFastApiReady(): Promise<boolean> {
+  const deadline = Date.now() + fastApiStartupTimeoutMs;
+
+  while (Date.now() < deadline) {
+    if (!fastApiProcess || fastApiProcess.exitCode !== null || fastApiProcess.killed) {
+      startFastApiService();
+    }
+
+    try {
+      const health = await fetch(`${fastApiBaseUrl}/api/health`, {
+        signal: AbortSignal.timeout(500),
+      });
+      if (health.ok) return true;
+    } catch {
+      // The child is still initializing or has just been restarted; retry until the deadline.
+    }
+
+    await new Promise(resolve => setTimeout(resolve, 150));
+  }
+
+  return false;
+}
+
 async function proxyToFastApi(request: express.Request, response: express.Response) {
   const endpoint = request.path === "/api/health" ? "/api/health" : "/api/chat";
   try {
+    if (!(await waitForFastApiReady())) {
+      throw new Error("FastAPI did not become ready before the startup deadline.");
+    }
+
     const upstream = await fetch(`${fastApiBaseUrl}${endpoint}`, {
       method: request.method,
       headers: { "content-type": "application/json" },
@@ -133,6 +161,12 @@ async function startServer() {
   });
 }
 
-process.on("SIGTERM", stopFastApiService);
-process.on("SIGINT", stopFastApiService);
+function shutdown(signal: NodeJS.Signals) {
+  console.log(`[Server] received ${signal}; stopping FastAPI before exiting.`);
+  stopFastApiService();
+  setTimeout(() => process.exit(0), 2_000).unref();
+}
+
+process.once("SIGTERM", () => shutdown("SIGTERM"));
+process.once("SIGINT", () => shutdown("SIGINT"));
 startServer().catch(console.error);

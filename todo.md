@@ -85,3 +85,7 @@
 - [x] Run the rendered-UI behavior tests and retain static artifact checks as supplemental Phase 16 coverage.
 - [x] Diagnose and fix the chat request failure reporting that the deterministic FastAPI RAG service is unavailable after startup.
 - [x] Verify `/api/health` and `POST /api/chat` through the deployed proxy, then synchronize and publish the corrected behavior.
+- [ ] Verify the live catalog for the exact `Qwen2.5-7B-Instruct` model and investigate official OpenStax generative-AI authorization terms.
+- [ ] Enable generated answers only if both exact-model availability and a lawful authorization basis are verified; otherwise retain the explicit unavailable state.
+- [ ] Test, document, synchronize, and publish the verification outcome without fabricating approval, model access, or generated answers.
+- [ ] Diagnose and fix the renewed production FastAPI lifecycle failure that returned HTTP 503 during the generation-preflight health check.
