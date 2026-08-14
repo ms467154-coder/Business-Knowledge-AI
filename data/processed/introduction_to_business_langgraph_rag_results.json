@@ -1,0 +1,200 @@
+{
+  "phase": "12_langgraph_rag",
+  "workflow": [
+    "START",
+    "process_query",
+    "retrieve",
+    "rerank",
+    "build_prompt",
+    "generate_answer",
+    "format_response",
+    "END"
+  ],
+  "graph_type": "fixed_forward_stategraph",
+  "preflight": {
+    "retrieval_type": "BM25 only",
+    "bm25_artifact_real": true,
+    "dense_retrieval_ready": false,
+    "hybrid_retrieval_ready": false,
+    "reranking_ready": false,
+    "exact_model_available": false,
+    "matching_model_ids": [],
+    "openstax_generative_ai_permission_confirmed": false,
+    "catalog_error": null
+  },
+  "graph_visualization": {
+    "mermaid_path": "data/processed/introduction_to_business_langgraph_rag_flow.mmd",
+    "png_path": "data/processed/introduction_to_business_langgraph_rag_flow.png"
+  },
+  "executions": [
+    {
+      "thread_id": "phase12-real-question-1",
+      "question": "What role do businesses play in an economy?",
+      "rewritten_query": "What role do businesses play in an economy?",
+      "retrieved_document_count": 3,
+      "retrieved_chunk_ids": [
+        "openstax-introduction-business-p0193-c001",
+        "openstax-introduction-business-p0157-c002",
+        "openstax-introduction-business-p0216-c001"
+      ],
+      "reranked_document_count": 0,
+      "answer": null,
+      "citation_count": 0,
+      "response": {
+        "question": "What role do businesses play in an economy?",
+        "answer": null,
+        "citations": [],
+        "retrieval_status": "completed_real_bm25_top3",
+        "reranking_status": "blocked_missing_real_hybrid_candidates",
+        "generation_status": "blocked_exact_model_permission_or_context_preflight",
+        "message": "No answer was generated because the deterministic preflight did not permit the exact grounded generation path."
+      },
+      "stage_trace": [
+        {
+          "node": "process_query",
+          "status": "completed",
+          "details": {
+            "transformation": "whitespace normalization only; no LLM rewrite",
+            "rewritten_query": "What role do businesses play in an economy?"
+          }
+        },
+        {
+          "node": "retrieve",
+          "status": "completed",
+          "details": {
+            "retrieval_type": "BM25 only",
+            "document_count": 3,
+            "chunk_ids": [
+              "openstax-introduction-business-p0193-c001",
+              "openstax-introduction-business-p0157-c002",
+              "openstax-introduction-business-p0216-c001"
+            ]
+          }
+        },
+        {
+          "node": "rerank",
+          "status": "blocked",
+          "details": {
+            "reranker_model": "BAAI/bge-reranker-v2-m3",
+            "retrieved_document_count": 3,
+            "reason": "Phase 07 has no real BGE-M3 dense output or fused hybrid candidate artifact. No candidate ordering, BGE reranker score, or final context was fabricated."
+          }
+        },
+        {
+          "node": "build_prompt",
+          "status": "completed",
+          "details": {
+            "reranked_document_count": 0,
+            "prompt_requires_abstention": true
+          }
+        },
+        {
+          "node": "generate_answer",
+          "status": "blocked",
+          "details": {
+            "model": "Qwen2.5-7B-Instruct",
+            "reasons": [
+              "Exact model Qwen2.5-7B-Instruct is not available in the live catalog.",
+              "OpenStax generative-AI permission is not explicitly confirmed.",
+              "No real reranked context is available for grounded generation."
+            ]
+          }
+        },
+        {
+          "node": "format_response",
+          "status": "completed",
+          "details": {
+            "answer_present": false,
+            "citation_count": 0
+          }
+        }
+      ],
+      "checkpoint_snapshot_count": 8
+    },
+    {
+      "thread_id": "phase12-real-question-2",
+      "question": "What factors should an entrepreneur consider when choosing a business ownership structure?",
+      "rewritten_query": "What factors should an entrepreneur consider when choosing a business ownership structure?",
+      "retrieved_document_count": 3,
+      "retrieved_chunk_ids": [
+        "openstax-introduction-business-p0170-c001",
+        "openstax-introduction-business-p0277-c002",
+        "openstax-introduction-business-p0141-c001"
+      ],
+      "reranked_document_count": 0,
+      "answer": null,
+      "citation_count": 0,
+      "response": {
+        "question": "What factors should an entrepreneur consider when choosing a business ownership structure?",
+        "answer": null,
+        "citations": [],
+        "retrieval_status": "completed_real_bm25_top3",
+        "reranking_status": "blocked_missing_real_hybrid_candidates",
+        "generation_status": "blocked_exact_model_permission_or_context_preflight",
+        "message": "No answer was generated because the deterministic preflight did not permit the exact grounded generation path."
+      },
+      "stage_trace": [
+        {
+          "node": "process_query",
+          "status": "completed",
+          "details": {
+            "transformation": "whitespace normalization only; no LLM rewrite",
+            "rewritten_query": "What factors should an entrepreneur consider when choosing a business ownership structure?"
+          }
+        },
+        {
+          "node": "retrieve",
+          "status": "completed",
+          "details": {
+            "retrieval_type": "BM25 only",
+            "document_count": 3,
+            "chunk_ids": [
+              "openstax-introduction-business-p0170-c001",
+              "openstax-introduction-business-p0277-c002",
+              "openstax-introduction-business-p0141-c001"
+            ]
+          }
+        },
+        {
+          "node": "rerank",
+          "status": "blocked",
+          "details": {
+            "reranker_model": "BAAI/bge-reranker-v2-m3",
+            "retrieved_document_count": 3,
+            "reason": "Phase 07 has no real BGE-M3 dense output or fused hybrid candidate artifact. No candidate ordering, BGE reranker score, or final context was fabricated."
+          }
+        },
+        {
+          "node": "build_prompt",
+          "status": "completed",
+          "details": {
+            "reranked_document_count": 0,
+            "prompt_requires_abstention": true
+          }
+        },
+        {
+          "node": "generate_answer",
+          "status": "blocked",
+          "details": {
+            "model": "Qwen2.5-7B-Instruct",
+            "reasons": [
+              "Exact model Qwen2.5-7B-Instruct is not available in the live catalog.",
+              "OpenStax generative-AI permission is not explicitly confirmed.",
+              "No real reranked context is available for grounded generation."
+            ]
+          }
+        },
+        {
+          "node": "format_response",
+          "status": "completed",
+          "details": {
+            "answer_present": false,
+            "citation_count": 0
+          }
+        }
+      ],
+      "checkpoint_snapshot_count": 8
+    }
+  ],
+  "scope": "Deterministic LangGraph RAG orchestration only; no autonomous agents, tool calling, retrieval loops, self-correction, context grading, or agent decisions."
+}

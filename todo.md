@@ -58,3 +58,7 @@
 - [x] Create `notebooks/10_langgraph_basics.ipynb` teaching state, StateGraph, nodes, edges, START, END, state updates, conditional edges, and checkpointing without RAG, agents, or tools.
 - [x] Execute the toy graphs and persist only verifiable Phase 11 learning outputs.
 - [x] Update Phase 11 documentation and synchronize verified deliverables to the connected project folder.
+- [x] Inspect real retrieval, reranking, model, and permission artifacts to define truthful deterministic Phase 12 preflights.
+- [x] Create `notebooks/11_langgraph_rag.ipynb` with the fixed process_query → retrieve → rerank → build_prompt → generate_answer → format_response pipeline and graph visualization.
+- [x] Execute the graph on real questions or record verified stage limitations without fabricating retrieval, reranking, generation, citations, or state transitions.
+- [x] Update Phase 12 documentation and synchronize verified deliverables to the connected project folder.

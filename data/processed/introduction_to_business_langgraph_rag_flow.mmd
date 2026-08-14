@@ -1,0 +1,8 @@
+flowchart TD
+    S([START]) --> A[process_query]
+    A --> B[retrieve]
+    B --> C[rerank]
+    C --> D[build_prompt]
+    D --> E[generate_answer]
+    E --> F[format_response]
+    F --> T([END])

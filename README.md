@@ -179,6 +179,22 @@ The notebook installs and uses LangGraph 1.2.11 in the sandbox, then demonstrate
 
 Phase 11 deliberately stops at foundational graph mechanics. It does not connect LangGraph to BM25, Qdrant, BGE-M3, the Qwen model, prompts, or the project’s textbook corpus. A later, explicitly requested phase can compose fixed retrieval and generation nodes into a deterministic RAG graph.
 
+## Phase 12 — Deterministic LangGraph RAG orchestration notebook
+
+`notebooks/11_langgraph_rag.ipynb` is an executed deterministic orchestration notebook that composes the requested single forward path: `START → process_query → retrieve → rerank → build_prompt → generate_answer → format_response → END`. Its typed graph state explicitly carries `question`, `rewritten_query`, `retrieved_documents`, `reranked_documents`, `prompt`, `answer`, `citations`, response statuses, and an append-only `stage_trace`. The `process_query` node only normalizes whitespace; it does not perform an LLM rewrite or alter the user’s meaning.
+
+| Artifact | Verified execution evidence |
+| --- | --- |
+| `notebooks/11_langgraph_rag.ipynb` | Executed. It explains every fixed node, renders the ordered graph, invokes two real textbook questions, and displays their per-node state-transition traces. |
+| `data/processed/introduction_to_business_langgraph_rag_flow.mmd` | Saved Mermaid specification of the exact fixed graph. |
+| `data/processed/introduction_to_business_langgraph_rag_flow.png` | Saved readable visualization of the requested forward-only node sequence. |
+| `data/processed/introduction_to_business_langgraph_rag_results.json` | Saved. It records two real Top-3 BM25 executions, the retrieved chunk IDs, all six transition events per question, final status payloads, and checkpoint snapshot counts. |
+| `data/processed/introduction_to_business_langgraph_rag_status.json` | Saved with `completed_with_verified_rerank_and_generation_limitations`; it records every prohibited agentic capability as `false`. |
+
+Both graph runs used real questions already present in `introduction_to_business_bm25_retrieval_results.json`. For each run, `retrieve` loaded three real OpenStax chunk records. The graph did not relabel BM25-only documents as hybrid or reranked context: `rerank` truthfully stopped because no real BGE-M3/Qdrant hybrid candidates exist. The prompt node then built an abstention-enforcing evidence contract with no reranked context, and `generate_answer` correctly refused to call anything other than `Qwen2.5-7B-Instruct` after its exact-model, permission, and context checks.
+
+The status record verifies that the exact Qwen model is unavailable in the live catalog and OpenStax generative-AI permission remains unconfirmed. Its attribution notice prohibits ingestion into a generative-AI offering without permission. [2] Therefore, the executed graph generated no answer and no citations; it did not substitute a model, manufacture a reranker ordering, manufacture citations, or fabricate state transitions. It contains no autonomous agents, tool calling, retrieval loops, self-correction loops, context grading, or agent decisions. When the upstream dense/hybrid, reranking, exact-model, and permission preconditions are genuinely satisfied, the existing guarded deterministic nodes can complete in the same fixed order without changing topology.
+
 ## References
 
 [1]: https://openstax.org/books/introduction-business/pages/preface "OpenStax — Introduction to Business: Preface"
