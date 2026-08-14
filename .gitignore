@@ -112,3 +112,7 @@ temp/
 # Manus version file (auto-generated, not part of source)
 client/public/__manus__/version.json
 .project-config.json
+
+# Locally acquired source material. Keep the official OpenStax PDF available for
+# local research only; its 55.2 MB size exceeds the project repository limit.
+/data/raw/introduction-to-business-openstax.pdf
