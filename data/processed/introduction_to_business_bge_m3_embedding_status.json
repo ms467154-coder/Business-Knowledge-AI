@@ -1,0 +1,21 @@
+{
+  "model_name": "BAAI/bge-m3",
+  "input_artifact": "data/processed/introduction_to_business_chunks.jsonl",
+  "embedding_artifact": "data/processed/introduction_to_business_bge_m3_embeddings.jsonl",
+  "no_model_substitution": true,
+  "embeddings_generated": false,
+  "status": "blocked_by_resource_preflight",
+  "limitation": "The exact BAAI/bge-m3 model was not downloaded or loaded because this environment lacks safe runtime capacity.",
+  "preflight": {
+    "model_name": "BAAI/bge-m3",
+    "model_weight_bytes": 2271145830,
+    "minimum_runtime_memory_bytes": 4542291660,
+    "available_memory_bytes": 1818836992,
+    "free_disk_bytes": 32890535936,
+    "can_attempt_exact_model": false,
+    "reasons": [
+      "Insufficient currently available memory for safe BGE-M3 loading with runtime headroom."
+    ],
+    "no_model_substitution": true
+  }
+}

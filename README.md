@@ -28,7 +28,7 @@ OpenStax identifies the textbook content as CC BY 4.0 and permits distribution, 
 
 > “This book may not be used in the training of large language models or otherwise be ingested into large language models or generative AI offerings without OpenStax's permission.” [2]
 
-Accordingly, **no RAG ingestion, indexing, embedding, or model-prompting work has been performed**. The planned RAG system would entail ingestion into a generative-AI offering, so explicit permission from OpenStax is required before proceeding with later phases using this book. The OpenStax name, logos, and book covers are also excluded from the CC license. [2]
+Accordingly, **no BGE-M3 embeddings, vector index, LLM prompting, or generative-AI processing has been run on the textbook content**. Local PDF parsing and chunking artifacts were created in Phases 02–03 at the user’s request, but they must not be promoted into a RAG or generative-AI offering without explicit OpenStax permission. The OpenStax name, logos, and book covers are also excluded from the CC license. [2]
 
 ### Download validation
 
@@ -60,8 +60,23 @@ Phase 02 contains **only** PDF extraction, conservative text cleanup, quality ch
 
 Phase 03 is limited to recursive text chunking and provenance preservation. It does not implement embeddings, Qdrant, retrieval, BM25, reranking, LLM calls, or LangGraph.
 
+## Phase 04 — BGE-M3 embedding notebook
+
+`notebooks/03_embeddings.ipynb` contains the real dense-embedding implementation for the exact `BAAI/bge-m3` model. It loads the Phase 03 chunks, retains every source field, batches text with `BGEM3FlagModel`, validates the expected 1,024-dimensional dense vectors, and applies explicit L2 normalization before persistence. The BAAI model card documents this API and dimensionality. [4]
+
+| Artifact | Current verified state |
+| --- | --- |
+| `notebooks/03_embeddings.ipynb` | Executed. The visible preflight, batching, dimension checks, normalization code, sample-display logic, and no-substitution path are present. |
+| `data/processed/introduction_to_business_bge_m3_embedding_status.json` | Saved with `blocked_by_resource_preflight`; it records that no embeddings were generated. |
+| `data/processed/introduction_to_business_bge_m3_embeddings.jsonl` | Intentionally absent. It will be created only after the exact model successfully loads and produces real vectors. |
+
+The official model endpoint was accessible, but the official `pytorch_model.bin` is 2,271,145,830 bytes. The executed preflight found 1,818,836,992 bytes of available memory and requires at least 4,542,291,660 bytes for safe loading with runtime headroom. It therefore did not download or load a model that the current environment could not safely execute. **No substitute model and no fabricated embedding vector were used.**
+
+Phase 04 does not implement Qdrant, a vector store, retrieval, BM25, reranking, LLM calls, or LangGraph. To generate the reusable embeddings artifact, rerun the notebook in a sufficiently provisioned environment after confirming the OpenStax permission required for the intended AI use.
+
 ## References
 
 [1]: https://openstax.org/books/introduction-business/pages/preface "OpenStax — Introduction to Business: Preface"
 [2]: https://openstax.org/books/introduction-business/pages/1-introduction "OpenStax — Introduction to Business: Chapter 1 Introduction"
 [3]: https://assets.openstax.org/oscms-prodcms/media/documents/IntroductionToBusiness-OP_8D04gAa.pdf "OpenStax-hosted Introduction to Business PDF"
+[4]: https://huggingface.co/BAAI/bge-m3 "BAAI/bge-m3 official model card"

@@ -21,3 +21,8 @@
 - [x] Select and document a final configuration that preserves chunk ID, text, source, page, chapter, and section metadata.
 - [x] Save and validate a reusable final chunk artifact under `data/processed/`.
 - [x] Document the Phase 03 no-embeddings, no-retrieval, no-reranking, no-LLM, and no-LangGraph scope boundary.
+- [x] Inspect Phase 03 final chunks for embedding readiness and retained provenance fields.
+- [x] Verify whether the exact BAAI/bge-m3 model can be downloaded and loaded without substituting another embedding model.
+- [x] Create `notebooks/03_embeddings.ipynb` with real BGE-M3 batching, dimension inspection, normalization, and metadata preservation.
+- [x] Save and validate a reusable embedding artifact, or record the verified model-availability limitation without fabricating embeddings.
+- [x] Document the Phase 04 no-Qdrant boundary and synchronize verified deliverables to the connected project folder.
