@@ -36,3 +36,8 @@
 - [x] Create `notebooks/05_basic_retrieval.ipynb` with exact BGE-M3 query embedding and Qdrant Top-K retrieval logic protected by a no-fabrication preflight.
 - [x] Execute or limitation-test the basic-retrieval notebook without implementing BM25, hybrid retrieval, reranking, LLM, or LangGraph.
 - [x] Document the Phase 06 outcome and synchronize verified deliverables to the connected project folder.
+- [x] Inspect the Phase 04–06 embedding, indexing, and basic-retrieval status records for hybrid-retrieval readiness.
+- [x] Define real BGE-M3/Qdrant dense retrieval, BM25 sparse retrieval, reciprocal-rank fusion, comparison displays, and provenance validation.
+- [x] Create `notebooks/06_hybrid_retrieval.ipynb` with strict no-fabrication preflight for unavailable real vectors.
+- [x] Execute or limitation-test dense-only, BM25-only, and hybrid candidate-set paths without adding reranking or LangGraph.
+- [x] Document the Phase 07 outcome and synchronize verified deliverables to the connected project folder.

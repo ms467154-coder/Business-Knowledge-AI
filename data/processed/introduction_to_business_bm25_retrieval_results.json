@@ -1,0 +1,1705 @@
+[
+  {
+    "query_id": "business-foundations",
+    "question": "What role do businesses play in an economy?",
+    "top_k": 3,
+    "results": [
+      {
+        "chunk_id": "openstax-introduction-business-p0193-c001",
+        "text": "Chapter 5 Entrepreneurship: Starting and Managing Your Own Business\n181\nC O N C E P T C H E C K\n1.\nDescribe the personality traits and skills characteristic of successful entrepreneurs.\n2.\nWhat does it mean when we say that an entrepreneur should work on the business, not in it?\n5.3\nSmall Business: Driving America's Growth\n3.\nHow do small businesses contribute to the U.S. economy?\nAlthough large corporations dominated the business scene for many decades, in recent years small\nbusinesses have once again come to the forefront. Downsizings that accompany economic downturns have\ncaused many people to look toward smaller companies for employment, and they have plenty to choose from.\nSmall businesses play an important role in the U.S. economy, representing about half of U.S. economic output,",
+        "source": {
+          "title": "Introduction to Business",
+          "publisher": "OpenStax, Rice University",
+          "official_book_url": "https://openstax.org/details/books/introduction-business",
+          "official_pdf_url": "https://assets.openstax.org/oscms-prodcms/media/documents/IntroductionToBusiness-OP_8D04gAa.pdf",
+          "local_filename": "data/raw/introduction-to-business-openstax.pdf"
+        },
+        "page": 193,
+        "chapter": {
+          "number": 5,
+          "title": "Entrepreneurship: Starting and Managing Your Own Business"
+        },
+        "section": {
+          "number": "5.4",
+          "title": "provides a more detailed look at small-business owners."
+        },
+        "rank": 1,
+        "bm25_score": 20.162792699856855
+      },
+      {
+        "chunk_id": "openstax-introduction-business-p0157-c002",
+        "text": "Lacks continuity when\nowner dies.\nTable 4.4\nC O N C E P T C H E C K\n1.\nWhat is a corporation? Describe how corporations are formed and structured.\n2.\nSummarize the advantages and disadvantages of corporations. Which features contribute to the\ndominance of corporations in the business world?\n3.\nWhy do S corporations and limited liability companies (LLCs) appeal to small businesses?\n4.4\nSpecialized Forms of Business Organization\n4.\nWhat other options for business organization does a company have in addition to sole proprietorships,\npartnerships, and corporations?\nIn addition to the three main forms, several specialized types of business organization also play an important\nrole in our economy. We will look at cooperatives and joint ventures in this section and take a detailed look at\nfranchising in the following section.",
+        "source": {
+          "title": "Introduction to Business",
+          "publisher": "OpenStax, Rice University",
+          "official_book_url": "https://openstax.org/details/books/introduction-business",
+          "official_pdf_url": "https://assets.openstax.org/oscms-prodcms/media/documents/IntroductionToBusiness-OP_8D04gAa.pdf",
+          "local_filename": "data/raw/introduction-to-business-openstax.pdf"
+        },
+        "page": 157,
+        "chapter": {
+          "number": 4,
+          "title": "Forms of Business Ownership"
+        },
+        "section": null,
+        "rank": 2,
+        "bm25_score": 18.227652316932573
+      },
+      {
+        "chunk_id": "openstax-introduction-business-p0216-c001",
+        "text": "204\nChapter 5 Entrepreneurship: Starting and Managing Your Own Business\nSmall businesses play an important role in the economy. They account for over 99 percent of all employer\nfirms and produce about half of U.S. economic output. Most new private-sector jobs created in the United\nStates over the past decade were in small firms. The Small Business Administration defines a small business as\nindependently owned and operated, with a local base of operations, and not dominant in its field. It also\ndefines small business by size, according to its industry. Small businesses are found in every field, but they\ndominate the service, construction, wholesale, and retail categories.\n5.4 Ready, Set, Start Your Own Business\n4.\nWhat are the first steps to take if you are starting your own business?",
+        "source": {
+          "title": "Introduction to Business",
+          "publisher": "OpenStax, Rice University",
+          "official_book_url": "https://openstax.org/details/books/introduction-business",
+          "official_pdf_url": "https://assets.openstax.org/oscms-prodcms/media/documents/IntroductionToBusiness-OP_8D04gAa.pdf",
+          "local_filename": "data/raw/introduction-to-business-openstax.pdf"
+        },
+        "page": 216,
+        "chapter": {
+          "number": 5,
+          "title": "Entrepreneurship: Starting and Managing Your Own Business"
+        },
+        "section": {
+          "number": "5.8",
+          "title": "Trends in Entrepreneurship and Small-Business Ownership"
+        },
+        "rank": 3,
+        "bm25_score": 17.22046684063073
+      }
+    ]
+  },
+  {
+    "query_id": "business-foundations",
+    "question": "What role do businesses play in an economy?",
+    "top_k": 5,
+    "results": [
+      {
+        "chunk_id": "openstax-introduction-business-p0193-c001",
+        "text": "Chapter 5 Entrepreneurship: Starting and Managing Your Own Business\n181\nC O N C E P T C H E C K\n1.\nDescribe the personality traits and skills characteristic of successful entrepreneurs.\n2.\nWhat does it mean when we say that an entrepreneur should work on the business, not in it?\n5.3\nSmall Business: Driving America's Growth\n3.\nHow do small businesses contribute to the U.S. economy?\nAlthough large corporations dominated the business scene for many decades, in recent years small\nbusinesses have once again come to the forefront. Downsizings that accompany economic downturns have\ncaused many people to look toward smaller companies for employment, and they have plenty to choose from.\nSmall businesses play an important role in the U.S. economy, representing about half of U.S. economic output,",
+        "source": {
+          "title": "Introduction to Business",
+          "publisher": "OpenStax, Rice University",
+          "official_book_url": "https://openstax.org/details/books/introduction-business",
+          "official_pdf_url": "https://assets.openstax.org/oscms-prodcms/media/documents/IntroductionToBusiness-OP_8D04gAa.pdf",
+          "local_filename": "data/raw/introduction-to-business-openstax.pdf"
+        },
+        "page": 193,
+        "chapter": {
+          "number": 5,
+          "title": "Entrepreneurship: Starting and Managing Your Own Business"
+        },
+        "section": {
+          "number": "5.4",
+          "title": "provides a more detailed look at small-business owners."
+        },
+        "rank": 1,
+        "bm25_score": 20.162792699856855
+      },
+      {
+        "chunk_id": "openstax-introduction-business-p0157-c002",
+        "text": "Lacks continuity when\nowner dies.\nTable 4.4\nC O N C E P T C H E C K\n1.\nWhat is a corporation? Describe how corporations are formed and structured.\n2.\nSummarize the advantages and disadvantages of corporations. Which features contribute to the\ndominance of corporations in the business world?\n3.\nWhy do S corporations and limited liability companies (LLCs) appeal to small businesses?\n4.4\nSpecialized Forms of Business Organization\n4.\nWhat other options for business organization does a company have in addition to sole proprietorships,\npartnerships, and corporations?\nIn addition to the three main forms, several specialized types of business organization also play an important\nrole in our economy. We will look at cooperatives and joint ventures in this section and take a detailed look at\nfranchising in the following section.",
+        "source": {
+          "title": "Introduction to Business",
+          "publisher": "OpenStax, Rice University",
+          "official_book_url": "https://openstax.org/details/books/introduction-business",
+          "official_pdf_url": "https://assets.openstax.org/oscms-prodcms/media/documents/IntroductionToBusiness-OP_8D04gAa.pdf",
+          "local_filename": "data/raw/introduction-to-business-openstax.pdf"
+        },
+        "page": 157,
+        "chapter": {
+          "number": 4,
+          "title": "Forms of Business Ownership"
+        },
+        "section": null,
+        "rank": 2,
+        "bm25_score": 18.227652316932573
+      },
+      {
+        "chunk_id": "openstax-introduction-business-p0216-c001",
+        "text": "204\nChapter 5 Entrepreneurship: Starting and Managing Your Own Business\nSmall businesses play an important role in the economy. They account for over 99 percent of all employer\nfirms and produce about half of U.S. economic output. Most new private-sector jobs created in the United\nStates over the past decade were in small firms. The Small Business Administration defines a small business as\nindependently owned and operated, with a local base of operations, and not dominant in its field. It also\ndefines small business by size, according to its industry. Small businesses are found in every field, but they\ndominate the service, construction, wholesale, and retail categories.\n5.4 Ready, Set, Start Your Own Business\n4.\nWhat are the first steps to take if you are starting your own business?",
+        "source": {
+          "title": "Introduction to Business",
+          "publisher": "OpenStax, Rice University",
+          "official_book_url": "https://openstax.org/details/books/introduction-business",
+          "official_pdf_url": "https://assets.openstax.org/oscms-prodcms/media/documents/IntroductionToBusiness-OP_8D04gAa.pdf",
+          "local_filename": "data/raw/introduction-to-business-openstax.pdf"
+        },
+        "page": 216,
+        "chapter": {
+          "number": 5,
+          "title": "Entrepreneurship: Starting and Managing Your Own Business"
+        },
+        "section": {
+          "number": "5.8",
+          "title": "Trends in Entrepreneurship and Small-Business Ownership"
+        },
+        "rank": 3,
+        "bm25_score": 17.22046684063073
+      },
+      {
+        "chunk_id": "openstax-introduction-business-p0193-c002",
+        "text": "Small businesses play an important role in the U.S. economy, representing about half of U.S. economic output,\nemploying about half the private sector workforce, and giving individuals from all walks of life a chance to\nsucceed.\nWhat Is a Small Business?\nHow many small businesses are there in the United States? Estimates range from 5 million to over 22 million,\ndepending on the size limits government agencies and other groups use to define a small business or the\nnumber of businesses with or without employees. The Small Business Administration (SBA) established size\nstandards to define whether a business entity is small and therefore eligible for government programs and\npreferences that are reserved for “small businesses.” Size standards are based on the types of economic\nactivity or industry, generally matched to the North American Industry Classification System (NAICS).10",
+        "source": {
+          "title": "Introduction to Business",
+          "publisher": "OpenStax, Rice University",
+          "official_book_url": "https://openstax.org/details/books/introduction-business",
+          "official_pdf_url": "https://assets.openstax.org/oscms-prodcms/media/documents/IntroductionToBusiness-OP_8D04gAa.pdf",
+          "local_filename": "data/raw/introduction-to-business-openstax.pdf"
+        },
+        "page": 193,
+        "chapter": {
+          "number": 5,
+          "title": "Entrepreneurship: Starting and Managing Your Own Business"
+        },
+        "section": {
+          "number": "5.4",
+          "title": "provides a more detailed look at small-business owners."
+        },
+        "rank": 4,
+        "bm25_score": 16.809572928230235
+      },
+      {
+        "chunk_id": "openstax-introduction-business-p0615-c001",
+        "text": "Chapter 15 Understanding Money and Financial Institutions\n603\n15.5\nInternational Banking\n5.\nWhat roles do U.S. banks play in the international marketplace?\nThe financial marketplace spans the globe, with money routinely flowing across international borders. U.S.\nbanks play an important role in global business by providing loans to foreign governments and businesses.\nMultinational corporations need many special banking services, such as foreign-currency exchange and\nfunding for overseas investments. U.S. banks also offer trade-related services, such as global cash\nmanagement, that help firms manage their cash flows, improve their payment efficiency, and reduce their\nexposure to operational risks. Sometimes consumers in other nations have a need for banking services that\nbanks in their own countries don’t provide. Therefore, large banks often look beyond their national borders for",
+        "source": {
+          "title": "Introduction to Business",
+          "publisher": "OpenStax, Rice University",
+          "official_book_url": "https://openstax.org/details/books/introduction-business",
+          "official_pdf_url": "https://assets.openstax.org/oscms-prodcms/media/documents/IntroductionToBusiness-OP_8D04gAa.pdf",
+          "local_filename": "data/raw/introduction-to-business-openstax.pdf"
+        },
+        "page": 615,
+        "chapter": {
+          "number": 15,
+          "title": "Understanding Money and Financial Institutions"
+        },
+        "section": null,
+        "rank": 5,
+        "bm25_score": 16.355226176975442
+      }
+    ]
+  },
+  {
+    "query_id": "business-foundations",
+    "question": "What role do businesses play in an economy?",
+    "top_k": 8,
+    "results": [
+      {
+        "chunk_id": "openstax-introduction-business-p0193-c001",
+        "text": "Chapter 5 Entrepreneurship: Starting and Managing Your Own Business\n181\nC O N C E P T C H E C K\n1.\nDescribe the personality traits and skills characteristic of successful entrepreneurs.\n2.\nWhat does it mean when we say that an entrepreneur should work on the business, not in it?\n5.3\nSmall Business: Driving America's Growth\n3.\nHow do small businesses contribute to the U.S. economy?\nAlthough large corporations dominated the business scene for many decades, in recent years small\nbusinesses have once again come to the forefront. Downsizings that accompany economic downturns have\ncaused many people to look toward smaller companies for employment, and they have plenty to choose from.\nSmall businesses play an important role in the U.S. economy, representing about half of U.S. economic output,",
+        "source": {
+          "title": "Introduction to Business",
+          "publisher": "OpenStax, Rice University",
+          "official_book_url": "https://openstax.org/details/books/introduction-business",
+          "official_pdf_url": "https://assets.openstax.org/oscms-prodcms/media/documents/IntroductionToBusiness-OP_8D04gAa.pdf",
+          "local_filename": "data/raw/introduction-to-business-openstax.pdf"
+        },
+        "page": 193,
+        "chapter": {
+          "number": 5,
+          "title": "Entrepreneurship: Starting and Managing Your Own Business"
+        },
+        "section": {
+          "number": "5.4",
+          "title": "provides a more detailed look at small-business owners."
+        },
+        "rank": 1,
+        "bm25_score": 20.162792699856855
+      },
+      {
+        "chunk_id": "openstax-introduction-business-p0157-c002",
+        "text": "Lacks continuity when\nowner dies.\nTable 4.4\nC O N C E P T C H E C K\n1.\nWhat is a corporation? Describe how corporations are formed and structured.\n2.\nSummarize the advantages and disadvantages of corporations. Which features contribute to the\ndominance of corporations in the business world?\n3.\nWhy do S corporations and limited liability companies (LLCs) appeal to small businesses?\n4.4\nSpecialized Forms of Business Organization\n4.\nWhat other options for business organization does a company have in addition to sole proprietorships,\npartnerships, and corporations?\nIn addition to the three main forms, several specialized types of business organization also play an important\nrole in our economy. We will look at cooperatives and joint ventures in this section and take a detailed look at\nfranchising in the following section.",
+        "source": {
+          "title": "Introduction to Business",
+          "publisher": "OpenStax, Rice University",
+          "official_book_url": "https://openstax.org/details/books/introduction-business",
+          "official_pdf_url": "https://assets.openstax.org/oscms-prodcms/media/documents/IntroductionToBusiness-OP_8D04gAa.pdf",
+          "local_filename": "data/raw/introduction-to-business-openstax.pdf"
+        },
+        "page": 157,
+        "chapter": {
+          "number": 4,
+          "title": "Forms of Business Ownership"
+        },
+        "section": null,
+        "rank": 2,
+        "bm25_score": 18.227652316932573
+      },
+      {
+        "chunk_id": "openstax-introduction-business-p0216-c001",
+        "text": "204\nChapter 5 Entrepreneurship: Starting and Managing Your Own Business\nSmall businesses play an important role in the economy. They account for over 99 percent of all employer\nfirms and produce about half of U.S. economic output. Most new private-sector jobs created in the United\nStates over the past decade were in small firms. The Small Business Administration defines a small business as\nindependently owned and operated, with a local base of operations, and not dominant in its field. It also\ndefines small business by size, according to its industry. Small businesses are found in every field, but they\ndominate the service, construction, wholesale, and retail categories.\n5.4 Ready, Set, Start Your Own Business\n4.\nWhat are the first steps to take if you are starting your own business?",
+        "source": {
+          "title": "Introduction to Business",
+          "publisher": "OpenStax, Rice University",
+          "official_book_url": "https://openstax.org/details/books/introduction-business",
+          "official_pdf_url": "https://assets.openstax.org/oscms-prodcms/media/documents/IntroductionToBusiness-OP_8D04gAa.pdf",
+          "local_filename": "data/raw/introduction-to-business-openstax.pdf"
+        },
+        "page": 216,
+        "chapter": {
+          "number": 5,
+          "title": "Entrepreneurship: Starting and Managing Your Own Business"
+        },
+        "section": {
+          "number": "5.8",
+          "title": "Trends in Entrepreneurship and Small-Business Ownership"
+        },
+        "rank": 3,
+        "bm25_score": 17.22046684063073
+      },
+      {
+        "chunk_id": "openstax-introduction-business-p0193-c002",
+        "text": "Small businesses play an important role in the U.S. economy, representing about half of U.S. economic output,\nemploying about half the private sector workforce, and giving individuals from all walks of life a chance to\nsucceed.\nWhat Is a Small Business?\nHow many small businesses are there in the United States? Estimates range from 5 million to over 22 million,\ndepending on the size limits government agencies and other groups use to define a small business or the\nnumber of businesses with or without employees. The Small Business Administration (SBA) established size\nstandards to define whether a business entity is small and therefore eligible for government programs and\npreferences that are reserved for “small businesses.” Size standards are based on the types of economic\nactivity or industry, generally matched to the North American Industry Classification System (NAICS).10",
+        "source": {
+          "title": "Introduction to Business",
+          "publisher": "OpenStax, Rice University",
+          "official_book_url": "https://openstax.org/details/books/introduction-business",
+          "official_pdf_url": "https://assets.openstax.org/oscms-prodcms/media/documents/IntroductionToBusiness-OP_8D04gAa.pdf",
+          "local_filename": "data/raw/introduction-to-business-openstax.pdf"
+        },
+        "page": 193,
+        "chapter": {
+          "number": 5,
+          "title": "Entrepreneurship: Starting and Managing Your Own Business"
+        },
+        "section": {
+          "number": "5.4",
+          "title": "provides a more detailed look at small-business owners."
+        },
+        "rank": 4,
+        "bm25_score": 16.809572928230235
+      },
+      {
+        "chunk_id": "openstax-introduction-business-p0615-c001",
+        "text": "Chapter 15 Understanding Money and Financial Institutions\n603\n15.5\nInternational Banking\n5.\nWhat roles do U.S. banks play in the international marketplace?\nThe financial marketplace spans the globe, with money routinely flowing across international borders. U.S.\nbanks play an important role in global business by providing loans to foreign governments and businesses.\nMultinational corporations need many special banking services, such as foreign-currency exchange and\nfunding for overseas investments. U.S. banks also offer trade-related services, such as global cash\nmanagement, that help firms manage their cash flows, improve their payment efficiency, and reduce their\nexposure to operational risks. Sometimes consumers in other nations have a need for banking services that\nbanks in their own countries don’t provide. Therefore, large banks often look beyond their national borders for",
+        "source": {
+          "title": "Introduction to Business",
+          "publisher": "OpenStax, Rice University",
+          "official_book_url": "https://openstax.org/details/books/introduction-business",
+          "official_pdf_url": "https://assets.openstax.org/oscms-prodcms/media/documents/IntroductionToBusiness-OP_8D04gAa.pdf",
+          "local_filename": "data/raw/introduction-to-business-openstax.pdf"
+        },
+        "page": 615,
+        "chapter": {
+          "number": 15,
+          "title": "Understanding Money and Financial Institutions"
+        },
+        "section": null,
+        "rank": 5,
+        "bm25_score": 16.355226176975442
+      },
+      {
+        "chunk_id": "openstax-introduction-business-p0604-c002",
+        "text": "each affect economic activity?\n3.\nWhat was the Fed’s role in keeping the U.S. financial markets solvent during the 2007–2009 financial\ncrisis?\n15.3\nU.S. Financial Institutions\n3.\nWhat are the key financial institutions, and what role do they play in the process of financial\nintermediation?\nThe well-developed financial system in the United States supports our high standard of living. The system\nallows those who wish to borrow money to do so with relative ease. It also gives savers a variety of ways to\nearn interest on their savings. For example, a computer company that wants to build a new headquarters in\nThis OpenStax book is available for free at http://cnx.org/content/col25734/1.7",
+        "source": {
+          "title": "Introduction to Business",
+          "publisher": "OpenStax, Rice University",
+          "official_book_url": "https://openstax.org/details/books/introduction-business",
+          "official_pdf_url": "https://assets.openstax.org/oscms-prodcms/media/documents/IntroductionToBusiness-OP_8D04gAa.pdf",
+          "local_filename": "data/raw/introduction-to-business-openstax.pdf"
+        },
+        "page": 604,
+        "chapter": {
+          "number": 15,
+          "title": "Understanding Money and Financial Institutions"
+        },
+        "section": null,
+        "rank": 6,
+        "bm25_score": 15.110164066868881
+      },
+      {
+        "chunk_id": "openstax-introduction-business-p0621-c003",
+        "text": "The Federal Deposit Insurance Corporation insures deposits in commercial banks through the Bank Insurance\nFund and deposits in thrift institutions through the Savings Association Insurance Fund. Deposits in credit\nunions are insured by the National Credit Union Share Insurance Fund, which is administered by the National\nCredit Union Administration. The FDIC sets banking policies and practices and reviews banks annually to\nensure that they operate fairly and profitably.\n15.5 International Banking\n5.\nWhat role do U.S. banks play in the international marketplace?\nU.S. banks provide loans and trade-related services to foreign governments and businesses. They also offer\nspecialized services such as cash management and foreign-currency exchange.\n15.6 Trends in Financial Institutions\n6.\nWhat trends are reshaping financial institutions?",
+        "source": {
+          "title": "Introduction to Business",
+          "publisher": "OpenStax, Rice University",
+          "official_book_url": "https://openstax.org/details/books/introduction-business",
+          "official_pdf_url": "https://assets.openstax.org/oscms-prodcms/media/documents/IntroductionToBusiness-OP_8D04gAa.pdf",
+          "local_filename": "data/raw/introduction-to-business-openstax.pdf"
+        },
+        "page": 621,
+        "chapter": {
+          "number": 15,
+          "title": "Understanding Money and Financial Institutions"
+        },
+        "section": {
+          "number": "15.6",
+          "title": "Trends in Financial Institutions"
+        },
+        "rank": 7,
+        "bm25_score": 15.077422624046992
+      },
+      {
+        "chunk_id": "openstax-introduction-business-p0182-c006",
+        "text": "and the development of new goods and services. Just how important are small businesses to our economy?\nTable 5.1 provides insight into the role of small business in today’s economy.\nThis OpenStax book is available for free at http://cnx.org/content/col25734/1.7",
+        "source": {
+          "title": "Introduction to Business",
+          "publisher": "OpenStax, Rice University",
+          "official_book_url": "https://openstax.org/details/books/introduction-business",
+          "official_pdf_url": "https://assets.openstax.org/oscms-prodcms/media/documents/IntroductionToBusiness-OP_8D04gAa.pdf",
+          "local_filename": "data/raw/introduction-to-business-openstax.pdf"
+        },
+        "page": 182,
+        "chapter": {
+          "number": 5,
+          "title": "Entrepreneurship: Starting and Managing Your Own Business"
+        },
+        "section": null,
+        "rank": 8,
+        "bm25_score": 14.616685734160257
+      }
+    ]
+  },
+  {
+    "query_id": "ownership-choice",
+    "question": "What factors should an entrepreneur consider when choosing a business ownership structure?",
+    "top_k": 3,
+    "results": [
+      {
+        "chunk_id": "openstax-introduction-business-p0170-c001",
+        "text": "158\nChapter 4 Forms of Business Ownership\nquality a company can bring to a merger may be humility.\nC O N C E P T C H E C K\n1.\nDifferentiate between a merger and an acquisition.\n2.\nWhat are the most common motives for corporate mergers and acquisitions?\n3.\nDescribe the different types of corporate mergers.\n4.7\nTrends in Business Ownership\n7.\nWhat current trends will affect the business organizations of the future?\nAs we learned earlier, an awareness of trends in the business environment is critical to business success. Many\nsocial, demographic, and economic factors affect how businesses organize. When reviewing options for\nstarting or organizing a business or choosing a career path, consider the following trends.\n“Baby Boomers” and “Millennials” Drive Franchise Trends\nWe all hear and read a great deal about the “graying of America,” which refers to the “baby boomer”",
+        "source": {
+          "title": "Introduction to Business",
+          "publisher": "OpenStax, Rice University",
+          "official_book_url": "https://openstax.org/details/books/introduction-business",
+          "official_pdf_url": "https://assets.openstax.org/oscms-prodcms/media/documents/IntroductionToBusiness-OP_8D04gAa.pdf",
+          "local_filename": "data/raw/introduction-to-business-openstax.pdf"
+        },
+        "page": 170,
+        "chapter": {
+          "number": 4,
+          "title": "Forms of Business Ownership"
+        },
+        "section": null,
+        "rank": 1,
+        "bm25_score": 22.8687434402164
+      },
+      {
+        "chunk_id": "openstax-introduction-business-p0277-c002",
+        "text": "•\nEmployees are willing and able to take more responsibility.\n•\nThe company is spread out geographically, such as Nordstrom, Caterpillar, or Ford.\nAs organizations grow and change, they continually reevaluate their structure to determine whether it is\nhelping the company to achieve its goals.\nC O N C E P T C H E C K\n1.\nWhat are the characteristics of a centralized organization?\n2.\nWhat are the benefits of a decentralized organization?\n3.\nWhat factors should be considered when choosing the degree of centralization?\n7.6\nOrganizational Design Considerations\n6.\nHow do mechanistic and organic organizations differ?\nYou are now familiar with the different ways to structure an organization, but as a manager, how do you\ndecide which design will work the best for your business? What works for one company may not work for",
+        "source": {
+          "title": "Introduction to Business",
+          "publisher": "OpenStax, Rice University",
+          "official_book_url": "https://openstax.org/details/books/introduction-business",
+          "official_pdf_url": "https://assets.openstax.org/oscms-prodcms/media/documents/IntroductionToBusiness-OP_8D04gAa.pdf",
+          "local_filename": "data/raw/introduction-to-business-openstax.pdf"
+        },
+        "page": 277,
+        "chapter": {
+          "number": 7,
+          "title": "Designing Organizational Structures"
+        },
+        "section": null,
+        "rank": 2,
+        "bm25_score": 21.447955527552146
+      },
+      {
+        "chunk_id": "openstax-introduction-business-p0141-c001",
+        "text": "4\nForms of Business Ownership\nExhibit 4.1\n(Credit: pxhere / Attribution CC0 Public Domain)\nIntroduction\nLearning Outcomes\nAfter reading this chapter, you should be able to answer these questions:\nWhat are the advantages and disadvantages of the sole proprietorship form of business organization?\n1.\nWhat are the advantages of operating as a partnership, and what downside risks should partners\n2.\nconsider?\nHow does the corporate structure provide advantages and disadvantages to a company, and what are\n3.\nthe major types of corporations?\nWhat other options for business organization does a company have in addition to sole proprietorships,\n4.\npartnerships, and corporations?\n5.\nWhat makes franchising an appropriate form of organization for some types of business, and why does\nit continue to grow in importance?\nWhy are mergers and acquisitions important to a company’s overall growth?\n6.",
+        "source": {
+          "title": "Introduction to Business",
+          "publisher": "OpenStax, Rice University",
+          "official_book_url": "https://openstax.org/details/books/introduction-business",
+          "official_pdf_url": "https://assets.openstax.org/oscms-prodcms/media/documents/IntroductionToBusiness-OP_8D04gAa.pdf",
+          "local_filename": "data/raw/introduction-to-business-openstax.pdf"
+        },
+        "page": 141,
+        "chapter": {
+          "number": 3,
+          "title": "Competing in the Global Marketplace"
+        },
+        "section": null,
+        "rank": 3,
+        "bm25_score": 19.657345179125358
+      }
+    ]
+  },
+  {
+    "query_id": "ownership-choice",
+    "question": "What factors should an entrepreneur consider when choosing a business ownership structure?",
+    "top_k": 5,
+    "results": [
+      {
+        "chunk_id": "openstax-introduction-business-p0170-c001",
+        "text": "158\nChapter 4 Forms of Business Ownership\nquality a company can bring to a merger may be humility.\nC O N C E P T C H E C K\n1.\nDifferentiate between a merger and an acquisition.\n2.\nWhat are the most common motives for corporate mergers and acquisitions?\n3.\nDescribe the different types of corporate mergers.\n4.7\nTrends in Business Ownership\n7.\nWhat current trends will affect the business organizations of the future?\nAs we learned earlier, an awareness of trends in the business environment is critical to business success. Many\nsocial, demographic, and economic factors affect how businesses organize. When reviewing options for\nstarting or organizing a business or choosing a career path, consider the following trends.\n“Baby Boomers” and “Millennials” Drive Franchise Trends\nWe all hear and read a great deal about the “graying of America,” which refers to the “baby boomer”",
+        "source": {
+          "title": "Introduction to Business",
+          "publisher": "OpenStax, Rice University",
+          "official_book_url": "https://openstax.org/details/books/introduction-business",
+          "official_pdf_url": "https://assets.openstax.org/oscms-prodcms/media/documents/IntroductionToBusiness-OP_8D04gAa.pdf",
+          "local_filename": "data/raw/introduction-to-business-openstax.pdf"
+        },
+        "page": 170,
+        "chapter": {
+          "number": 4,
+          "title": "Forms of Business Ownership"
+        },
+        "section": null,
+        "rank": 1,
+        "bm25_score": 22.8687434402164
+      },
+      {
+        "chunk_id": "openstax-introduction-business-p0277-c002",
+        "text": "•\nEmployees are willing and able to take more responsibility.\n•\nThe company is spread out geographically, such as Nordstrom, Caterpillar, or Ford.\nAs organizations grow and change, they continually reevaluate their structure to determine whether it is\nhelping the company to achieve its goals.\nC O N C E P T C H E C K\n1.\nWhat are the characteristics of a centralized organization?\n2.\nWhat are the benefits of a decentralized organization?\n3.\nWhat factors should be considered when choosing the degree of centralization?\n7.6\nOrganizational Design Considerations\n6.\nHow do mechanistic and organic organizations differ?\nYou are now familiar with the different ways to structure an organization, but as a manager, how do you\ndecide which design will work the best for your business? What works for one company may not work for",
+        "source": {
+          "title": "Introduction to Business",
+          "publisher": "OpenStax, Rice University",
+          "official_book_url": "https://openstax.org/details/books/introduction-business",
+          "official_pdf_url": "https://assets.openstax.org/oscms-prodcms/media/documents/IntroductionToBusiness-OP_8D04gAa.pdf",
+          "local_filename": "data/raw/introduction-to-business-openstax.pdf"
+        },
+        "page": 277,
+        "chapter": {
+          "number": 7,
+          "title": "Designing Organizational Structures"
+        },
+        "section": null,
+        "rank": 2,
+        "bm25_score": 21.447955527552146
+      },
+      {
+        "chunk_id": "openstax-introduction-business-p0141-c001",
+        "text": "4\nForms of Business Ownership\nExhibit 4.1\n(Credit: pxhere / Attribution CC0 Public Domain)\nIntroduction\nLearning Outcomes\nAfter reading this chapter, you should be able to answer these questions:\nWhat are the advantages and disadvantages of the sole proprietorship form of business organization?\n1.\nWhat are the advantages of operating as a partnership, and what downside risks should partners\n2.\nconsider?\nHow does the corporate structure provide advantages and disadvantages to a company, and what are\n3.\nthe major types of corporations?\nWhat other options for business organization does a company have in addition to sole proprietorships,\n4.\npartnerships, and corporations?\n5.\nWhat makes franchising an appropriate form of organization for some types of business, and why does\nit continue to grow in importance?\nWhy are mergers and acquisitions important to a company’s overall growth?\n6.",
+        "source": {
+          "title": "Introduction to Business",
+          "publisher": "OpenStax, Rice University",
+          "official_book_url": "https://openstax.org/details/books/introduction-business",
+          "official_pdf_url": "https://assets.openstax.org/oscms-prodcms/media/documents/IntroductionToBusiness-OP_8D04gAa.pdf",
+          "local_filename": "data/raw/introduction-to-business-openstax.pdf"
+        },
+        "page": 141,
+        "chapter": {
+          "number": 3,
+          "title": "Competing in the Global Marketplace"
+        },
+        "section": null,
+        "rank": 3,
+        "bm25_score": 19.657345179125358
+      },
+      {
+        "chunk_id": "openstax-introduction-business-p0159-c004",
+        "text": "operated Geeks On Call franchise territories in 50 states serving over 250,000 customers.8\nChoosing the right franchise can be challenging. Franchises come in all sizes and demand different skills and\nqualifications. And with somewhere around 2,500 different franchised businesses in the United States, Bostin\nhad a lot to choose from—from cookie-bouquet peddlers and dog trainers to acupuncture specialists. Table\n4.5 shows the top franchises for 2017 from various sources. Entrepreneur’s rankings utilize among other\nfactors costs/fees, brand strength, support, and financial strength. Franchise Business Review focuses on\nowner satisfaction, whereas Franchise Gator utilizes a formula with factors such as financial stability and\nengagement.",
+        "source": {
+          "title": "Introduction to Business",
+          "publisher": "OpenStax, Rice University",
+          "official_book_url": "https://openstax.org/details/books/introduction-business",
+          "official_pdf_url": "https://assets.openstax.org/oscms-prodcms/media/documents/IntroductionToBusiness-OP_8D04gAa.pdf",
+          "local_filename": "data/raw/introduction-to-business-openstax.pdf"
+        },
+        "page": 159,
+        "chapter": {
+          "number": 4,
+          "title": "Forms of Business Ownership"
+        },
+        "section": {
+          "number": "4.5",
+          "title": "shows the top franchises for 2017 from various sources. Entrepreneur’s rankings utilize among other"
+        },
+        "rank": 4,
+        "bm25_score": 16.497348370472903
+      },
+      {
+        "chunk_id": "openstax-introduction-business-p0143-c002",
+        "text": "the advantages and disadvantages of each form of business ownership and the factors that may make it\nnecessary to change from one form of organization to another as the needs of the business change. As a\ncompany expands from small to midsize or larger, the form of business structure selected in the beginning\nmay no longer be appropriate.\n4.1\nGoing It Alone: Sole Proprietorships\n1.\nWhat are the advantages and disadvantages of the sole proprietorship form of business organization?\nJeremy Shepherd was working full-time for an airline when, at the age of 22, he wandered into an exotic pearl\nmarket in China, searching for a gift for his girlfriend. The strand of pearls he handpicked by instinct was later\nvalued by a jeweler back in the States at 20 times what he paid for it. Jeremy cashed his next paycheck and",
+        "source": {
+          "title": "Introduction to Business",
+          "publisher": "OpenStax, Rice University",
+          "official_book_url": "https://openstax.org/details/books/introduction-business",
+          "official_pdf_url": "https://assets.openstax.org/oscms-prodcms/media/documents/IntroductionToBusiness-OP_8D04gAa.pdf",
+          "local_filename": "data/raw/introduction-to-business-openstax.pdf"
+        },
+        "page": 143,
+        "chapter": {
+          "number": 4,
+          "title": "Forms of Business Ownership"
+        },
+        "section": null,
+        "rank": 5,
+        "bm25_score": 16.393169132995688
+      }
+    ]
+  },
+  {
+    "query_id": "ownership-choice",
+    "question": "What factors should an entrepreneur consider when choosing a business ownership structure?",
+    "top_k": 8,
+    "results": [
+      {
+        "chunk_id": "openstax-introduction-business-p0170-c001",
+        "text": "158\nChapter 4 Forms of Business Ownership\nquality a company can bring to a merger may be humility.\nC O N C E P T C H E C K\n1.\nDifferentiate between a merger and an acquisition.\n2.\nWhat are the most common motives for corporate mergers and acquisitions?\n3.\nDescribe the different types of corporate mergers.\n4.7\nTrends in Business Ownership\n7.\nWhat current trends will affect the business organizations of the future?\nAs we learned earlier, an awareness of trends in the business environment is critical to business success. Many\nsocial, demographic, and economic factors affect how businesses organize. When reviewing options for\nstarting or organizing a business or choosing a career path, consider the following trends.\n“Baby Boomers” and “Millennials” Drive Franchise Trends\nWe all hear and read a great deal about the “graying of America,” which refers to the “baby boomer”",
+        "source": {
+          "title": "Introduction to Business",
+          "publisher": "OpenStax, Rice University",
+          "official_book_url": "https://openstax.org/details/books/introduction-business",
+          "official_pdf_url": "https://assets.openstax.org/oscms-prodcms/media/documents/IntroductionToBusiness-OP_8D04gAa.pdf",
+          "local_filename": "data/raw/introduction-to-business-openstax.pdf"
+        },
+        "page": 170,
+        "chapter": {
+          "number": 4,
+          "title": "Forms of Business Ownership"
+        },
+        "section": null,
+        "rank": 1,
+        "bm25_score": 22.8687434402164
+      },
+      {
+        "chunk_id": "openstax-introduction-business-p0277-c002",
+        "text": "•\nEmployees are willing and able to take more responsibility.\n•\nThe company is spread out geographically, such as Nordstrom, Caterpillar, or Ford.\nAs organizations grow and change, they continually reevaluate their structure to determine whether it is\nhelping the company to achieve its goals.\nC O N C E P T C H E C K\n1.\nWhat are the characteristics of a centralized organization?\n2.\nWhat are the benefits of a decentralized organization?\n3.\nWhat factors should be considered when choosing the degree of centralization?\n7.6\nOrganizational Design Considerations\n6.\nHow do mechanistic and organic organizations differ?\nYou are now familiar with the different ways to structure an organization, but as a manager, how do you\ndecide which design will work the best for your business? What works for one company may not work for",
+        "source": {
+          "title": "Introduction to Business",
+          "publisher": "OpenStax, Rice University",
+          "official_book_url": "https://openstax.org/details/books/introduction-business",
+          "official_pdf_url": "https://assets.openstax.org/oscms-prodcms/media/documents/IntroductionToBusiness-OP_8D04gAa.pdf",
+          "local_filename": "data/raw/introduction-to-business-openstax.pdf"
+        },
+        "page": 277,
+        "chapter": {
+          "number": 7,
+          "title": "Designing Organizational Structures"
+        },
+        "section": null,
+        "rank": 2,
+        "bm25_score": 21.447955527552146
+      },
+      {
+        "chunk_id": "openstax-introduction-business-p0141-c001",
+        "text": "4\nForms of Business Ownership\nExhibit 4.1\n(Credit: pxhere / Attribution CC0 Public Domain)\nIntroduction\nLearning Outcomes\nAfter reading this chapter, you should be able to answer these questions:\nWhat are the advantages and disadvantages of the sole proprietorship form of business organization?\n1.\nWhat are the advantages of operating as a partnership, and what downside risks should partners\n2.\nconsider?\nHow does the corporate structure provide advantages and disadvantages to a company, and what are\n3.\nthe major types of corporations?\nWhat other options for business organization does a company have in addition to sole proprietorships,\n4.\npartnerships, and corporations?\n5.\nWhat makes franchising an appropriate form of organization for some types of business, and why does\nit continue to grow in importance?\nWhy are mergers and acquisitions important to a company’s overall growth?\n6.",
+        "source": {
+          "title": "Introduction to Business",
+          "publisher": "OpenStax, Rice University",
+          "official_book_url": "https://openstax.org/details/books/introduction-business",
+          "official_pdf_url": "https://assets.openstax.org/oscms-prodcms/media/documents/IntroductionToBusiness-OP_8D04gAa.pdf",
+          "local_filename": "data/raw/introduction-to-business-openstax.pdf"
+        },
+        "page": 141,
+        "chapter": {
+          "number": 3,
+          "title": "Competing in the Global Marketplace"
+        },
+        "section": null,
+        "rank": 3,
+        "bm25_score": 19.657345179125358
+      },
+      {
+        "chunk_id": "openstax-introduction-business-p0159-c004",
+        "text": "operated Geeks On Call franchise territories in 50 states serving over 250,000 customers.8\nChoosing the right franchise can be challenging. Franchises come in all sizes and demand different skills and\nqualifications. And with somewhere around 2,500 different franchised businesses in the United States, Bostin\nhad a lot to choose from—from cookie-bouquet peddlers and dog trainers to acupuncture specialists. Table\n4.5 shows the top franchises for 2017 from various sources. Entrepreneur’s rankings utilize among other\nfactors costs/fees, brand strength, support, and financial strength. Franchise Business Review focuses on\nowner satisfaction, whereas Franchise Gator utilizes a formula with factors such as financial stability and\nengagement.",
+        "source": {
+          "title": "Introduction to Business",
+          "publisher": "OpenStax, Rice University",
+          "official_book_url": "https://openstax.org/details/books/introduction-business",
+          "official_pdf_url": "https://assets.openstax.org/oscms-prodcms/media/documents/IntroductionToBusiness-OP_8D04gAa.pdf",
+          "local_filename": "data/raw/introduction-to-business-openstax.pdf"
+        },
+        "page": 159,
+        "chapter": {
+          "number": 4,
+          "title": "Forms of Business Ownership"
+        },
+        "section": {
+          "number": "4.5",
+          "title": "shows the top franchises for 2017 from various sources. Entrepreneur’s rankings utilize among other"
+        },
+        "rank": 4,
+        "bm25_score": 16.497348370472903
+      },
+      {
+        "chunk_id": "openstax-introduction-business-p0143-c002",
+        "text": "the advantages and disadvantages of each form of business ownership and the factors that may make it\nnecessary to change from one form of organization to another as the needs of the business change. As a\ncompany expands from small to midsize or larger, the form of business structure selected in the beginning\nmay no longer be appropriate.\n4.1\nGoing It Alone: Sole Proprietorships\n1.\nWhat are the advantages and disadvantages of the sole proprietorship form of business organization?\nJeremy Shepherd was working full-time for an airline when, at the age of 22, he wandered into an exotic pearl\nmarket in China, searching for a gift for his girlfriend. The strand of pearls he handpicked by instinct was later\nvalued by a jeweler back in the States at 20 times what he paid for it. Jeremy cashed his next paycheck and",
+        "source": {
+          "title": "Introduction to Business",
+          "publisher": "OpenStax, Rice University",
+          "official_book_url": "https://openstax.org/details/books/introduction-business",
+          "official_pdf_url": "https://assets.openstax.org/oscms-prodcms/media/documents/IntroductionToBusiness-OP_8D04gAa.pdf",
+          "local_filename": "data/raw/introduction-to-business-openstax.pdf"
+        },
+        "page": 143,
+        "chapter": {
+          "number": 4,
+          "title": "Forms of Business Ownership"
+        },
+        "section": null,
+        "rank": 5,
+        "bm25_score": 16.393169132995688
+      },
+      {
+        "chunk_id": "openstax-introduction-business-p0394-c004",
+        "text": "order. There are usually five to 10 workers in a cell, and they are trained to be able to do any of the steps in the\nproduction process. The goal is to create a team environment wherein team members are involved in\nproduction from beginning to end.\nC O N C E P T C H E C K\n1.\nWhat factors does a firm consider when making a site-selection decision?\n2.\nWhat should be considered when deciding on a production approach?\n10.4\nPulling It Together: Resource Planning\n4.\nWhy are resource-planning tasks such as inventory management and supplier relations critical to\nThis OpenStax book is available for free at http://cnx.org/content/col25734/1.7",
+        "source": {
+          "title": "Introduction to Business",
+          "publisher": "OpenStax, Rice University",
+          "official_book_url": "https://openstax.org/details/books/introduction-business",
+          "official_pdf_url": "https://assets.openstax.org/oscms-prodcms/media/documents/IntroductionToBusiness-OP_8D04gAa.pdf",
+          "local_filename": "data/raw/introduction-to-business-openstax.pdf"
+        },
+        "page": 394,
+        "chapter": {
+          "number": 10,
+          "title": "Achieving World-Class Operations Management"
+        },
+        "section": null,
+        "rank": 6,
+        "bm25_score": 16.387290895369443
+      },
+      {
+        "chunk_id": "openstax-introduction-business-p0723-c001",
+        "text": "References\n711\nhttps://www.nceo.org, accessed January 15, 2018; “ESOPs by the Numbers,” National Center for Employee\nOwnership, https://www.nceo.org, accessed January 15, 2018; OverHeadWatch Team, “What Is an ESOP? 3\nReasons Why You Should Consider It,” http://overheadwatch.com, accessed January 20, 2018; “The Pros and\nCons of Employee Stock Ownership Plans,” http://www.dbd-law.com, accessed January 20,\n2018. 22. Ibid. 23. “Research on Employee Ownership, Corporate Performance, and Employee\nCompensation,” National Center for Employee Ownership, https://www.nceo.org, accessed January 15, 2018; “A\nStatistical Profile of Employee Ownership,” National Center for Employee Ownership, https://www.nceo.org,\naccessed January 15, 2018; George Erb, “At Northwest Firms with ESOPs, Employees Act Like They Own the",
+        "source": {
+          "title": "Introduction to Business",
+          "publisher": "OpenStax, Rice University",
+          "official_book_url": "https://openstax.org/details/books/introduction-business",
+          "official_pdf_url": "https://assets.openstax.org/oscms-prodcms/media/documents/IntroductionToBusiness-OP_8D04gAa.pdf",
+          "local_filename": "data/raw/introduction-to-business-openstax.pdf"
+        },
+        "page": 723,
+        "chapter": {
+          "number": 11,
+          "title": "(reorganization). Most bankruptcies, an estimated 70 percent, use Chapter 7. After the sale of any"
+        },
+        "section": null,
+        "rank": 7,
+        "bm25_score": 15.725782082646681
+      },
+      {
+        "chunk_id": "openstax-introduction-business-p0146-c001",
+        "text": "134\nChapter 4 Forms of Business Ownership\nInc., http://www.inc.com, June 8, 2005.\nC O N C E P T C H E C K\n1.\nWhat is a sole proprietorship?\n2.\nWhy is this a popular form of business organization?\n3.\nWhat are the drawbacks to being a sole proprietor?\n4.2\nPartnerships: Sharing the Load\n2.\nWhat are the advantages of operating as a partnership, and what downside risks should partners\nconsider?\nCan partnerships, an association of two or more individuals who agree to operate a business together for\nprofit, be hazardous to a business’s health? Let’s assume partners Ron and Liz own a stylish and successful\nbeauty salon. After a few years of operating the business, they find they have contrasting visions for their\ncompany. Liz is happy with the status quo, while Ron wants to expand the business by bringing in investors\nand opening salons in other locations.",
+        "source": {
+          "title": "Introduction to Business",
+          "publisher": "OpenStax, Rice University",
+          "official_book_url": "https://openstax.org/details/books/introduction-business",
+          "official_pdf_url": "https://assets.openstax.org/oscms-prodcms/media/documents/IntroductionToBusiness-OP_8D04gAa.pdf",
+          "local_filename": "data/raw/introduction-to-business-openstax.pdf"
+        },
+        "page": 146,
+        "chapter": {
+          "number": 4,
+          "title": "Forms of Business Ownership"
+        },
+        "section": null,
+        "rank": 8,
+        "bm25_score": 15.325991288471103
+      }
+    ]
+  },
+  {
+    "query_id": "management-planning",
+    "question": "How does the planning process help managers set organizational goals?",
+    "top_k": 3,
+    "results": [
+      {
+        "chunk_id": "openstax-introduction-business-p0240-c002",
+        "text": "success of the other three functions: planning, organizing, and leading. Second, control systems direct\nemployee behavior toward achieving organizational goals. Third, control systems provide a means of\ncoordinating employee activities and integrating resources throughout the organization.\nC O N C E P T C H E C K\n1.\nDescribe the control process.\n2.\nWhy is the control process important to the success of the organization?\n6.6\nManagerial Roles\n6.\nWhat roles do managers take on in different organizational settings?\nIn carrying out the responsibilities of planning, organizing, leading, and controlling, managers take on many\ndifferent roles. A role is a set of behavioral expectations, or a set of activities that a person is expected to\nperform. Managers’ roles fall into three basic categories: informational roles, interpersonal roles, and decisional",
+        "source": {
+          "title": "Introduction to Business",
+          "publisher": "OpenStax, Rice University",
+          "official_book_url": "https://openstax.org/details/books/introduction-business",
+          "official_pdf_url": "https://assets.openstax.org/oscms-prodcms/media/documents/IntroductionToBusiness-OP_8D04gAa.pdf",
+          "local_filename": "data/raw/introduction-to-business-openstax.pdf"
+        },
+        "page": 240,
+        "chapter": {
+          "number": 6,
+          "title": "Management and Leadership in Today's Organizations"
+        },
+        "section": null,
+        "rank": 1,
+        "bm25_score": 23.954490417329314
+      },
+      {
+        "chunk_id": "openstax-introduction-business-p0253-c002",
+        "text": "6.4 Leading, Guiding, and Motivating Others\n4.\nHow do leadership styles influence a corporate culture?\nLeading is the process of guiding and motivating others toward the achievement of organizational goals.\nManagers have unique leadership styles that range from autocratic to free-rein. The set of attitudes, values,\nand standards of behavior that distinguishes one organization from another is called corporate culture. A\ncorporate culture evolves over time and is based on the accumulated history of the organization, including the\nvision of the founders.\n6.5 Controlling\n5.\nHow do organizations control activities?\nControlling is the process of assessing the organization’s progress toward accomplishing its goals. The control\nprocess is as follows: (1) set performance standards (goals), (2) measure performance, (3) compare actual",
+        "source": {
+          "title": "Introduction to Business",
+          "publisher": "OpenStax, Rice University",
+          "official_book_url": "https://openstax.org/details/books/introduction-business",
+          "official_pdf_url": "https://assets.openstax.org/oscms-prodcms/media/documents/IntroductionToBusiness-OP_8D04gAa.pdf",
+          "local_filename": "data/raw/introduction-to-business-openstax.pdf"
+        },
+        "page": 253,
+        "chapter": {
+          "number": 6,
+          "title": "Management and Leadership in Today's Organizations"
+        },
+        "section": {
+          "number": "6.8",
+          "title": "Trends in Management and Leadership"
+        },
+        "rank": 2,
+        "bm25_score": 21.94504386486702
+      },
+      {
+        "chunk_id": "openstax-introduction-business-p0252-c004",
+        "text": "develop strategic plans.\nSummary of Learning Outcomes\n6.1 The Role of Management\n1.\nWhat is the role of management?\nManagement is the process of guiding the development, maintenance, and allocation of resources to attain\norganizational goals. Managers are the people in the organization responsible for developing and carrying out\nthis management process. The four primary functions of managers are planning, organizing, leading, and\ncontrolling. By using the four functions, managers work to increase the efficiency and effectiveness of their\nemployees, processes, projects, and organizations as a whole.\n6.2 Planning\n2.\nWhat are the four types of planning?\nPlanning is deciding what needs to be done, identifying when and how it will be done, and determining who\nshould do it. Managers use four different types of planning: strategic, tactical, operational, and contingency",
+        "source": {
+          "title": "Introduction to Business",
+          "publisher": "OpenStax, Rice University",
+          "official_book_url": "https://openstax.org/details/books/introduction-business",
+          "official_pdf_url": "https://assets.openstax.org/oscms-prodcms/media/documents/IntroductionToBusiness-OP_8D04gAa.pdf",
+          "local_filename": "data/raw/introduction-to-business-openstax.pdf"
+        },
+        "page": 252,
+        "chapter": {
+          "number": 6,
+          "title": "Management and Leadership in Today's Organizations"
+        },
+        "section": {
+          "number": "6.2",
+          "title": "Planning"
+        },
+        "rank": 3,
+        "bm25_score": 21.722787930301244
+      }
+    ]
+  },
+  {
+    "query_id": "management-planning",
+    "question": "How does the planning process help managers set organizational goals?",
+    "top_k": 5,
+    "results": [
+      {
+        "chunk_id": "openstax-introduction-business-p0240-c002",
+        "text": "success of the other three functions: planning, organizing, and leading. Second, control systems direct\nemployee behavior toward achieving organizational goals. Third, control systems provide a means of\ncoordinating employee activities and integrating resources throughout the organization.\nC O N C E P T C H E C K\n1.\nDescribe the control process.\n2.\nWhy is the control process important to the success of the organization?\n6.6\nManagerial Roles\n6.\nWhat roles do managers take on in different organizational settings?\nIn carrying out the responsibilities of planning, organizing, leading, and controlling, managers take on many\ndifferent roles. A role is a set of behavioral expectations, or a set of activities that a person is expected to\nperform. Managers’ roles fall into three basic categories: informational roles, interpersonal roles, and decisional",
+        "source": {
+          "title": "Introduction to Business",
+          "publisher": "OpenStax, Rice University",
+          "official_book_url": "https://openstax.org/details/books/introduction-business",
+          "official_pdf_url": "https://assets.openstax.org/oscms-prodcms/media/documents/IntroductionToBusiness-OP_8D04gAa.pdf",
+          "local_filename": "data/raw/introduction-to-business-openstax.pdf"
+        },
+        "page": 240,
+        "chapter": {
+          "number": 6,
+          "title": "Management and Leadership in Today's Organizations"
+        },
+        "section": null,
+        "rank": 1,
+        "bm25_score": 23.954490417329314
+      },
+      {
+        "chunk_id": "openstax-introduction-business-p0253-c002",
+        "text": "6.4 Leading, Guiding, and Motivating Others\n4.\nHow do leadership styles influence a corporate culture?\nLeading is the process of guiding and motivating others toward the achievement of organizational goals.\nManagers have unique leadership styles that range from autocratic to free-rein. The set of attitudes, values,\nand standards of behavior that distinguishes one organization from another is called corporate culture. A\ncorporate culture evolves over time and is based on the accumulated history of the organization, including the\nvision of the founders.\n6.5 Controlling\n5.\nHow do organizations control activities?\nControlling is the process of assessing the organization’s progress toward accomplishing its goals. The control\nprocess is as follows: (1) set performance standards (goals), (2) measure performance, (3) compare actual",
+        "source": {
+          "title": "Introduction to Business",
+          "publisher": "OpenStax, Rice University",
+          "official_book_url": "https://openstax.org/details/books/introduction-business",
+          "official_pdf_url": "https://assets.openstax.org/oscms-prodcms/media/documents/IntroductionToBusiness-OP_8D04gAa.pdf",
+          "local_filename": "data/raw/introduction-to-business-openstax.pdf"
+        },
+        "page": 253,
+        "chapter": {
+          "number": 6,
+          "title": "Management and Leadership in Today's Organizations"
+        },
+        "section": {
+          "number": "6.8",
+          "title": "Trends in Management and Leadership"
+        },
+        "rank": 2,
+        "bm25_score": 21.94504386486702
+      },
+      {
+        "chunk_id": "openstax-introduction-business-p0252-c004",
+        "text": "develop strategic plans.\nSummary of Learning Outcomes\n6.1 The Role of Management\n1.\nWhat is the role of management?\nManagement is the process of guiding the development, maintenance, and allocation of resources to attain\norganizational goals. Managers are the people in the organization responsible for developing and carrying out\nthis management process. The four primary functions of managers are planning, organizing, leading, and\ncontrolling. By using the four functions, managers work to increase the efficiency and effectiveness of their\nemployees, processes, projects, and organizations as a whole.\n6.2 Planning\n2.\nWhat are the four types of planning?\nPlanning is deciding what needs to be done, identifying when and how it will be done, and determining who\nshould do it. Managers use four different types of planning: strategic, tactical, operational, and contingency",
+        "source": {
+          "title": "Introduction to Business",
+          "publisher": "OpenStax, Rice University",
+          "official_book_url": "https://openstax.org/details/books/introduction-business",
+          "official_pdf_url": "https://assets.openstax.org/oscms-prodcms/media/documents/IntroductionToBusiness-OP_8D04gAa.pdf",
+          "local_filename": "data/raw/introduction-to-business-openstax.pdf"
+        },
+        "page": 252,
+        "chapter": {
+          "number": 6,
+          "title": "Management and Leadership in Today's Organizations"
+        },
+        "section": {
+          "number": "6.2",
+          "title": "Planning"
+        },
+        "rank": 3,
+        "bm25_score": 21.722787930301244
+      },
+      {
+        "chunk_id": "openstax-introduction-business-p0224-c003",
+        "text": "continue to ramp up operations and infrastructure to meet the demand. David (Weinberg) understands how\nto do it the right way at the right speed to maintain our forward momentum. With John (Vandemore) handling\nCFO responsibilities, David will now have the bandwidth to travel and find opportunities to maximize our\nefficiencies around the globe.”3\nAs these examples and Table 6.1 show, good management uses the four management functions to increase a\ncompany’s efficiency and effectiveness, which leads to the accomplishment of organizational goals and\nobjectives. Let’s look more closely at what each of the management functions entails.\nWhat Managers Do and Why\nGood management consists of these four\nWhich results\nAnd leads to\nactivities:\nin\nLeading\nPlanning\n•\nLead and\n•\nSet objectives\nmotivate\nand state\nemployees to\nmission\naccomplish\n•\nExamine\nalternatives\norganizational\ngoals\n•\nDetermine\n•",
+        "source": {
+          "title": "Introduction to Business",
+          "publisher": "OpenStax, Rice University",
+          "official_book_url": "https://openstax.org/details/books/introduction-business",
+          "official_pdf_url": "https://assets.openstax.org/oscms-prodcms/media/documents/IntroductionToBusiness-OP_8D04gAa.pdf",
+          "local_filename": "data/raw/introduction-to-business-openstax.pdf"
+        },
+        "page": 224,
+        "chapter": {
+          "number": 6,
+          "title": "Management and Leadership in Today's Organizations"
+        },
+        "section": null,
+        "rank": 4,
+        "bm25_score": 19.26924854990166
+      },
+      {
+        "chunk_id": "openstax-introduction-business-p0261-c005",
+        "text": "7.1\nBuilding Organizational Structures\n1.\nWhat are the traditional forms of organizational structure?\nThe key functions that managers perform include planning, organizing, leading, and controlling. This module\nfocuses specifically on the organizing function. Organizing involves coordinating and allocating a firm’s\nresources so that the firm can carry out its plans and achieve its goals. This organizing, or structuring, process\nis accomplished by:\n•\nDetermining work activities and dividing up tasks (division of labor)\n•\nGrouping jobs and employees (departmentalization)",
+        "source": {
+          "title": "Introduction to Business",
+          "publisher": "OpenStax, Rice University",
+          "official_book_url": "https://openstax.org/details/books/introduction-business",
+          "official_pdf_url": "https://assets.openstax.org/oscms-prodcms/media/documents/IntroductionToBusiness-OP_8D04gAa.pdf",
+          "local_filename": "data/raw/introduction-to-business-openstax.pdf"
+        },
+        "page": 261,
+        "chapter": {
+          "number": 7,
+          "title": "Designing Organizational Structures"
+        },
+        "section": null,
+        "rank": 5,
+        "bm25_score": 19.19047833759354
+      }
+    ]
+  },
+  {
+    "query_id": "management-planning",
+    "question": "How does the planning process help managers set organizational goals?",
+    "top_k": 8,
+    "results": [
+      {
+        "chunk_id": "openstax-introduction-business-p0240-c002",
+        "text": "success of the other three functions: planning, organizing, and leading. Second, control systems direct\nemployee behavior toward achieving organizational goals. Third, control systems provide a means of\ncoordinating employee activities and integrating resources throughout the organization.\nC O N C E P T C H E C K\n1.\nDescribe the control process.\n2.\nWhy is the control process important to the success of the organization?\n6.6\nManagerial Roles\n6.\nWhat roles do managers take on in different organizational settings?\nIn carrying out the responsibilities of planning, organizing, leading, and controlling, managers take on many\ndifferent roles. A role is a set of behavioral expectations, or a set of activities that a person is expected to\nperform. Managers’ roles fall into three basic categories: informational roles, interpersonal roles, and decisional",
+        "source": {
+          "title": "Introduction to Business",
+          "publisher": "OpenStax, Rice University",
+          "official_book_url": "https://openstax.org/details/books/introduction-business",
+          "official_pdf_url": "https://assets.openstax.org/oscms-prodcms/media/documents/IntroductionToBusiness-OP_8D04gAa.pdf",
+          "local_filename": "data/raw/introduction-to-business-openstax.pdf"
+        },
+        "page": 240,
+        "chapter": {
+          "number": 6,
+          "title": "Management and Leadership in Today's Organizations"
+        },
+        "section": null,
+        "rank": 1,
+        "bm25_score": 23.954490417329314
+      },
+      {
+        "chunk_id": "openstax-introduction-business-p0253-c002",
+        "text": "6.4 Leading, Guiding, and Motivating Others\n4.\nHow do leadership styles influence a corporate culture?\nLeading is the process of guiding and motivating others toward the achievement of organizational goals.\nManagers have unique leadership styles that range from autocratic to free-rein. The set of attitudes, values,\nand standards of behavior that distinguishes one organization from another is called corporate culture. A\ncorporate culture evolves over time and is based on the accumulated history of the organization, including the\nvision of the founders.\n6.5 Controlling\n5.\nHow do organizations control activities?\nControlling is the process of assessing the organization’s progress toward accomplishing its goals. The control\nprocess is as follows: (1) set performance standards (goals), (2) measure performance, (3) compare actual",
+        "source": {
+          "title": "Introduction to Business",
+          "publisher": "OpenStax, Rice University",
+          "official_book_url": "https://openstax.org/details/books/introduction-business",
+          "official_pdf_url": "https://assets.openstax.org/oscms-prodcms/media/documents/IntroductionToBusiness-OP_8D04gAa.pdf",
+          "local_filename": "data/raw/introduction-to-business-openstax.pdf"
+        },
+        "page": 253,
+        "chapter": {
+          "number": 6,
+          "title": "Management and Leadership in Today's Organizations"
+        },
+        "section": {
+          "number": "6.8",
+          "title": "Trends in Management and Leadership"
+        },
+        "rank": 2,
+        "bm25_score": 21.94504386486702
+      },
+      {
+        "chunk_id": "openstax-introduction-business-p0252-c004",
+        "text": "develop strategic plans.\nSummary of Learning Outcomes\n6.1 The Role of Management\n1.\nWhat is the role of management?\nManagement is the process of guiding the development, maintenance, and allocation of resources to attain\norganizational goals. Managers are the people in the organization responsible for developing and carrying out\nthis management process. The four primary functions of managers are planning, organizing, leading, and\ncontrolling. By using the four functions, managers work to increase the efficiency and effectiveness of their\nemployees, processes, projects, and organizations as a whole.\n6.2 Planning\n2.\nWhat are the four types of planning?\nPlanning is deciding what needs to be done, identifying when and how it will be done, and determining who\nshould do it. Managers use four different types of planning: strategic, tactical, operational, and contingency",
+        "source": {
+          "title": "Introduction to Business",
+          "publisher": "OpenStax, Rice University",
+          "official_book_url": "https://openstax.org/details/books/introduction-business",
+          "official_pdf_url": "https://assets.openstax.org/oscms-prodcms/media/documents/IntroductionToBusiness-OP_8D04gAa.pdf",
+          "local_filename": "data/raw/introduction-to-business-openstax.pdf"
+        },
+        "page": 252,
+        "chapter": {
+          "number": 6,
+          "title": "Management and Leadership in Today's Organizations"
+        },
+        "section": {
+          "number": "6.2",
+          "title": "Planning"
+        },
+        "rank": 3,
+        "bm25_score": 21.722787930301244
+      },
+      {
+        "chunk_id": "openstax-introduction-business-p0224-c003",
+        "text": "continue to ramp up operations and infrastructure to meet the demand. David (Weinberg) understands how\nto do it the right way at the right speed to maintain our forward momentum. With John (Vandemore) handling\nCFO responsibilities, David will now have the bandwidth to travel and find opportunities to maximize our\nefficiencies around the globe.”3\nAs these examples and Table 6.1 show, good management uses the four management functions to increase a\ncompany’s efficiency and effectiveness, which leads to the accomplishment of organizational goals and\nobjectives. Let’s look more closely at what each of the management functions entails.\nWhat Managers Do and Why\nGood management consists of these four\nWhich results\nAnd leads to\nactivities:\nin\nLeading\nPlanning\n•\nLead and\n•\nSet objectives\nmotivate\nand state\nemployees to\nmission\naccomplish\n•\nExamine\nalternatives\norganizational\ngoals\n•\nDetermine\n•",
+        "source": {
+          "title": "Introduction to Business",
+          "publisher": "OpenStax, Rice University",
+          "official_book_url": "https://openstax.org/details/books/introduction-business",
+          "official_pdf_url": "https://assets.openstax.org/oscms-prodcms/media/documents/IntroductionToBusiness-OP_8D04gAa.pdf",
+          "local_filename": "data/raw/introduction-to-business-openstax.pdf"
+        },
+        "page": 224,
+        "chapter": {
+          "number": 6,
+          "title": "Management and Leadership in Today's Organizations"
+        },
+        "section": null,
+        "rank": 4,
+        "bm25_score": 19.26924854990166
+      },
+      {
+        "chunk_id": "openstax-introduction-business-p0261-c005",
+        "text": "7.1\nBuilding Organizational Structures\n1.\nWhat are the traditional forms of organizational structure?\nThe key functions that managers perform include planning, organizing, leading, and controlling. This module\nfocuses specifically on the organizing function. Organizing involves coordinating and allocating a firm’s\nresources so that the firm can carry out its plans and achieve its goals. This organizing, or structuring, process\nis accomplished by:\n•\nDetermining work activities and dividing up tasks (division of labor)\n•\nGrouping jobs and employees (departmentalization)",
+        "source": {
+          "title": "Introduction to Business",
+          "publisher": "OpenStax, Rice University",
+          "official_book_url": "https://openstax.org/details/books/introduction-business",
+          "official_pdf_url": "https://assets.openstax.org/oscms-prodcms/media/documents/IntroductionToBusiness-OP_8D04gAa.pdf",
+          "local_filename": "data/raw/introduction-to-business-openstax.pdf"
+        },
+        "page": 261,
+        "chapter": {
+          "number": 7,
+          "title": "Designing Organizational Structures"
+        },
+        "section": null,
+        "rank": 5,
+        "bm25_score": 19.19047833759354
+      },
+      {
+        "chunk_id": "openstax-introduction-business-p0223-c001",
+        "text": "Chapter 6 Management and Leadership in Today's Organizations\n211\nhighlight the trends that are shaping the future role of managers.\n6.1\nThe Role of Management\n1.\nWhat is the role of management?\nManagement is the process of guiding the development, maintenance, and allocation of resources to attain\norganizational goals. Managers are the people in the organization responsible for developing and carrying out\nthis management process. Management is dynamic by nature and evolves to meet needs and constraints in\nthe organization’s internal and external environments. In a global marketplace where the rate of change is\nrapidly increasing, flexibility and adaptability are crucial to the managerial process. This process is based in\nfour key functional areas of the organization: planning, organizing, leading, and controlling. Although these",
+        "source": {
+          "title": "Introduction to Business",
+          "publisher": "OpenStax, Rice University",
+          "official_book_url": "https://openstax.org/details/books/introduction-business",
+          "official_pdf_url": "https://assets.openstax.org/oscms-prodcms/media/documents/IntroductionToBusiness-OP_8D04gAa.pdf",
+          "local_filename": "data/raw/introduction-to-business-openstax.pdf"
+        },
+        "page": 223,
+        "chapter": {
+          "number": 6,
+          "title": "Management and Leadership in Today's Organizations"
+        },
+        "section": null,
+        "rank": 6,
+        "bm25_score": 18.49077483630592
+      },
+      {
+        "chunk_id": "openstax-introduction-business-p0253-c003",
+        "text": "process is as follows: (1) set performance standards (goals), (2) measure performance, (3) compare actual\nperformance to established performance standards, (4) take corrective action (if necessary), and (5) use\ninformation gained from the process to set future performance standards.\n6.6 Managerial Roles\n6.\nWhat roles do managers take on in different organizational settings?\nIn an informational role, the manager may act as an information gatherer, an information distributor, or a\nspokesperson for the company. A manager’s interpersonal roles are based on various interactions with other\npeople. Depending on the situation, a manager may need to act as a figurehead, a company leader, or a\nliaison.\n6.7 Managerial Skills\n7.\nWhat set of managerial skills is necessary for managerial success?",
+        "source": {
+          "title": "Introduction to Business",
+          "publisher": "OpenStax, Rice University",
+          "official_book_url": "https://openstax.org/details/books/introduction-business",
+          "official_pdf_url": "https://assets.openstax.org/oscms-prodcms/media/documents/IntroductionToBusiness-OP_8D04gAa.pdf",
+          "local_filename": "data/raw/introduction-to-business-openstax.pdf"
+        },
+        "page": 253,
+        "chapter": {
+          "number": 6,
+          "title": "Management and Leadership in Today's Organizations"
+        },
+        "section": {
+          "number": "6.8",
+          "title": "Trends in Management and Leadership"
+        },
+        "rank": 7,
+        "bm25_score": 18.263646006535502
+      },
+      {
+        "chunk_id": "openstax-introduction-business-p0674-c002",
+        "text": "may be adapted to gradual changes in your goal.\nThe Planning Process\nWhether choosing a college or finding financial aid, you should understand how the planning process helps\nyou accomplish your goals. The following steps outline the planning process.\nStep 1: Set a Goal. Identify something you want to achieve or obtain, your goal. The goal, which is usually\nlonger term in nature, will require planning, patience, and discipline to achieve. Just living in the present\nmoment is not a goal.\nStep 2: Acquire Knowledge. Gain an understanding of your goal and what will be required to achieve it.\nGather information about your goal through research, conversation, and thought.\nThis OpenStax book is available for free at http://cnx.org/content/col25734/1.7",
+        "source": {
+          "title": "Introduction to Business",
+          "publisher": "OpenStax, Rice University",
+          "official_book_url": "https://openstax.org/details/books/introduction-business",
+          "official_pdf_url": "https://assets.openstax.org/oscms-prodcms/media/documents/IntroductionToBusiness-OP_8D04gAa.pdf",
+          "local_filename": "data/raw/introduction-to-business-openstax.pdf"
+        },
+        "page": 674,
+        "chapter": {
+          "number": 17,
+          "title": "Your Career in Business"
+        },
+        "section": null,
+        "rank": 8,
+        "bm25_score": 18.207389111647146
+      }
+    ]
+  },
+  {
+    "query_id": "marketing-selling",
+    "question": "How is marketing different from selling?",
+    "top_k": 3,
+    "results": [
+      {
+        "chunk_id": "openstax-introduction-business-p0495-c001",
+        "text": "Chapter 12 Distributing and Promoting Products and Services\n483\nC O N C E P T C H E C K\n1.\nWhat are the advantages of personal selling?\n2.\nExplain the selling process.\n12.8\nSales Promotion\n8.\nWhat are the goals of sales promotion, and what are several types of sales promotion?\nSales promotion helps make personal selling and advertising more effective. Sales promotions are marketing\nevents or sales efforts—not including traditional advertising, personal selling, and public relations—that\nstimulate buying. Sales promotion can be developed as part of the social media or e-commerce effort just as\nadvertising can, but the methods and tactics are much different. Sales promotion is a $300 billion—and\ngrowing— industry. Sales promotion is usually targeted toward either of two distinctly different markets.",
+        "source": {
+          "title": "Introduction to Business",
+          "publisher": "OpenStax, Rice University",
+          "official_book_url": "https://openstax.org/details/books/introduction-business",
+          "official_pdf_url": "https://assets.openstax.org/oscms-prodcms/media/documents/IntroductionToBusiness-OP_8D04gAa.pdf",
+          "local_filename": "data/raw/introduction-to-business-openstax.pdf"
+        },
+        "page": 495,
+        "chapter": {
+          "number": 12,
+          "title": "Distributing and Promoting Products and Services"
+        },
+        "section": null,
+        "rank": 1,
+        "bm25_score": 13.705012607355712
+      },
+      {
+        "chunk_id": "openstax-introduction-business-p0428-c002",
+        "text": "•\nPromotion: Methods for informing and influencing customers to buy the product. Promotion includes\nseveral different components – traditional advertising, sales promotion, public relations, personal selling,\nsocial media, and e-commerce. Promotion is often mistaken for marketing because it is the most visible\npart of marketing; however, marketing encompasses much more than just promotion.\n•\nPeople: Methods of utilizing organization employees to support the marketing strategies of the company.\nAll products have both tangible and intangible aspects. People (as a marketing strategy) are crucial to the\ndevelopment of the product’s intangible aspects.\nMarketers utilize the tools of marketing strategy to develop new products and sell them in the marketplace.\nBut marketers cannot create products in isolation. Marketers must understand and consider all aspects of the",
+        "source": {
+          "title": "Introduction to Business",
+          "publisher": "OpenStax, Rice University",
+          "official_book_url": "https://openstax.org/details/books/introduction-business",
+          "official_pdf_url": "https://assets.openstax.org/oscms-prodcms/media/documents/IntroductionToBusiness-OP_8D04gAa.pdf",
+          "local_filename": "data/raw/introduction-to-business-openstax.pdf"
+        },
+        "page": 428,
+        "chapter": {
+          "number": 11,
+          "title": "Creating Products and Pricing Strategies to Meet Customers' Needs"
+        },
+        "section": null,
+        "rank": 2,
+        "bm25_score": 12.750425078477456
+      },
+      {
+        "chunk_id": "openstax-introduction-business-p0507-c002",
+        "text": "nonpersonal promotion by an identified sponsor. Personal selling consists of a face-to-face presentation in a\nconversation with a prospective purchaser. Sales promotion consists of marketing activities—other than\npersonal selling, advertising, and public relations—that stimulate consumers to buy. These activities include\ncoupons and samples, displays, shows and exhibitions, demonstrations, and other selling efforts. Public\nrelations is the marketing function that links the policies of the organization with the public interest and\ndevelops programs designed to earn public understanding and acceptance. IMC is being used by more and\nmore organizations. It is the careful coordination of all of the elements of the promotional mix to produce a\nconsistent, unified message that is customer focused.\n12.6 The Huge Impact of Advertising\n6.\nHow are traditional advertising media selected?",
+        "source": {
+          "title": "Introduction to Business",
+          "publisher": "OpenStax, Rice University",
+          "official_book_url": "https://openstax.org/details/books/introduction-business",
+          "official_pdf_url": "https://assets.openstax.org/oscms-prodcms/media/documents/IntroductionToBusiness-OP_8D04gAa.pdf",
+          "local_filename": "data/raw/introduction-to-business-openstax.pdf"
+        },
+        "page": 507,
+        "chapter": {
+          "number": 12,
+          "title": "Distributing and Promoting Products and Services"
+        },
+        "section": {
+          "number": "12.9",
+          "title": "Public Relations Helps Build Goodwill"
+        },
+        "rank": 3,
+        "bm25_score": 12.353137381169915
+      }
+    ]
+  },
+  {
+    "query_id": "marketing-selling",
+    "question": "How is marketing different from selling?",
+    "top_k": 5,
+    "results": [
+      {
+        "chunk_id": "openstax-introduction-business-p0495-c001",
+        "text": "Chapter 12 Distributing and Promoting Products and Services\n483\nC O N C E P T C H E C K\n1.\nWhat are the advantages of personal selling?\n2.\nExplain the selling process.\n12.8\nSales Promotion\n8.\nWhat are the goals of sales promotion, and what are several types of sales promotion?\nSales promotion helps make personal selling and advertising more effective. Sales promotions are marketing\nevents or sales efforts—not including traditional advertising, personal selling, and public relations—that\nstimulate buying. Sales promotion can be developed as part of the social media or e-commerce effort just as\nadvertising can, but the methods and tactics are much different. Sales promotion is a $300 billion—and\ngrowing— industry. Sales promotion is usually targeted toward either of two distinctly different markets.",
+        "source": {
+          "title": "Introduction to Business",
+          "publisher": "OpenStax, Rice University",
+          "official_book_url": "https://openstax.org/details/books/introduction-business",
+          "official_pdf_url": "https://assets.openstax.org/oscms-prodcms/media/documents/IntroductionToBusiness-OP_8D04gAa.pdf",
+          "local_filename": "data/raw/introduction-to-business-openstax.pdf"
+        },
+        "page": 495,
+        "chapter": {
+          "number": 12,
+          "title": "Distributing and Promoting Products and Services"
+        },
+        "section": null,
+        "rank": 1,
+        "bm25_score": 13.705012607355712
+      },
+      {
+        "chunk_id": "openstax-introduction-business-p0428-c002",
+        "text": "•\nPromotion: Methods for informing and influencing customers to buy the product. Promotion includes\nseveral different components – traditional advertising, sales promotion, public relations, personal selling,\nsocial media, and e-commerce. Promotion is often mistaken for marketing because it is the most visible\npart of marketing; however, marketing encompasses much more than just promotion.\n•\nPeople: Methods of utilizing organization employees to support the marketing strategies of the company.\nAll products have both tangible and intangible aspects. People (as a marketing strategy) are crucial to the\ndevelopment of the product’s intangible aspects.\nMarketers utilize the tools of marketing strategy to develop new products and sell them in the marketplace.\nBut marketers cannot create products in isolation. Marketers must understand and consider all aspects of the",
+        "source": {
+          "title": "Introduction to Business",
+          "publisher": "OpenStax, Rice University",
+          "official_book_url": "https://openstax.org/details/books/introduction-business",
+          "official_pdf_url": "https://assets.openstax.org/oscms-prodcms/media/documents/IntroductionToBusiness-OP_8D04gAa.pdf",
+          "local_filename": "data/raw/introduction-to-business-openstax.pdf"
+        },
+        "page": 428,
+        "chapter": {
+          "number": 11,
+          "title": "Creating Products and Pricing Strategies to Meet Customers' Needs"
+        },
+        "section": null,
+        "rank": 2,
+        "bm25_score": 12.750425078477456
+      },
+      {
+        "chunk_id": "openstax-introduction-business-p0507-c002",
+        "text": "nonpersonal promotion by an identified sponsor. Personal selling consists of a face-to-face presentation in a\nconversation with a prospective purchaser. Sales promotion consists of marketing activities—other than\npersonal selling, advertising, and public relations—that stimulate consumers to buy. These activities include\ncoupons and samples, displays, shows and exhibitions, demonstrations, and other selling efforts. Public\nrelations is the marketing function that links the policies of the organization with the public interest and\ndevelops programs designed to earn public understanding and acceptance. IMC is being used by more and\nmore organizations. It is the careful coordination of all of the elements of the promotional mix to produce a\nconsistent, unified message that is customer focused.\n12.6 The Huge Impact of Advertising\n6.\nHow are traditional advertising media selected?",
+        "source": {
+          "title": "Introduction to Business",
+          "publisher": "OpenStax, Rice University",
+          "official_book_url": "https://openstax.org/details/books/introduction-business",
+          "official_pdf_url": "https://assets.openstax.org/oscms-prodcms/media/documents/IntroductionToBusiness-OP_8D04gAa.pdf",
+          "local_filename": "data/raw/introduction-to-business-openstax.pdf"
+        },
+        "page": 507,
+        "chapter": {
+          "number": 12,
+          "title": "Distributing and Promoting Products and Services"
+        },
+        "section": {
+          "number": "12.9",
+          "title": "Public Relations Helps Build Goodwill"
+        },
+        "rank": 3,
+        "bm25_score": 12.353137381169915
+      },
+      {
+        "chunk_id": "openstax-introduction-business-p0507-c003",
+        "text": "consistent, unified message that is customer focused.\n12.6 The Huge Impact of Advertising\n6.\nHow are traditional advertising media selected?\nCost per contact is the cost of reaching one member of the target market. Often costs are expressed on a cost\nper thousand basis. Reach is the number of different target customers who are exposed to a commercial at\nleast once during a specific period, usually four weeks. Frequency is the number of times an individual is\nexposed to a message. Media selection is a matter of matching the advertising medium with the target\naudience. Technology continues to drive many of the recent changes to traditional advertising strategies.\n12.7 The Importance of Personal Selling\n7.\nWhat is personal selling?\nAbout 6.5 million people in the United States are directly engaged in personal selling. Personal selling enables",
+        "source": {
+          "title": "Introduction to Business",
+          "publisher": "OpenStax, Rice University",
+          "official_book_url": "https://openstax.org/details/books/introduction-business",
+          "official_pdf_url": "https://assets.openstax.org/oscms-prodcms/media/documents/IntroductionToBusiness-OP_8D04gAa.pdf",
+          "local_filename": "data/raw/introduction-to-business-openstax.pdf"
+        },
+        "page": 507,
+        "chapter": {
+          "number": 12,
+          "title": "Distributing and Promoting Products and Services"
+        },
+        "section": {
+          "number": "12.9",
+          "title": "Public Relations Helps Build Goodwill"
+        },
+        "rank": 4,
+        "bm25_score": 12.221184233667763
+      },
+      {
+        "chunk_id": "openstax-introduction-business-p0539-c001",
+        "text": "Chapter 13 Using Technology to Manage Information\n527\nIncreasingly, consumers are fighting to regain control of personal data and how that information is used.\nPrivacy advocates are working to block sales of information collected by governments and corporations. For\nexample, they want to prevent state governments from selling driver’s license information and supermarkets\nfrom collecting and selling information gathered when shoppers use barcoded plastic discount cards. With\ninformation about their buying habits, advertisers can target consumers for specific marketing programs.\nThe challenge to companies is to find a balance between collecting the information they need while at the\nsame time protecting individual consumer rights. Most registration and warranty forms that ask questions\nabout income and interests have a box for consumers to check to prevent the company from selling their",
+        "source": {
+          "title": "Introduction to Business",
+          "publisher": "OpenStax, Rice University",
+          "official_book_url": "https://openstax.org/details/books/introduction-business",
+          "official_pdf_url": "https://assets.openstax.org/oscms-prodcms/media/documents/IntroductionToBusiness-OP_8D04gAa.pdf",
+          "local_filename": "data/raw/introduction-to-business-openstax.pdf"
+        },
+        "page": 539,
+        "chapter": {
+          "number": 13,
+          "title": "Using Technology to Manage Information"
+        },
+        "section": null,
+        "rank": 5,
+        "bm25_score": 12.066150637616502
+      }
+    ]
+  },
+  {
+    "query_id": "marketing-selling",
+    "question": "How is marketing different from selling?",
+    "top_k": 8,
+    "results": [
+      {
+        "chunk_id": "openstax-introduction-business-p0495-c001",
+        "text": "Chapter 12 Distributing and Promoting Products and Services\n483\nC O N C E P T C H E C K\n1.\nWhat are the advantages of personal selling?\n2.\nExplain the selling process.\n12.8\nSales Promotion\n8.\nWhat are the goals of sales promotion, and what are several types of sales promotion?\nSales promotion helps make personal selling and advertising more effective. Sales promotions are marketing\nevents or sales efforts—not including traditional advertising, personal selling, and public relations—that\nstimulate buying. Sales promotion can be developed as part of the social media or e-commerce effort just as\nadvertising can, but the methods and tactics are much different. Sales promotion is a $300 billion—and\ngrowing— industry. Sales promotion is usually targeted toward either of two distinctly different markets.",
+        "source": {
+          "title": "Introduction to Business",
+          "publisher": "OpenStax, Rice University",
+          "official_book_url": "https://openstax.org/details/books/introduction-business",
+          "official_pdf_url": "https://assets.openstax.org/oscms-prodcms/media/documents/IntroductionToBusiness-OP_8D04gAa.pdf",
+          "local_filename": "data/raw/introduction-to-business-openstax.pdf"
+        },
+        "page": 495,
+        "chapter": {
+          "number": 12,
+          "title": "Distributing and Promoting Products and Services"
+        },
+        "section": null,
+        "rank": 1,
+        "bm25_score": 13.705012607355712
+      },
+      {
+        "chunk_id": "openstax-introduction-business-p0428-c002",
+        "text": "•\nPromotion: Methods for informing and influencing customers to buy the product. Promotion includes\nseveral different components – traditional advertising, sales promotion, public relations, personal selling,\nsocial media, and e-commerce. Promotion is often mistaken for marketing because it is the most visible\npart of marketing; however, marketing encompasses much more than just promotion.\n•\nPeople: Methods of utilizing organization employees to support the marketing strategies of the company.\nAll products have both tangible and intangible aspects. People (as a marketing strategy) are crucial to the\ndevelopment of the product’s intangible aspects.\nMarketers utilize the tools of marketing strategy to develop new products and sell them in the marketplace.\nBut marketers cannot create products in isolation. Marketers must understand and consider all aspects of the",
+        "source": {
+          "title": "Introduction to Business",
+          "publisher": "OpenStax, Rice University",
+          "official_book_url": "https://openstax.org/details/books/introduction-business",
+          "official_pdf_url": "https://assets.openstax.org/oscms-prodcms/media/documents/IntroductionToBusiness-OP_8D04gAa.pdf",
+          "local_filename": "data/raw/introduction-to-business-openstax.pdf"
+        },
+        "page": 428,
+        "chapter": {
+          "number": 11,
+          "title": "Creating Products and Pricing Strategies to Meet Customers' Needs"
+        },
+        "section": null,
+        "rank": 2,
+        "bm25_score": 12.750425078477456
+      },
+      {
+        "chunk_id": "openstax-introduction-business-p0507-c002",
+        "text": "nonpersonal promotion by an identified sponsor. Personal selling consists of a face-to-face presentation in a\nconversation with a prospective purchaser. Sales promotion consists of marketing activities—other than\npersonal selling, advertising, and public relations—that stimulate consumers to buy. These activities include\ncoupons and samples, displays, shows and exhibitions, demonstrations, and other selling efforts. Public\nrelations is the marketing function that links the policies of the organization with the public interest and\ndevelops programs designed to earn public understanding and acceptance. IMC is being used by more and\nmore organizations. It is the careful coordination of all of the elements of the promotional mix to produce a\nconsistent, unified message that is customer focused.\n12.6 The Huge Impact of Advertising\n6.\nHow are traditional advertising media selected?",
+        "source": {
+          "title": "Introduction to Business",
+          "publisher": "OpenStax, Rice University",
+          "official_book_url": "https://openstax.org/details/books/introduction-business",
+          "official_pdf_url": "https://assets.openstax.org/oscms-prodcms/media/documents/IntroductionToBusiness-OP_8D04gAa.pdf",
+          "local_filename": "data/raw/introduction-to-business-openstax.pdf"
+        },
+        "page": 507,
+        "chapter": {
+          "number": 12,
+          "title": "Distributing and Promoting Products and Services"
+        },
+        "section": {
+          "number": "12.9",
+          "title": "Public Relations Helps Build Goodwill"
+        },
+        "rank": 3,
+        "bm25_score": 12.353137381169915
+      },
+      {
+        "chunk_id": "openstax-introduction-business-p0507-c003",
+        "text": "consistent, unified message that is customer focused.\n12.6 The Huge Impact of Advertising\n6.\nHow are traditional advertising media selected?\nCost per contact is the cost of reaching one member of the target market. Often costs are expressed on a cost\nper thousand basis. Reach is the number of different target customers who are exposed to a commercial at\nleast once during a specific period, usually four weeks. Frequency is the number of times an individual is\nexposed to a message. Media selection is a matter of matching the advertising medium with the target\naudience. Technology continues to drive many of the recent changes to traditional advertising strategies.\n12.7 The Importance of Personal Selling\n7.\nWhat is personal selling?\nAbout 6.5 million people in the United States are directly engaged in personal selling. Personal selling enables",
+        "source": {
+          "title": "Introduction to Business",
+          "publisher": "OpenStax, Rice University",
+          "official_book_url": "https://openstax.org/details/books/introduction-business",
+          "official_pdf_url": "https://assets.openstax.org/oscms-prodcms/media/documents/IntroductionToBusiness-OP_8D04gAa.pdf",
+          "local_filename": "data/raw/introduction-to-business-openstax.pdf"
+        },
+        "page": 507,
+        "chapter": {
+          "number": 12,
+          "title": "Distributing and Promoting Products and Services"
+        },
+        "section": {
+          "number": "12.9",
+          "title": "Public Relations Helps Build Goodwill"
+        },
+        "rank": 4,
+        "bm25_score": 12.221184233667763
+      },
+      {
+        "chunk_id": "openstax-introduction-business-p0539-c001",
+        "text": "Chapter 13 Using Technology to Manage Information\n527\nIncreasingly, consumers are fighting to regain control of personal data and how that information is used.\nPrivacy advocates are working to block sales of information collected by governments and corporations. For\nexample, they want to prevent state governments from selling driver’s license information and supermarkets\nfrom collecting and selling information gathered when shoppers use barcoded plastic discount cards. With\ninformation about their buying habits, advertisers can target consumers for specific marketing programs.\nThe challenge to companies is to find a balance between collecting the information they need while at the\nsame time protecting individual consumer rights. Most registration and warranty forms that ask questions\nabout income and interests have a box for consumers to check to prevent the company from selling their",
+        "source": {
+          "title": "Introduction to Business",
+          "publisher": "OpenStax, Rice University",
+          "official_book_url": "https://openstax.org/details/books/introduction-business",
+          "official_pdf_url": "https://assets.openstax.org/oscms-prodcms/media/documents/IntroductionToBusiness-OP_8D04gAa.pdf",
+          "local_filename": "data/raw/introduction-to-business-openstax.pdf"
+        },
+        "page": 539,
+        "chapter": {
+          "number": 13,
+          "title": "Using Technology to Manage Information"
+        },
+        "section": null,
+        "rank": 5,
+        "bm25_score": 12.066150637616502
+      },
+      {
+        "chunk_id": "openstax-introduction-business-p0488-c003",
+        "text": "advertising.\n•\nE-commerce: The use of a company’s website to generate sales through online ordering, information,\ninteractive components such as games, and other elements of the website. Website development is\nmandatory is today’s business world. Understanding how to develop and utilize a website to generate\nsales is imperative for any marketer.\nIdeally, marketing communications from each promotional-mix element (personal selling, traditional\nadvertising, sales promotion, public relations, social media, and e-commerce) should be integrated. That is, the\nmessage reaching the consumer should be the same regardless of whether it comes from an advertisement, a\nsalesperson in the field, a magazine article, a blog, a Facebook posting, or a coupon in a newspaper insert.\nIntegrated Marketing Communications",
+        "source": {
+          "title": "Introduction to Business",
+          "publisher": "OpenStax, Rice University",
+          "official_book_url": "https://openstax.org/details/books/introduction-business",
+          "official_pdf_url": "https://assets.openstax.org/oscms-prodcms/media/documents/IntroductionToBusiness-OP_8D04gAa.pdf",
+          "local_filename": "data/raw/introduction-to-business-openstax.pdf"
+        },
+        "page": 488,
+        "chapter": {
+          "number": 12,
+          "title": "Distributing and Promoting Products and Services"
+        },
+        "section": null,
+        "rank": 6,
+        "bm25_score": 11.856949577684075
+      },
+      {
+        "chunk_id": "openstax-introduction-business-p0472-c001",
+        "text": "460\nChapter 12 Distributing and Promoting Products and Services\nsomeone with “Honda” tattooed on their chest? Harleys are the stuff that dreams and identities are\nmade of.\nSteve Piehl, who was the director of communications at Harley-Davidson before retiring in 2015, helped\nshape people’s dreams for more than 25 years. He used traditional marketing channels such as print,\nradio, and television advertising; however, Harley also, understandably, approaches marketing\nnontraditionally.\nThe focus of Harley marketing is not selling a product, but selling an experience. Piehl explains, “The\ndifference of that experience is what has given us success. We don’t categorize what that experience is.\nWe leave it up to people to make it their own.” For some, a Harley is a ticket to freedom; for others, it is a",
+        "source": {
+          "title": "Introduction to Business",
+          "publisher": "OpenStax, Rice University",
+          "official_book_url": "https://openstax.org/details/books/introduction-business",
+          "official_pdf_url": "https://assets.openstax.org/oscms-prodcms/media/documents/IntroductionToBusiness-OP_8D04gAa.pdf",
+          "local_filename": "data/raw/introduction-to-business-openstax.pdf"
+        },
+        "page": 472,
+        "chapter": {
+          "number": 12,
+          "title": "Distributing and Promoting Products and Services"
+        },
+        "section": null,
+        "rank": 7,
+        "bm25_score": 11.283343840655439
+      },
+      {
+        "chunk_id": "openstax-introduction-business-p0492-c002",
+        "text": "reach the targeted market.\nC O N C E P T C H E C K\n1.\nHow is technology impacting the way advertisers reach their markets?\n2.\nWhat are the two main factors that should be considered when selecting advertising media?\n12.7\nThe Importance of Personal Selling\n7.\nWhat is personal selling?\nAdvertising acquaints potential customers with a product and thereby makes personal selling easier. Personal\nselling is a face-to-face sales presentation to a prospective customer. Sales jobs range from salesclerks at\nclothing stores to engineers with MBAs who design large, complex systems for manufacturers. About 6.5\nmillion people are engaged in personal selling in the United States. Slightly over 45 percent of them are\nwomen. The number of people who earn a living from sales is huge compared, for instance, with the nearly",
+        "source": {
+          "title": "Introduction to Business",
+          "publisher": "OpenStax, Rice University",
+          "official_book_url": "https://openstax.org/details/books/introduction-business",
+          "official_pdf_url": "https://assets.openstax.org/oscms-prodcms/media/documents/IntroductionToBusiness-OP_8D04gAa.pdf",
+          "local_filename": "data/raw/introduction-to-business-openstax.pdf"
+        },
+        "page": 492,
+        "chapter": {
+          "number": 12,
+          "title": "Distributing and Promoting Products and Services"
+        },
+        "section": null,
+        "rank": 8,
+        "bm25_score": 10.847041194718363
+      }
+    ]
+  },
+  {
+    "query_id": "financial-statements",
+    "question": "How do financial statements help business owners make decisions?",
+    "top_k": 3,
+    "results": [
+      {
+        "chunk_id": "openstax-introduction-business-p0585-c004",
+        "text": "The accounting cycle refers to the process of generating financial statements. It begins with analyzing\nbusiness transactions, recording them in journals, and posting them to ledgers. Ledger totals are then\nsummarized in a trial balance that confirms the accuracy of the figures. Next the accountant prepares the\nfinancial statements and reports. The final step involves analyzing these reports and making decisions.\nComputers have simplified many of these labor-intensive tasks.\n14.4 The Balance Sheet\n4.\nIn what terms does the balance sheet describe the financial condition of an organization?\nThe balance sheet represents the financial condition of a firm at one moment in time, in terms of assets,\nliabilities, and owners’ equity. The key categories of assets are current assets, fixed assets, and intangible",
+        "source": {
+          "title": "Introduction to Business",
+          "publisher": "OpenStax, Rice University",
+          "official_book_url": "https://openstax.org/details/books/introduction-business",
+          "official_pdf_url": "https://assets.openstax.org/oscms-prodcms/media/documents/IntroductionToBusiness-OP_8D04gAa.pdf",
+          "local_filename": "data/raw/introduction-to-business-openstax.pdf"
+        },
+        "page": 585,
+        "chapter": {
+          "number": 14,
+          "title": "Using Financial Information and Accounting"
+        },
+        "section": {
+          "number": "14.6",
+          "title": "The Statement of Cash Flows"
+        },
+        "rank": 1,
+        "bm25_score": 14.979192265569358
+      },
+      {
+        "chunk_id": "openstax-introduction-business-p0563-c001",
+        "text": "Chapter 14 Using Financial Information and Accounting\n551\nExhibit 14.5\nThe Accounting Cycle (Attribution: Copyright Rice University, OpenStax, under CC BY 4.0 license.)\nNext, each transaction is recorded in a journal, a listing of financial transactions in chronological order. The\njournal entries are then recorded in ledgers, which show increases and decreases in specific asset, liability, and\nowners’ equity accounts. The ledger totals for each account are summarized in a trial balance, which is used to\nconfirm the accuracy of the figures. These values are used to prepare financial statements and management\nreports. Finally, individuals analyze these reports and make decisions based on the information in them.",
+        "source": {
+          "title": "Introduction to Business",
+          "publisher": "OpenStax, Rice University",
+          "official_book_url": "https://openstax.org/details/books/introduction-business",
+          "official_pdf_url": "https://assets.openstax.org/oscms-prodcms/media/documents/IntroductionToBusiness-OP_8D04gAa.pdf",
+          "local_filename": "data/raw/introduction-to-business-openstax.pdf"
+        },
+        "page": 563,
+        "chapter": {
+          "number": 14,
+          "title": "Using Financial Information and Accounting"
+        },
+        "section": null,
+        "rank": 2,
+        "bm25_score": 14.913322085220834
+      },
+      {
+        "chunk_id": "openstax-introduction-business-p0207-c002",
+        "text": "solo worker to boss can be stressful.\nAttracting good employees is more difficult for a small firm, which may not be able to match the higher\nsalaries, better benefits, and advancement potential offered by larger firms. Small companies need to be\ncreative to attract the right employees and convince applicants to join their firm. Once they hire an employee,\nsmall-business owners must make employee satisfaction a top priority in order to retain good people. A\ncompany culture that nurtures a comfortable environment for workers, flexible hours, employee benefit\nprograms, opportunities to help make decisions, and a share in profits and ownership are some ways to do\nthis.\nDuane Ruh figured out how to build a $1.2 million business in a town with just 650 residents. It’s all about\ntreating employees right. The log birdhouse and bird feeder manufacturer, Little Log Co., located in Sargent,",
+        "source": {
+          "title": "Introduction to Business",
+          "publisher": "OpenStax, Rice University",
+          "official_book_url": "https://openstax.org/details/books/introduction-business",
+          "official_pdf_url": "https://assets.openstax.org/oscms-prodcms/media/documents/IntroductionToBusiness-OP_8D04gAa.pdf",
+          "local_filename": "data/raw/introduction-to-business-openstax.pdf"
+        },
+        "page": 207,
+        "chapter": {
+          "number": 5,
+          "title": "Entrepreneurship: Starting and Managing Your Own Business"
+        },
+        "section": null,
+        "rank": 3,
+        "bm25_score": 13.203614043682737
+      }
+    ]
+  },
+  {
+    "query_id": "financial-statements",
+    "question": "How do financial statements help business owners make decisions?",
+    "top_k": 5,
+    "results": [
+      {
+        "chunk_id": "openstax-introduction-business-p0585-c004",
+        "text": "The accounting cycle refers to the process of generating financial statements. It begins with analyzing\nbusiness transactions, recording them in journals, and posting them to ledgers. Ledger totals are then\nsummarized in a trial balance that confirms the accuracy of the figures. Next the accountant prepares the\nfinancial statements and reports. The final step involves analyzing these reports and making decisions.\nComputers have simplified many of these labor-intensive tasks.\n14.4 The Balance Sheet\n4.\nIn what terms does the balance sheet describe the financial condition of an organization?\nThe balance sheet represents the financial condition of a firm at one moment in time, in terms of assets,\nliabilities, and owners’ equity. The key categories of assets are current assets, fixed assets, and intangible",
+        "source": {
+          "title": "Introduction to Business",
+          "publisher": "OpenStax, Rice University",
+          "official_book_url": "https://openstax.org/details/books/introduction-business",
+          "official_pdf_url": "https://assets.openstax.org/oscms-prodcms/media/documents/IntroductionToBusiness-OP_8D04gAa.pdf",
+          "local_filename": "data/raw/introduction-to-business-openstax.pdf"
+        },
+        "page": 585,
+        "chapter": {
+          "number": 14,
+          "title": "Using Financial Information and Accounting"
+        },
+        "section": {
+          "number": "14.6",
+          "title": "The Statement of Cash Flows"
+        },
+        "rank": 1,
+        "bm25_score": 14.979192265569358
+      },
+      {
+        "chunk_id": "openstax-introduction-business-p0563-c001",
+        "text": "Chapter 14 Using Financial Information and Accounting\n551\nExhibit 14.5\nThe Accounting Cycle (Attribution: Copyright Rice University, OpenStax, under CC BY 4.0 license.)\nNext, each transaction is recorded in a journal, a listing of financial transactions in chronological order. The\njournal entries are then recorded in ledgers, which show increases and decreases in specific asset, liability, and\nowners’ equity accounts. The ledger totals for each account are summarized in a trial balance, which is used to\nconfirm the accuracy of the figures. These values are used to prepare financial statements and management\nreports. Finally, individuals analyze these reports and make decisions based on the information in them.",
+        "source": {
+          "title": "Introduction to Business",
+          "publisher": "OpenStax, Rice University",
+          "official_book_url": "https://openstax.org/details/books/introduction-business",
+          "official_pdf_url": "https://assets.openstax.org/oscms-prodcms/media/documents/IntroductionToBusiness-OP_8D04gAa.pdf",
+          "local_filename": "data/raw/introduction-to-business-openstax.pdf"
+        },
+        "page": 563,
+        "chapter": {
+          "number": 14,
+          "title": "Using Financial Information and Accounting"
+        },
+        "section": null,
+        "rank": 2,
+        "bm25_score": 14.913322085220834
+      },
+      {
+        "chunk_id": "openstax-introduction-business-p0207-c002",
+        "text": "solo worker to boss can be stressful.\nAttracting good employees is more difficult for a small firm, which may not be able to match the higher\nsalaries, better benefits, and advancement potential offered by larger firms. Small companies need to be\ncreative to attract the right employees and convince applicants to join their firm. Once they hire an employee,\nsmall-business owners must make employee satisfaction a top priority in order to retain good people. A\ncompany culture that nurtures a comfortable environment for workers, flexible hours, employee benefit\nprograms, opportunities to help make decisions, and a share in profits and ownership are some ways to do\nthis.\nDuane Ruh figured out how to build a $1.2 million business in a town with just 650 residents. It’s all about\ntreating employees right. The log birdhouse and bird feeder manufacturer, Little Log Co., located in Sargent,",
+        "source": {
+          "title": "Introduction to Business",
+          "publisher": "OpenStax, Rice University",
+          "official_book_url": "https://openstax.org/details/books/introduction-business",
+          "official_pdf_url": "https://assets.openstax.org/oscms-prodcms/media/documents/IntroductionToBusiness-OP_8D04gAa.pdf",
+          "local_filename": "data/raw/introduction-to-business-openstax.pdf"
+        },
+        "page": 207,
+        "chapter": {
+          "number": 5,
+          "title": "Entrepreneurship: Starting and Managing Your Own Business"
+        },
+        "section": null,
+        "rank": 3,
+        "bm25_score": 13.203614043682737
+      },
+      {
+        "chunk_id": "openstax-introduction-business-p0630-c001",
+        "text": "618\nChapter 16 Understanding Financial Management and Securities Markets\n•\nFinancial planning: Preparing the financial plan, which projects revenues, expenditures, and financing\nneeds over a given period.\n•\nInvestment (spending money): Investing the firm’s funds in projects and securities that provide high returns\nin relation to their risks.\n•\nFinancing (raising money): Obtaining funding for the firm’s operations and investments and seeking the\nbest balance between debt (borrowed funds) and equity (funds raised through the sale of ownership in\nthe business).\nThe Goal of the Financial Manager\nHow can financial managers make wise planning, investment, and financing decisions? The main goal of the\nfinancial manager is to maximize the value of the firm to its owners. The value of a publicly owned corporation",
+        "source": {
+          "title": "Introduction to Business",
+          "publisher": "OpenStax, Rice University",
+          "official_book_url": "https://openstax.org/details/books/introduction-business",
+          "official_pdf_url": "https://assets.openstax.org/oscms-prodcms/media/documents/IntroductionToBusiness-OP_8D04gAa.pdf",
+          "local_filename": "data/raw/introduction-to-business-openstax.pdf"
+        },
+        "page": 630,
+        "chapter": {
+          "number": 16,
+          "title": "Understanding Financial Management and Securities Markets"
+        },
+        "section": null,
+        "rank": 4,
+        "bm25_score": 12.862412613220519
+      },
+      {
+        "chunk_id": "openstax-introduction-business-p0569-c002",
+        "text": "accounting equation?\n3.\nHow do retained earnings relate to owners’ equity?\n14.5\nThe Income Statement\n5.\nHow does the income statement report a firm’s profitability?\nThe balance sheet shows the firm’s financial position at a certain point in time. The income statement\nsummarizes the firm’s revenues and expenses and shows its total profit or loss over a period of time. Most\ncompanies prepare monthly income statements for management and quarterly and annual statements for\nuse by investors, creditors, and other outsiders. The primary elements of the income statement are revenues,\nexpenses, and net income (or net loss). The income statement for Delicious Desserts for the year ended\nDecember 31, 2018, is shown in Table 14.2.\nIncome Statement for Delicious Desserts\nDelicious Desserts, Inc.\nIncome Statement for the Year Ending December 31, 2018\nRevenues\nGross sales\n$275,000",
+        "source": {
+          "title": "Introduction to Business",
+          "publisher": "OpenStax, Rice University",
+          "official_book_url": "https://openstax.org/details/books/introduction-business",
+          "official_pdf_url": "https://assets.openstax.org/oscms-prodcms/media/documents/IntroductionToBusiness-OP_8D04gAa.pdf",
+          "local_filename": "data/raw/introduction-to-business-openstax.pdf"
+        },
+        "page": 569,
+        "chapter": {
+          "number": 14,
+          "title": "Using Financial Information and Accounting"
+        },
+        "section": null,
+        "rank": 5,
+        "bm25_score": 12.606266070627335
+      }
+    ]
+  },
+  {
+    "query_id": "financial-statements",
+    "question": "How do financial statements help business owners make decisions?",
+    "top_k": 8,
+    "results": [
+      {
+        "chunk_id": "openstax-introduction-business-p0585-c004",
+        "text": "The accounting cycle refers to the process of generating financial statements. It begins with analyzing\nbusiness transactions, recording them in journals, and posting them to ledgers. Ledger totals are then\nsummarized in a trial balance that confirms the accuracy of the figures. Next the accountant prepares the\nfinancial statements and reports. The final step involves analyzing these reports and making decisions.\nComputers have simplified many of these labor-intensive tasks.\n14.4 The Balance Sheet\n4.\nIn what terms does the balance sheet describe the financial condition of an organization?\nThe balance sheet represents the financial condition of a firm at one moment in time, in terms of assets,\nliabilities, and owners’ equity. The key categories of assets are current assets, fixed assets, and intangible",
+        "source": {
+          "title": "Introduction to Business",
+          "publisher": "OpenStax, Rice University",
+          "official_book_url": "https://openstax.org/details/books/introduction-business",
+          "official_pdf_url": "https://assets.openstax.org/oscms-prodcms/media/documents/IntroductionToBusiness-OP_8D04gAa.pdf",
+          "local_filename": "data/raw/introduction-to-business-openstax.pdf"
+        },
+        "page": 585,
+        "chapter": {
+          "number": 14,
+          "title": "Using Financial Information and Accounting"
+        },
+        "section": {
+          "number": "14.6",
+          "title": "The Statement of Cash Flows"
+        },
+        "rank": 1,
+        "bm25_score": 14.979192265569358
+      },
+      {
+        "chunk_id": "openstax-introduction-business-p0563-c001",
+        "text": "Chapter 14 Using Financial Information and Accounting\n551\nExhibit 14.5\nThe Accounting Cycle (Attribution: Copyright Rice University, OpenStax, under CC BY 4.0 license.)\nNext, each transaction is recorded in a journal, a listing of financial transactions in chronological order. The\njournal entries are then recorded in ledgers, which show increases and decreases in specific asset, liability, and\nowners’ equity accounts. The ledger totals for each account are summarized in a trial balance, which is used to\nconfirm the accuracy of the figures. These values are used to prepare financial statements and management\nreports. Finally, individuals analyze these reports and make decisions based on the information in them.",
+        "source": {
+          "title": "Introduction to Business",
+          "publisher": "OpenStax, Rice University",
+          "official_book_url": "https://openstax.org/details/books/introduction-business",
+          "official_pdf_url": "https://assets.openstax.org/oscms-prodcms/media/documents/IntroductionToBusiness-OP_8D04gAa.pdf",
+          "local_filename": "data/raw/introduction-to-business-openstax.pdf"
+        },
+        "page": 563,
+        "chapter": {
+          "number": 14,
+          "title": "Using Financial Information and Accounting"
+        },
+        "section": null,
+        "rank": 2,
+        "bm25_score": 14.913322085220834
+      },
+      {
+        "chunk_id": "openstax-introduction-business-p0207-c002",
+        "text": "solo worker to boss can be stressful.\nAttracting good employees is more difficult for a small firm, which may not be able to match the higher\nsalaries, better benefits, and advancement potential offered by larger firms. Small companies need to be\ncreative to attract the right employees and convince applicants to join their firm. Once they hire an employee,\nsmall-business owners must make employee satisfaction a top priority in order to retain good people. A\ncompany culture that nurtures a comfortable environment for workers, flexible hours, employee benefit\nprograms, opportunities to help make decisions, and a share in profits and ownership are some ways to do\nthis.\nDuane Ruh figured out how to build a $1.2 million business in a town with just 650 residents. It’s all about\ntreating employees right. The log birdhouse and bird feeder manufacturer, Little Log Co., located in Sargent,",
+        "source": {
+          "title": "Introduction to Business",
+          "publisher": "OpenStax, Rice University",
+          "official_book_url": "https://openstax.org/details/books/introduction-business",
+          "official_pdf_url": "https://assets.openstax.org/oscms-prodcms/media/documents/IntroductionToBusiness-OP_8D04gAa.pdf",
+          "local_filename": "data/raw/introduction-to-business-openstax.pdf"
+        },
+        "page": 207,
+        "chapter": {
+          "number": 5,
+          "title": "Entrepreneurship: Starting and Managing Your Own Business"
+        },
+        "section": null,
+        "rank": 3,
+        "bm25_score": 13.203614043682737
+      },
+      {
+        "chunk_id": "openstax-introduction-business-p0630-c001",
+        "text": "618\nChapter 16 Understanding Financial Management and Securities Markets\n•\nFinancial planning: Preparing the financial plan, which projects revenues, expenditures, and financing\nneeds over a given period.\n•\nInvestment (spending money): Investing the firm’s funds in projects and securities that provide high returns\nin relation to their risks.\n•\nFinancing (raising money): Obtaining funding for the firm’s operations and investments and seeking the\nbest balance between debt (borrowed funds) and equity (funds raised through the sale of ownership in\nthe business).\nThe Goal of the Financial Manager\nHow can financial managers make wise planning, investment, and financing decisions? The main goal of the\nfinancial manager is to maximize the value of the firm to its owners. The value of a publicly owned corporation",
+        "source": {
+          "title": "Introduction to Business",
+          "publisher": "OpenStax, Rice University",
+          "official_book_url": "https://openstax.org/details/books/introduction-business",
+          "official_pdf_url": "https://assets.openstax.org/oscms-prodcms/media/documents/IntroductionToBusiness-OP_8D04gAa.pdf",
+          "local_filename": "data/raw/introduction-to-business-openstax.pdf"
+        },
+        "page": 630,
+        "chapter": {
+          "number": 16,
+          "title": "Understanding Financial Management and Securities Markets"
+        },
+        "section": null,
+        "rank": 4,
+        "bm25_score": 12.862412613220519
+      },
+      {
+        "chunk_id": "openstax-introduction-business-p0569-c002",
+        "text": "accounting equation?\n3.\nHow do retained earnings relate to owners’ equity?\n14.5\nThe Income Statement\n5.\nHow does the income statement report a firm’s profitability?\nThe balance sheet shows the firm’s financial position at a certain point in time. The income statement\nsummarizes the firm’s revenues and expenses and shows its total profit or loss over a period of time. Most\ncompanies prepare monthly income statements for management and quarterly and annual statements for\nuse by investors, creditors, and other outsiders. The primary elements of the income statement are revenues,\nexpenses, and net income (or net loss). The income statement for Delicious Desserts for the year ended\nDecember 31, 2018, is shown in Table 14.2.\nIncome Statement for Delicious Desserts\nDelicious Desserts, Inc.\nIncome Statement for the Year Ending December 31, 2018\nRevenues\nGross sales\n$275,000",
+        "source": {
+          "title": "Introduction to Business",
+          "publisher": "OpenStax, Rice University",
+          "official_book_url": "https://openstax.org/details/books/introduction-business",
+          "official_pdf_url": "https://assets.openstax.org/oscms-prodcms/media/documents/IntroductionToBusiness-OP_8D04gAa.pdf",
+          "local_filename": "data/raw/introduction-to-business-openstax.pdf"
+        },
+        "page": 569,
+        "chapter": {
+          "number": 14,
+          "title": "Using Financial Information and Accounting"
+        },
+        "section": null,
+        "rank": 5,
+        "bm25_score": 12.606266070627335
+      },
+      {
+        "chunk_id": "openstax-introduction-business-p0629-c005",
+        "text": "Financial managers use financial statements and other information prepared by accountants to make financial\ndecisions. Financial managers focus on cash flows, the inflows and outflows of cash. They plan and monitor\nthe firm’s cash flows to ensure that cash is available when needed.\nThe Financial Manager’s Responsibilities and Activities\nFinancial managers have a complex and challenging job. They analyze financial data prepared by accountants,\nmonitor the firm’s financial status, and prepare and implement financial plans. One day they may be\ndeveloping a better way to automate cash collections, and the next they may be analyzing a proposed\nacquisition. The key activities of the financial manager are:",
+        "source": {
+          "title": "Introduction to Business",
+          "publisher": "OpenStax, Rice University",
+          "official_book_url": "https://openstax.org/details/books/introduction-business",
+          "official_pdf_url": "https://assets.openstax.org/oscms-prodcms/media/documents/IntroductionToBusiness-OP_8D04gAa.pdf",
+          "local_filename": "data/raw/introduction-to-business-openstax.pdf"
+        },
+        "page": 629,
+        "chapter": {
+          "number": 16,
+          "title": "Understanding Financial Management and Securities Markets"
+        },
+        "section": null,
+        "rank": 6,
+        "bm25_score": 12.363057117333309
+      },
+      {
+        "chunk_id": "openstax-introduction-business-p0569-c001",
+        "text": "Chapter 14 Using Financial Information and Accounting\n557\nOwners’ Equity\nOwners’ equity is the owners’ total investment in the business after all liabilities have been paid. For sole\nproprietorships and partnerships, amounts put in by the owners are recorded as capital. In a corporation, the\nowners provide capital by buying the firm’s common stock. For Delicious Desserts, the total common stock\ninvestment is $30,000. Retained earnings are the amounts left over from profitable operations since the\nfirm’s beginning. They are total profits minus all dividends (distributions of profits) paid to stockholders.\nDelicious Desserts has $48,750 in retained earnings.\nC O N C E P T C H E C K\n1.\nWhat is a balance sheet?\n2.\nWhat are the three main categories of accounts on the balance sheet, and how do they relate to the\naccounting equation?\n3.\nHow do retained earnings relate to owners’ equity?\n14.5",
+        "source": {
+          "title": "Introduction to Business",
+          "publisher": "OpenStax, Rice University",
+          "official_book_url": "https://openstax.org/details/books/introduction-business",
+          "official_pdf_url": "https://assets.openstax.org/oscms-prodcms/media/documents/IntroductionToBusiness-OP_8D04gAa.pdf",
+          "local_filename": "data/raw/introduction-to-business-openstax.pdf"
+        },
+        "page": 569,
+        "chapter": {
+          "number": 14,
+          "title": "Using Financial Information and Accounting"
+        },
+        "section": null,
+        "rank": 7,
+        "bm25_score": 11.813968633088887
+      },
+      {
+        "chunk_id": "openstax-introduction-business-p0561-c003",
+        "text": "them.\n14.3\nBasic Accounting Procedures\n3.\nWhat are the six steps in the accounting cycle?\nUsing generally accepted accounting principles, accountants record and report financial data in similar ways\nfor all firms. They report their findings in financial statements that summarize a company’s business\ntransactions over a specified time period. As mentioned earlier, the three major financial statements are the\nbalance sheet, income statement, and statement of cash flows.\nPeople sometimes confuse accounting with bookkeeping. Accounting is a much broader concept. Bookkeeping,\nthe system used to record a firm’s financial transactions, is a routine, clerical process. Accountants take\nbookkeepers’ transactions, classify and summarize the financial information, and then prepare and analyze\nfinancial reports. Accountants also develop and manage financial systems and help plan the firm’s financial",
+        "source": {
+          "title": "Introduction to Business",
+          "publisher": "OpenStax, Rice University",
+          "official_book_url": "https://openstax.org/details/books/introduction-business",
+          "official_pdf_url": "https://assets.openstax.org/oscms-prodcms/media/documents/IntroductionToBusiness-OP_8D04gAa.pdf",
+          "local_filename": "data/raw/introduction-to-business-openstax.pdf"
+        },
+        "page": 561,
+        "chapter": {
+          "number": 14,
+          "title": "Using Financial Information and Accounting"
+        },
+        "section": null,
+        "rank": 8,
+        "bm25_score": 11.778461976496096
+      }
+    ]
+  }
+]

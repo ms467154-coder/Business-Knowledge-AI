@@ -1,0 +1,32 @@
+{
+  "phase": "07_hybrid_retrieval",
+  "dense_model": "BAAI/bge-m3",
+  "embedding_status": "blocked_by_resource_preflight",
+  "qdrant_status": "blocked_missing_real_embeddings",
+  "embedding_artifact_exists": false,
+  "dense_retrieval_ready": false,
+  "bm25_ready": true,
+  "fusion_strategy": "reciprocal_rank_fusion",
+  "rrf_constant": 60,
+  "reranking_implemented": false,
+  "langgraph_implemented": false,
+  "no_model_substitution": true,
+  "no_fabricated_dense_scores_or_hybrid_results": true,
+  "bm25": {
+    "status": "completed_on_real_phase_03_chunks",
+    "corpus_chunk_count": 3018,
+    "results_artifact": "data/processed/introduction_to_business_bm25_retrieval_results.json",
+    "run_count": 15
+  },
+  "dense": {
+    "status": "blocked_missing_real_bge_m3_embeddings",
+    "run_count": 0
+  },
+  "hybrid": {
+    "status": "blocked_missing_real_bge_m3_embeddings",
+    "run_count": 0,
+    "results_artifact": null
+  },
+  "manual_comparison_required": true,
+  "limitation": "BM25 was executed over real Phase 03 chunks, but exact BGE-M3 dense and fused hybrid retrieval are blocked because Phase 04 has not produced real embeddings. No dense scores or hybrid candidates were fabricated."
+}

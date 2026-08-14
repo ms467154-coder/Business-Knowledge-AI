@@ -102,6 +102,27 @@ The executed preflight confirmed the existing Phase 04 and Phase 05 limitations:
 
 Phase 06 does not implement BM25, sparse or hybrid retrieval, result fusion, reranking, LLM calls, answer generation, or LangGraph.
 
+## Phase 07 — Hybrid retrieval notebook
+
+`notebooks/06_hybrid_retrieval.ipynb` implements the candidate-generation design requested for dense BGE-M3/Qdrant retrieval, BM25 sparse retrieval, and deterministic reciprocal-rank fusion (RRF). It runs the sparse path over the real Phase 03 chunk corpus and is prepared to execute the exact dense and fused paths only when a real BGE-M3 embedding artifact becomes available. RRF combines retrieval-list ranks through `1 / (60 + rank)` and does not perform learned reranking.
+
+| Path | Executed state | Evidence |
+| --- | --- | --- |
+| BM25 only | Completed on 3,018 real chunks | 15 runs across five business questions and K values of 3, 5, and 8 are saved in `data/processed/introduction_to_business_bm25_retrieval_results.json`. Each result retains score, text, source, page, chapter, and section. |
+| Dense only | Blocked | Phase 04 has not produced real 1,024-dimensional BGE-M3 vectors, so no Qdrant scores were fabricated. |
+| Hybrid (RRF) | Blocked | Fusion will run only after valid dense results and BM25 results both exist; no synthetic candidate set was created. |
+
+For example, the executed BM25 result set for “What role do businesses play in an economy?” retrieved a textbook chunk from page 193, Chapter 5, Section 5.4 with score `20.1628`; the result text directly discusses small businesses’ contribution to U.S. economic output. The notebook prints comparable text-and-score views for every test question at K=5 and persists all K=3, 5, and 8 result sets for manual review.
+
+| Artifact | Current verified state |
+| --- | --- |
+| `notebooks/06_hybrid_retrieval.ipynb` | Executed. It contains actual BM25 execution, exact dense/Qdrant code, RRF fusion logic, provenance-rich result displays, and manual review criteria. |
+| `data/processed/introduction_to_business_bm25_retrieval_results.json` | Saved with real BM25 chunks and scores. |
+| `data/processed/introduction_to_business_hybrid_retrieval_status.json` | Saved with `BM25 completed`, while exact dense and hybrid paths are `blocked_missing_real_bge_m3_embeddings`. |
+| `data/processed/introduction_to_business_hybrid_retrieval_results.json` | Intentionally absent until real dense vectors can be searched and fused. |
+
+Phase 07 does not implement reranking, LLM calls, answer generation, LangGraph, query rewriting, or agentic control flow.
+
 ## References
 
 [1]: https://openstax.org/books/introduction-business/pages/preface "OpenStax — Introduction to Business: Preface"
