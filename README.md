@@ -49,6 +49,17 @@ Phase 01 is limited to lawful source acquisition, verification, and documentatio
 
 Phase 02 contains **only** PDF extraction, conservative text cleanup, quality checks, contextual metadata detection, and structured-record persistence. It does not implement embeddings, Qdrant, sparse retrieval, reranking, LLM calls, LangGraph, prompting, or query functionality.
 
+## Phase 03 — Recursive chunking notebook
+
+`notebooks/02_chunking.ipynb` reads the Phase 02 page records and uses LangChain `RecursiveCharacterTextSplitter` while keeping chunking within a single source page. It visibly compares three practical configurations: compact (500 characters / 75 overlap), balanced (900 / 150), and broad-context (1,400 / 200). The preliminary balanced configuration was selected as a documented context-versus-fragmentation trade-off, not from downstream retrieval or generation evaluation.
+
+| Processed artifact | Purpose |
+| --- | --- |
+| `data/processed/introduction_to_business_chunks.jsonl` | 3,018 reusable final chunks, each with `chunk_id`, `text`, `source`, `page`, `chapter`, and `section`. |
+| `data/processed/introduction_to_business_chunking_summary.json` | Compared configuration metrics, selected configuration, chunk counts, and scope boundary. |
+
+Phase 03 is limited to recursive text chunking and provenance preservation. It does not implement embeddings, Qdrant, retrieval, BM25, reranking, LLM calls, or LangGraph.
+
 ## References
 
 [1]: https://openstax.org/books/introduction-business/pages/preface "OpenStax — Introduction to Business: Preface"

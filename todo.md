@@ -16,3 +16,8 @@
 - [x] Create `notebooks/01_document_ingestion.ipynb` with a visible PyMuPDF extraction and cleaning workflow.
 - [x] Save processed page records under `data/processed/` and validate output completeness and metadata preservation.
 - [x] Document the Phase 02 notebook-only scope without adding embeddings, retrieval, LLM, or LangGraph components.
+- [x] Inspect Phase 02 page records for chunking readiness and required provenance fields.
+- [x] Compare multiple `RecursiveCharacterTextSplitter` chunk-size and overlap configurations in `notebooks/02_chunking.ipynb`.
+- [x] Select and document a final configuration that preserves chunk ID, text, source, page, chapter, and section metadata.
+- [x] Save and validate a reusable final chunk artifact under `data/processed/`.
+- [x] Document the Phase 03 no-embeddings, no-retrieval, no-reranking, no-LLM, and no-LangGraph scope boundary.
