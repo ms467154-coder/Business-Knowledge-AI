@@ -73,3 +73,7 @@
 - [x] Preserve Phase 14 evaluation-artifact checksums before correcting only the validation test’s notebook cell-location assertion.
 - [x] Correct the Phase 14 artifact-validation test to inspect Markdown and code cells without changing evaluation methodology or artifacts.
 - [x] Run focused, Phase 14, and full regression tests, then verify notebook JSON and stored evaluation-artifact integrity.
+- [x] Inspect FastAPI deployment requirements, existing service boundaries, and the validated deterministic LangGraph pipeline artifacts.
+- [x] Define a modular `/api/health` and `/api/chat` FastAPI contract that preserves the fixed process_query → retrieve → rerank → build_prompt → generate_answer → format_response workflow.
+- [x] Implement the production FastAPI service and deterministic LangGraph adapter without agents, tool calling, retrieval loops, or self-correction.
+- [x] Add endpoint tests, document real-artifact/model preflight behavior, and synchronize verified Phase 15 deliverables to the connected project folder.

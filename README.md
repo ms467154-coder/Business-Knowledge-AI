@@ -227,6 +227,24 @@ Dense RAG, hybrid RAG, and hybrid-plus-reranking remain unevaluable because ther
 
 Phase 14 does not fabricate ground truth, generated answers, citations, dense vectors, hybrid results, reranker scores, Ragas scores, or cross-variant comparisons. Full evaluation can run only after real upstream artifacts and explicit OpenStax permission exist; the same source-anchor dataset and metric definitions can then be reused unchanged.
 
+## Phase 15 — Production FastAPI deterministic RAG backend
+
+The modular service under `backend/` exposes the validated Phase 12 graph contract through `GET /api/health` and `POST /api/chat`. The application keeps the fixed `START → process_query → retrieve → rerank → build_prompt → generate_answer → format_response → END` sequence, adds append-only state transitions, and does not compile conditional, agent, tool-calling, self-correction, context-grading, or retrieval-loop edges. The Node/Express host launches FastAPI as a sibling process and proxies these two routes only; it does not implement retrieval or generation itself.
+
+| Backend component | Responsibility |
+| --- | --- |
+| `backend/app.py` | FastAPI application, CORS policy, `/api/health`, and `/api/chat` endpoint definitions. |
+| `backend/graph.py` | Typed deterministic `StateGraph` and its six fixed forward-only nodes. |
+| `backend/retrieval.py` | Real BM25 retrieval over the Phase 03 OpenStax chunks, with provenance-rich source records. |
+| `backend/generation.py` | Exact `Qwen2.5-7B-Instruct` preflight, grounded prompt construction, and honest unavailable-generation response. |
+| `backend/schemas.py` | Request, response, source-citation, stage-status, and health contracts. |
+| `backend/config.py` | Environment-backed artifact locations and no-substitution runtime configuration. |
+| `backend/tests/test_app.py` | Two FastAPI contract tests for the health and fixed graph response paths. |
+
+The live endpoint test confirmed `GET /api/health` responds with `status: ok`, BM25 `ready`, and generation `unavailable`. A real BM25-backed `POST /api/chat` request for “What is a small business?” returned three source-cited OpenStax chunks and all six fixed state transitions. Its answer remains an explicit unavailable response because the required hybrid candidate and reranking artifacts do not exist, the exact `Qwen2.5-7B-Instruct` model is unavailable, and OpenStax generative-AI permission is unconfirmed. The backend does not replace these prerequisites with BM25-only answer generation, a substitute model, synthetic citations, or fabricated outputs.
+
+The included production runtime package starts the existing Node host and FastAPI service in one container, using the platform-provided port. The source PDF remains Git-excluded; the backend consumes only processed artifacts. FastAPI endpoint contracts, TypeScript type checking, and the full project test suite were validated locally before synchronization.
+
 ## References
 
 [1]: https://openstax.org/books/introduction-business/pages/preface "OpenStax — Introduction to Business: Preface"

@@ -2,12 +2,55 @@ import "dotenv/config";
 import express from "express";
 import { createServer } from "http";
 import net from "net";
+import { spawn, type ChildProcess } from "child_process";
 import { createExpressMiddleware } from "@trpc/server/adapters/express";
 import { registerOAuthRoutes } from "./oauth";
 import { registerStorageProxy } from "./storageProxy";
 import { appRouter } from "../routers";
 import { createContext } from "./context";
 import { serveStatic, setupVite } from "./vite";
+
+const fastApiPort = parseInt(process.env.FASTAPI_PORT || "8000");
+const fastApiBaseUrl = `http://127.0.0.1:${fastApiPort}`;
+let fastApiProcess: ChildProcess | undefined;
+
+function startFastApiService() {
+  const pythonBinary = process.env.PYTHON_BINARY || "python3";
+  fastApiProcess = spawn(
+    pythonBinary,
+    ["-m", "uvicorn", "backend.app:app", "--host", "127.0.0.1", "--port", String(fastApiPort)],
+    {
+      cwd: process.cwd(),
+      stdio: "inherit",
+      env: process.env,
+    }
+  );
+  fastApiProcess.on("error", error => console.error("[FastAPI] failed to start", error));
+  fastApiProcess.on("exit", code => console.warn(`[FastAPI] exited with code ${code ?? "unknown"}`));
+}
+
+function stopFastApiService() {
+  if (fastApiProcess && !fastApiProcess.killed) fastApiProcess.kill("SIGTERM");
+}
+
+async function proxyToFastApi(request: express.Request, response: express.Response) {
+  const endpoint = request.path === "/api/health" ? "/api/health" : "/api/chat";
+  try {
+    const upstream = await fetch(`${fastApiBaseUrl}${endpoint}`, {
+      method: request.method,
+      headers: { "content-type": "application/json" },
+      body: request.method === "POST" ? JSON.stringify(request.body) : undefined,
+    });
+    response.status(upstream.status);
+    const contentType = upstream.headers.get("content-type");
+    if (contentType) response.setHeader("content-type", contentType);
+    response.send(await upstream.text());
+  } catch {
+    response.status(503).json({
+      detail: "The deterministic FastAPI RAG service is unavailable. Check /api/health after startup completes.",
+    });
+  }
+}
 
 function isPortAvailable(port: number): Promise<boolean> {
   return new Promise(resolve => {
@@ -36,6 +79,9 @@ async function startServer() {
   app.use(express.urlencoded({ limit: "50mb", extended: true }));
   registerStorageProxy(app);
   registerOAuthRoutes(app);
+  startFastApiService();
+  app.get("/api/health", proxyToFastApi);
+  app.post("/api/chat", proxyToFastApi);
   // tRPC API
   app.use(
     "/api/trpc",
@@ -63,4 +109,6 @@ async function startServer() {
   });
 }
 
+process.on("SIGTERM", stopFastApiService);
+process.on("SIGINT", stopFastApiService);
 startServer().catch(console.error);
