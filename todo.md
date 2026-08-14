@@ -83,3 +83,5 @@
 - [x] Add frontend tests, visually verify desktop and mobile layouts, document Phase 16, and synchronize verified deliverables to the connected project folder.
 - [x] Add rendered-UI behavior tests for the API send flow, loading state, unavailable-answer state, error state, conversation history, and citation/source-card rendering.
 - [x] Run the rendered-UI behavior tests and retain static artifact checks as supplemental Phase 16 coverage.
+- [ ] Diagnose and fix the chat request failure reporting that the deterministic FastAPI RAG service is unavailable after startup.
+- [ ] Verify `/api/health` and `POST /api/chat` through the deployed proxy, then synchronize and publish the corrected behavior.

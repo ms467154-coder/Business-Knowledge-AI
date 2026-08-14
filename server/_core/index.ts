@@ -13,23 +13,47 @@ import { serveStatic, setupVite } from "./vite";
 const fastApiPort = parseInt(process.env.FASTAPI_PORT || "8000");
 const fastApiBaseUrl = `http://127.0.0.1:${fastApiPort}`;
 let fastApiProcess: ChildProcess | undefined;
+let fastApiRestartTimer: NodeJS.Timeout | undefined;
+let isShuttingDown = false;
+
+function forwardFastApiOutput(stream: NodeJS.ReadableStream | null, level: "log" | "error") {
+  stream?.on("data", chunk => {
+    const output = String(chunk).trim();
+    if (output) console[level](`[FastAPI] ${output}`);
+  });
+}
 
 function startFastApiService() {
+  if (fastApiProcess && fastApiProcess.exitCode === null && !fastApiProcess.killed) return;
+
   const pythonBinary = process.env.PYTHON_BINARY || "python3";
-  fastApiProcess = spawn(
+  const childProcess = spawn(
     pythonBinary,
     ["-m", "uvicorn", "backend.app:app", "--host", "127.0.0.1", "--port", String(fastApiPort)],
     {
       cwd: process.cwd(),
-      stdio: "inherit",
+      stdio: ["ignore", "pipe", "pipe"],
       env: process.env,
     }
   );
-  fastApiProcess.on("error", error => console.error("[FastAPI] failed to start", error));
-  fastApiProcess.on("exit", code => console.warn(`[FastAPI] exited with code ${code ?? "unknown"}`));
+  fastApiProcess = childProcess;
+  forwardFastApiOutput(childProcess.stdout, "log");
+  forwardFastApiOutput(childProcess.stderr, "error");
+  childProcess.on("error", (error: Error) => console.error("[FastAPI] failed to start", error));
+  childProcess.on("exit", (code: number | null, signal: NodeJS.Signals | null) => {
+    console.warn(`[FastAPI] exited with code ${code ?? "unknown"}${signal ? ` (signal ${signal})` : ""}`);
+    if (fastApiProcess === childProcess) fastApiProcess = undefined;
+    if (isShuttingDown) return;
+
+    console.warn("[FastAPI] restarting in one second after an unexpected exit.");
+    clearTimeout(fastApiRestartTimer);
+    fastApiRestartTimer = setTimeout(startFastApiService, 1_000);
+  });
 }
 
 function stopFastApiService() {
+  isShuttingDown = true;
+  clearTimeout(fastApiRestartTimer);
   if (fastApiProcess && !fastApiProcess.killed) fastApiProcess.kill("SIGTERM");
 }
 
