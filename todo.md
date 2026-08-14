@@ -9,3 +9,5 @@
 - [x] Add `data/raw/SOURCE.md` with verified textbook provenance, local filename, size, and SHA-256 metadata.
 - [x] Update `README.md` to explain the local-only source PDF policy and official reacquisition path.
 - [x] Revalidate the local PDF’s existence, checksum, and readability after Git exclusion.
+- [x] Check whether Phase 01 artifacts are present in the user-connected Business Knowledge AI folder.
+- [x] Synchronize any missing Phase 01 artifacts to the user-connected Business Knowledge AI folder without starting Phase 02.
