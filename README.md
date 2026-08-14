@@ -195,6 +195,20 @@ Both graph runs used real questions already present in `introduction_to_business
 
 The status record verifies that the exact Qwen model is unavailable in the live catalog and OpenStax generative-AI permission remains unconfirmed. Its attribution notice prohibits ingestion into a generative-AI offering without permission. [2] Therefore, the executed graph generated no answer and no citations; it did not substitute a model, manufacture a reranker ordering, manufacture citations, or fabricate state transitions. It contains no autonomous agents, tool calling, retrieval loops, self-correction loops, context grading, or agent decisions. When the upstream dense/hybrid, reranking, exact-model, and permission preconditions are genuinely satisfied, the existing guarded deterministic nodes can complete in the same fixed order without changing topology.
 
+## Phase 13 — LangGraph checkpointing and deterministic conversation memory
+
+`notebooks/12_memory.ipynb` is an executed, memory-only LangGraph learning notebook. Its fixed topology is `START → respond → END`, compiled with the in-memory `MemorySaver` checkpointer. It runs two conversational turns under the same `phase13-memory-demo` thread ID: the first establishes **customer value** as the phrase to remember, and the second correctly refers to that checkpointed first-turn answer.
+
+| Artifact | Verified execution evidence |
+| --- | --- |
+| `notebooks/12_memory.ipynb` | Executed. It defines a typed memory state, runs the two deterministic turns, inspects saved snapshots, and visibly asserts the separate state boundaries. |
+| `data/processed/introduction_to_business_memory_results.json` | Saved. It records both real graph outputs, six checkpoint snapshots, two persisted conversation turns, zero document-context records, and the follow-up answer’s `checkpointed_conversation_history` basis. |
+| `data/processed/introduction_to_business_memory_status.json` | Saved with `completed`; it records the same-thread two-turn execution, correct contextual follow-up, `MemorySaver` use, and every agentic/RAG capability as `false`. |
+
+The notebook separates `conversation_history` from `retrieved_document_context` in the graph state. Only the append-only conversation history is checkpointed as dialogue memory and read by the follow-up path. The retrieved-document-context field is supplied as an independent empty list, remains empty throughout the run, and is never read by the deterministic response node. This demonstrates that conversational continuity does not require treating remembered dialogue as document evidence.
+
+Phase 13 is not an agent and does not implement retrieval, RAG, an LLM call, tool calling, autonomous decisions, a control loop, or self-correction. The responses are fixed deterministic teaching outputs; no textbook content, retrieved chunks, or fabricated source citations are used.
+
 ## References
 
 [1]: https://openstax.org/books/introduction-business/pages/preface "OpenStax — Introduction to Business: Preface"

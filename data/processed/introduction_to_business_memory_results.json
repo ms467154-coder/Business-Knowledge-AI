@@ -1,0 +1,43 @@
+{
+  "phase": "13_memory",
+  "notebook": "notebooks/12_memory.ipynb",
+  "graph_topology": [
+    "START",
+    "respond",
+    "END"
+  ],
+  "thread_id": "phase13-memory-demo",
+  "state_field_boundaries": {
+    "conversation_history": "Checkpointed append-only dialogue turns; used by the second question.",
+    "retrieved_document_context": "Separate retrieval payload; empty and never read in this memory-only demonstration.",
+    "current_question": "The question supplied for the current invocation.",
+    "answer": "The deterministic answer for the current invocation."
+  },
+  "question_1": {
+    "question": "For this checkpointing demonstration, what phrase should we remember as the business focus?",
+    "answer": "For this demonstration, the business focus is customer value.",
+    "answer_basis": "current_turn_instruction",
+    "conversation_history_count": 1,
+    "retrieved_document_context_count": 0
+  },
+  "question_2": {
+    "question": "Based on your previous answer, what was the business focus?",
+    "answer": "Based on the previous answer, the business focus was customer value.",
+    "answer_basis": "checkpointed_conversation_history",
+    "conversation_history_count": 2,
+    "retrieved_document_context_count": 0,
+    "contextual_follow_up_correct": true
+  },
+  "checkpointing": {
+    "checkpointer": "MemorySaver",
+    "snapshot_count": 6,
+    "persisted_history_count": 2,
+    "persisted_document_context_count": 0
+  },
+  "retrieved_document_context": {
+    "provided": false,
+    "count": 0,
+    "read_by_memory_node": false,
+    "note": "No documents were retrieved or fabricated for this memory-only demonstration."
+  }
+}

@@ -62,3 +62,7 @@
 - [x] Create `notebooks/11_langgraph_rag.ipynb` with the fixed process_query → retrieve → rerank → build_prompt → generate_answer → format_response pipeline and graph visualization.
 - [x] Execute the graph on real questions or record verified stage limitations without fabricating retrieval, reranking, generation, citations, or state transitions.
 - [x] Update Phase 12 documentation and synchronize verified deliverables to the connected project folder.
+- [x] Verify LangGraph checkpointing availability and define separate conversation-history and retrieved-document-context state fields for Phase 13.
+- [x] Create `notebooks/12_memory.ipynb` demonstrating two deterministic conversational turns with MemorySaver checkpointing and a contextual follow-up answer without agents.
+- [x] Execute the checkpointed memory graph and persist verifiable thread state, history, and document-context separation evidence.
+- [x] Update Phase 13 documentation and synchronize verified deliverables to the connected project folder.
