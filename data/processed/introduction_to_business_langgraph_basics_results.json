@@ -1,0 +1,77 @@
+{
+  "phase": "11_langgraph_basics",
+  "langgraph_version": "installed",
+  "scope": "Deterministic LangGraph fundamentals only; no RAG, agent, tool calling, or LLM.",
+  "concepts_demonstrated": [
+    "State",
+    "StateGraph",
+    "Nodes",
+    "Edges",
+    "START",
+    "END",
+    "State updates",
+    "Conditional edges",
+    "Checkpointing / persistence"
+  ],
+  "linear_example": {
+    "topology": "START -> node_a -> node_b -> node_c -> END",
+    "input": {
+      "message": "START",
+      "total": 0,
+      "steps": []
+    },
+    "output": {
+      "message": "START -> node_a -> node_b -> node_c",
+      "total": 3,
+      "steps": [
+        "node_a",
+        "node_b",
+        "node_c"
+      ]
+    }
+  },
+  "conditional_example": {
+    "topology": "START -> classify_number -> (even_node | odd_node) -> END",
+    "outputs": {
+      "even_input": {
+        "value": 8,
+        "route": "even_node",
+        "outcome": "8 is even.",
+        "steps": [
+          "classify_number",
+          "even_node"
+        ]
+      },
+      "odd_input": {
+        "value": 7,
+        "route": "odd_node",
+        "outcome": "7 is odd.",
+        "steps": [
+          "classify_number",
+          "odd_node"
+        ]
+      }
+    }
+  },
+  "checkpoint_example": {
+    "thread_id": "phase11-checkpoint-demo",
+    "input": {
+      "value": 6,
+      "history": []
+    },
+    "output": {
+      "value": 12,
+      "history": [
+        "doubled 6 to 12"
+      ]
+    },
+    "persisted_state": {
+      "value": 12,
+      "history": [
+        "doubled 6 to 12"
+      ]
+    },
+    "snapshot_count": 3,
+    "checkpointer": "MemorySaver"
+  }
+}

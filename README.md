@@ -165,6 +165,20 @@ The executed preflight again found no `Qwen2.5-7B-Instruct` identifier in the li
 
 After both conditions are satisfied, rerun the notebook unchanged to obtain exact-model, evidence-grounded output and inspect its automated citation format audit plus manual grounding review requirement. Phase 10 deliberately does not implement LangGraph, tool calling, autonomous agents, self-correcting retrieval, or multi-stage agentic control flow.
 
+## Phase 11 — LangGraph fundamentals notebook
+
+`notebooks/10_langgraph_basics.ipynb` is an executed, deterministic learning notebook for LangGraph fundamentals. It introduces a typed state schema, `StateGraph`, ordinary Python nodes, fixed edges, `START`, `END`, partial state updates with a list reducer, deterministic conditional routing, and in-memory checkpoint persistence. The notebook intentionally uses only small numerical and string examples; it does not access textbook data or any RAG artifact.
+
+| Artifact | Verified execution evidence |
+| --- | --- |
+| `notebooks/10_langgraph_basics.ipynb` | Executed. It visibly runs the requested `START → node_a → node_b → node_c → END` graph and prints its final message, counter, and accumulated node-step state. |
+| `data/processed/introduction_to_business_langgraph_basics_results.json` | Saved. The linear graph produced a counter of `3`; the conditional graph routed `8` to `even_node` and `7` to `odd_node`; and the checkpoint example persisted a doubled value of `12` under the `phase11-checkpoint-demo` thread. |
+| `data/processed/introduction_to_business_langgraph_basics_status.json` | Saved with `completed`; it records successful linear, conditional, and checkpoint graph execution while explicitly recording no RAG, LLM invocation, tool calling, or agentic control flow. |
+
+The notebook installs and uses LangGraph 1.2.11 in the sandbox, then demonstrates actual execution rather than pseudocode. Its `MemorySaver` checkpointer retains a thread-scoped snapshot and exposes a state-history count of `3` for the checkpoint example. This is an instructional persistence demonstration only: it does not add conversational memory, a database, retrieval history, hidden planning, automatic retries, agents, or tool selection.
+
+Phase 11 deliberately stops at foundational graph mechanics. It does not connect LangGraph to BM25, Qdrant, BGE-M3, the Qwen model, prompts, or the project’s textbook corpus. A later, explicitly requested phase can compose fixed retrieval and generation nodes into a deterministic RAG graph.
+
 ## References
 
 [1]: https://openstax.org/books/introduction-business/pages/preface "OpenStax — Introduction to Business: Preface"

@@ -54,3 +54,7 @@
 - [x] Create `notebooks/09_llm_generation.ipynb` with grounded Qwen context-to-answer generation and temperature, max-token, and prompt-structure experiments without LangGraph.
 - [x] Execute the notebook or record verified limitations without substituting a model or fabricating answers, citations, or parameter comparisons.
 - [x] Update Phase 10 documentation and synchronize verified deliverables to the connected project folder.
+- [x] Verify LangGraph installation and determine a deterministic, non-agentic learning-example scope for Phase 11.
+- [x] Create `notebooks/10_langgraph_basics.ipynb` teaching state, StateGraph, nodes, edges, START, END, state updates, conditional edges, and checkpointing without RAG, agents, or tools.
+- [x] Execute the toy graphs and persist only verifiable Phase 11 learning outputs.
+- [x] Update Phase 11 documentation and synchronize verified deliverables to the connected project folder.
