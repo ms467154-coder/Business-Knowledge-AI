@@ -90,3 +90,7 @@
 - [x] Test, document, synchronize, and publish the verification outcome without fabricating approval, model access, or generated answers.
 - [x] Diagnose and fix the renewed production FastAPI lifecycle failure that returned HTTP 503 during the generation-preflight health check.
 - [x] Capture and store an auditable live model-catalog result showing whether the exact required Qwen identifier is present.
+- [x] Inspect only the Qwen generation configuration, deployment runtime, provider path, and precise failure condition.
+- [x] Verify whether Qwen2.5-7B-Instruct can run locally or through a configured provider in the current environment without substituting a model.
+- [x] Investigate the official OpenStax generative-AI authorization condition separately from model availability.
+- [x] Deliver a generation-layer report with the minimal supported configuration and exact files to modify, without changing retrieval, citations, or unrelated pipeline stages.
