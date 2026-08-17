@@ -1,4 +1,4 @@
-"""Guarded exact-Qwen generation for the deterministic pipeline; no fallback model exists."""
+"""Guarded configured-model generation for the deterministic pipeline."""
 
 from __future__ import annotations
 
@@ -17,8 +17,8 @@ class GenerationResult:
     detail: str
 
 
-class ExactQwenGenerator:
-    """Call only Qwen2.5-7B-Instruct after explicit permission and availability preflights pass."""
+class ConfiguredLLMGenerator:
+    """Invoke the authorized, configured server-side model through the Forge chat API."""
 
     def __init__(self, settings: Settings):
         self._settings = settings
@@ -34,8 +34,8 @@ class ExactQwenGenerator:
             "Authorization": f"Bearer {os.environ['BUILT_IN_FORGE_API_KEY']}",
             "Content-Type": "application/json",
         }
-        payload = {
-            "model": self._settings.qwen_model,
+        payload: dict[str, object] = {
+            "model": self._settings.generation_model,
             "messages": [
                 {
                     "role": "system",
@@ -44,14 +44,31 @@ class ExactQwenGenerator:
                 {"role": "user", "content": prompt},
             ],
             "temperature": 0.2,
-            "max_tokens": 700,
         }
-        async with httpx.AsyncClient(timeout=45.0) as client:
-            response = await client.post(url, headers=headers, json=payload)
-        response.raise_for_status()
+        if self._settings.generation_model.startswith("gpt-"):
+            payload["max_completion_tokens"] = 700
+        else:
+            payload["max_tokens"] = 700
+        try:
+            async with httpx.AsyncClient(timeout=45.0) as client:
+                response = await client.post(url, headers=headers, json=payload)
+            response.raise_for_status()
+        except httpx.HTTPError as error:
+            return GenerationResult(
+                answer=None,
+                status="unavailable",
+                detail=f"The configured generation provider request failed: {type(error).__name__}.",
+            )
         body = response.json()
         content = body["choices"][0]["message"].get("content")
         if not content:
-            return GenerationResult(answer=None, status="unavailable", detail="Qwen returned no textual content.")
-        return GenerationResult(answer=str(content), status="generated", detail="Exact Qwen2.5-7B-Instruct completed the grounded response.")
-
+            return GenerationResult(
+                answer=None,
+                status="unavailable",
+                detail=f"{self._settings.generation_model} returned no textual content.",
+            )
+        return GenerationResult(
+            answer=str(content),
+            status="generated",
+            detail=f"{self._settings.generation_model} completed the grounded response.",
+        )

@@ -94,3 +94,12 @@
 - [x] Verify whether Qwen2.5-7B-Instruct can run locally or through a configured provider in the current environment without substituting a model.
 - [x] Investigate the official OpenStax generative-AI authorization condition separately from model availability.
 - [x] Deliver a generation-layer report with the minimal supported configuration and exact files to modify, without changing retrieval, citations, or unrelated pipeline stages.
+- [x] Inspect the live provider catalog and existing isolated generation abstraction to select a verified available instruction model.
+- [x] Record the user's confirmation of written OpenStax authorization and enable the existing authorization guard for generated answers.
+- [x] Implement a configurable `gpt-5-mini` generator behind the existing deterministic prompt and citation interfaces without touching retrieval stages.
+- [x] Add generation-layer contract tests and run a real grounded API generation test using retrieved OpenStax context.
+- [ ] Document, synchronize, and publish the verified available-model replacement.
+- [ ] Verify the published `/api/chat` endpoint returns a real `gpt-5-mini` grounded answer with preserved OpenStax citations.
+- [x] Replace only the unavailable Qwen generation configuration with the selected available model while preserving prompts, grounded-answer behavior, and citation interfaces.
+- [x] Execute real API generation tests against retrieved OpenStax context and verify a non-fabricated generated answer with citations.
+- [ ] Document the model change, synchronize verified generation-layer deliverables to the connected folder, and publish the configuration.

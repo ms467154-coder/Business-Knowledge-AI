@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import json
 import os
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any
 
@@ -28,11 +28,11 @@ def env_is_true(name: str) -> bool:
 
 @dataclass(frozen=True)
 class Settings:
-    """Settings intentionally keep unavailable model stages disabled rather than substituting models."""
+    """Runtime settings for the fixed pipeline and its swappable server-side generator."""
 
     project_root: Path = PROJECT_ROOT
     processed_dir: Path = PROCESSED_DIR
-    qwen_model: str = "Qwen2.5-7B-Instruct"
+    generation_model: str = field(default_factory=lambda: os.getenv("RAG_GENERATION_MODEL", "gpt-5-mini").strip() or "gpt-5-mini")
     default_top_k: int = 5
     max_top_k: int = 10
 
@@ -53,12 +53,12 @@ class Settings:
         return read_json(self.processed_dir / "introduction_to_business_llm_generation_status.json")
 
     def generation_preflight(self) -> list[str]:
-        """Return explicit blocks; no alternate generation model is ever selected."""
+        """Return explicit authorization and provider blocks for the configured model."""
         blocks: list[str] = []
         if not env_is_true("OPENSTAX_GENERATIVE_AI_PERMISSION_CONFIRMED"):
             blocks.append("OpenStax generative-AI permission is not confirmed.")
-        if not env_is_true("QWEN_2_5_7B_INSTRUCT_AVAILABLE"):
-            blocks.append("The exact Qwen2.5-7B-Instruct model is not marked available for this deployment.")
+        if not self.generation_model:
+            blocks.append("No generation model is configured.")
         if not os.getenv("BUILT_IN_FORGE_API_URL") or not os.getenv("BUILT_IN_FORGE_API_KEY"):
             blocks.append("The server-side built-in LLM credentials are unavailable.")
         return blocks
@@ -76,4 +76,3 @@ class Settings:
             return []
         reason = status.get("reason") or status.get("overall_status") or "No completed real reranking artifact exists."
         return [str(reason)]
-

@@ -10,7 +10,7 @@ from langgraph.checkpoint.memory import MemorySaver
 from langgraph.graph import END, START, StateGraph
 
 from backend.config import Settings
-from backend.generation import ExactQwenGenerator
+from backend.generation import ConfiguredLLMGenerator
 from backend.retrieval import OpenStaxBM25Retriever
 from backend.schemas import Citation, ChatResponse, RetrievedDocument, StateTransition
 
@@ -58,7 +58,7 @@ class DeterministicRAGService:
     def __init__(self, settings: Settings | None = None):
         self.settings = settings or Settings()
         self.retriever = OpenStaxBM25Retriever(self.settings.chunks_path)
-        self.generator = ExactQwenGenerator(self.settings)
+        self.generator = ConfiguredLLMGenerator(self.settings)
         self.graph = self._build_graph()
 
     def _build_graph(self):
@@ -204,9 +204,8 @@ class DeterministicRAGService:
                 "detail": self.settings.reranking_preflight(),
             },
             "generation": {
-                "model": self.settings.qwen_model,
+            "model": self.settings.generation_model,
                 "status": "ready" if not self.settings.generation_preflight() else "unavailable",
                 "detail": self.settings.generation_preflight(),
             },
         }
-

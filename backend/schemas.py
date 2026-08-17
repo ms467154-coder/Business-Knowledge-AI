@@ -47,7 +47,7 @@ class StateTransition(BaseModel):
 
 
 class StageStatus(BaseModel):
-    status: Literal["completed", "unavailable"]
+    status: Literal["completed", "generated", "unavailable"]
     detail: str
 
 
@@ -65,4 +65,3 @@ class ChatResponse(BaseModel):
     reranking: StageStatus
     generation: StageStatus
     state_transitions: list[StateTransition]
-
