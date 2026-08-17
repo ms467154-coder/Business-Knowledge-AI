@@ -98,8 +98,10 @@
 - [x] Record the user's confirmation of written OpenStax authorization and enable the existing authorization guard for generated answers.
 - [x] Implement a configurable `gpt-5-mini` generator behind the existing deterministic prompt and citation interfaces without touching retrieval stages.
 - [x] Add generation-layer contract tests and run a real grounded API generation test using retrieved OpenStax context.
-- [ ] Document, synchronize, and publish the verified available-model replacement.
-- [ ] Verify the published `/api/chat` endpoint returns a real `gpt-5-mini` grounded answer with preserved OpenStax citations.
+- [x] Document, synchronize, and publish the verified available-model replacement.
+- [x] Verify the published `/api/chat` endpoint returns a real `gpt-5-mini` grounded answer with preserved OpenStax citations.
+- [x] Inspect the published response `citations` array directly for count and OpenStax source, page, chapter, and official-book URL fields.
 - [x] Replace only the unavailable Qwen generation configuration with the selected available model while preserving prompts, grounded-answer behavior, and citation interfaces.
 - [x] Execute real API generation tests against retrieved OpenStax context and verify a non-fabricated generated answer with citations.
-- [ ] Document the model change, synchronize verified generation-layer deliverables to the connected folder, and publish the configuration.
+- [x] Document the model change, synchronize verified generation-layer deliverables to the connected folder, and publish the configuration.
+- [x] Save a final checkpoint that includes the production citation-array verification record and completed available-model tracker state.
