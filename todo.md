@@ -124,4 +124,6 @@
 - [x] Implement the Vermillion Ledger paper-and-vermilion visual system, editorial masthead, research index, answer document, and evidence register without changing application behavior.
 - [x] Preserve and refine responsive chat sending, loading, error, citation, source-card, conversation-history, and accessibility behavior within the approved layout.
 - [x] Add and run focused frontend tests, TypeScript validation, and desktop/mobile visual checks for the approved redesign.
-- [ ] Document, synchronize to the connected local folder, checkpoint, and publish the approved Vermillion Ledger redesign.
+- [x] Document, synchronize to the connected local folder, checkpoint, and publish the approved Vermillion Ledger redesign.
+- [ ] Verify the automatically published Vermillion Ledger redesign on the live production URL.
+- [ ] Record production verification and save the final published tracker state.

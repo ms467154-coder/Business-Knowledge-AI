@@ -18,6 +18,10 @@ The user selected **Option E — Vermillion Ledger** as the approved visual dire
 
 The redesign was reviewed in desktop and 390 px mobile layouts. The full Vitest regression suite passed with **11 test files and 16 tests**, and TypeScript completed with no errors. The focused UI suite includes explicit coverage of the Vermillion Ledger initial research workspace alongside loading, unavailable-answer, citation, retrieved-passage, and request-error behavior.
 
+## Production verification status
+
+An initial production check of `https://busknowai-gpcbrjgv.manus.space` after checkpoint `81dbda25` returned the previous blue chat workspace rather than the approved Vermillion Ledger interface. The source checkpoint was saved successfully, but the live deployment had not yet reflected it at that observation time. Production verification remains open pending a fresh live check after deployment propagation.
+
 ## Preserved boundaries
 
 No backend, FastAPI route, deterministic LangGraph sequence, BM25 retrieval, reranking behavior, citation architecture, OpenStax source data, or data model was modified. This change is limited to the frontend presentation layer, its typography/theme configuration, and UI tests.
