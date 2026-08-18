@@ -111,3 +111,10 @@
 - [x] Perform a read-only final comparison of all 196 managed files for source/destination existence, size, SHA-256 checksum, and extra destination paths.
 - [x] Report the final checksum-verification result with exact discrepancy paths if any are found.
 - [x] Review the current rendered chat workspace and prepare a prioritized frontend/UI–UX redesign recommendation without changing the RAG pipeline.
+- [x] Read the attached prompt, extract its detailed requirements, and add the resulting implementation tasks to this tracker.
+- [x] Create a complete visual mockup for Option A — Dark Executive, without changing the application frontend.
+- [x] Create a complete visual mockup for Option B — Modern Blue Intelligence, without changing the application frontend.
+- [x] Create a complete visual mockup for Option C — Light Editorial Knowledge, without changing the application frontend.
+- [x] Verify that all three generated mockup assets have completed and are visually reviewable before presenting them.
+- [ ] Present the three distinct concept mockups with palette, layout, UX philosophy, components, and Business Knowledge AI fit.
+- [ ] Wait for and record the user's explicit A, B, or C selection before implementing any concept.
