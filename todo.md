@@ -105,9 +105,9 @@
 - [x] Execute real API generation tests against retrieved OpenStax context and verify a non-fabricated generated answer with citations.
 - [x] Document the model change, synchronize verified generation-layer deliverables to the connected folder, and publish the configuration.
 - [x] Save a final checkpoint that includes the production citation-array verification record and completed available-model tracker state.
-- [ ] Compare the complete managed workspace against the connected local project folder, excluding only generated dependencies, caches, logs, and Git internals.
-- [ ] Synchronize all remaining project directories and files to the connected local folder and verify complete tree and content parity.
-- [ ] Document and publish the completed full-workspace synchronization record.
-- [ ] Perform a read-only final comparison of all 196 managed files for source/destination existence, size, SHA-256 checksum, and extra destination paths.
-- [ ] Report the final checksum-verification result with exact discrepancy paths if any are found.
+- [x] Compare the complete managed workspace against the connected local project folder, excluding only generated dependencies, caches, logs, and Git internals.
+- [x] Synchronize all remaining project directories and files to the connected local folder and verify complete tree and content parity.
+- [x] Document and publish the completed full-workspace synchronization record.
+- [x] Perform a read-only final comparison of all 196 managed files for source/destination existence, size, SHA-256 checksum, and extra destination paths.
+- [x] Report the final checksum-verification result with exact discrepancy paths if any are found.
 - [x] Review the current rendered chat workspace and prepare a prioritized frontend/UI–UX redesign recommendation without changing the RAG pipeline.
