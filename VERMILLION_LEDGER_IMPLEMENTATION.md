@@ -20,7 +20,7 @@ The redesign was reviewed in desktop and 390 px mobile layouts. The full Vitest 
 
 ## Production verification status
 
-An initial production check of `https://busknowai-gpcbrjgv.manus.space` after checkpoint `81dbda25` returned the previous blue chat workspace rather than the approved Vermillion Ledger interface. The source checkpoint was saved successfully, but the live deployment had not yet reflected it at that observation time. Production verification remains open pending a fresh live check after deployment propagation.
+Initial checks of `https://busknowai-gpcbrjgv.manus.space` after checkpoints `81dbda25` and `50445b2d` returned the previous blue workspace while the automated deployment propagated. After project services refreshed, a cache-bypassed live check confirmed the approved **Vermillion Ledger** interface: the editorial masthead, paper-and-vermilion styling, inquiry surface, Research Index, and Evidence Register are all present on the production domain. The deployment is therefore verified live.
 
 ## Preserved boundaries
 
