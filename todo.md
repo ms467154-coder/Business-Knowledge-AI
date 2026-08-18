@@ -116,7 +116,12 @@
 - [x] Create a complete visual mockup for Option B — Modern Blue Intelligence, without changing the application frontend.
 - [x] Create a complete visual mockup for Option C — Light Editorial Knowledge, without changing the application frontend.
 - [x] Verify that all three generated mockup assets have completed and are visually reviewable before presenting them.
-- [ ] Present the three distinct concept mockups with palette, layout, UX philosophy, components, and Business Knowledge AI fit.
-- [ ] Wait for and record the user's explicit A, B, or C selection before implementing any concept.
+- [x] Present the three distinct concept mockups with palette, layout, UX philosophy, components, and Business Knowledge AI fit.
+- [x] Wait for and record the user's explicit A, B, or C selection before implementing any concept; the first selection cycle was superseded by the user's additional concept request.
 - [x] Create and visually verify three additional non-implemented UI/UX mockups using the requested black/red, white/red, and purple/black palettes.
-- [ ] Present the three new concept directions and wait for an explicit selection before changing any application UI.
+- [x] Present the three new concept directions and wait for an explicit selection before changing any application UI; the user selected Option E — Vermillion Ledger.
+- [x] Inspect the existing chat workspace and reusable UI components before applying the approved Vermillion Ledger redesign.
+- [x] Implement the Vermillion Ledger paper-and-vermilion visual system, editorial masthead, research index, answer document, and evidence register without changing application behavior.
+- [x] Preserve and refine responsive chat sending, loading, error, citation, source-card, conversation-history, and accessibility behavior within the approved layout.
+- [x] Add and run focused frontend tests, TypeScript validation, and desktop/mobile visual checks for the approved redesign.
+- [ ] Document, synchronize to the connected local folder, checkpoint, and publish the approved Vermillion Ledger redesign.

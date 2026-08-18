@@ -67,6 +67,17 @@ describe("grounded Chat workspace", () => {
     vi.restoreAllMocks();
   });
 
+  it("renders the Vermillion Ledger source-first research workspace before an inquiry", () => {
+    render(<Chat />);
+
+    expect(screen.getByText("Vermillion Ledger")).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: "Ask the textbook. Trace the evidence." })).toBeInTheDocument();
+    expect(screen.getByText("Evidence register")).toBeInTheDocument();
+    expect(screen.getByText("Your conversations")).toBeInTheDocument();
+    expect(screen.getAllByRole("button", { name: "New conversation" }).length).toBeGreaterThan(0);
+    expect(screen.getByText("Evidence appears after an inquiry")).toBeInTheDocument();
+  });
+
   it("shows loading, an honest unavailable answer, real citations, and retrieved passages from the API", async () => {
     const user = userEvent.setup();
     let resolveResponse: (response: Response) => void = () => undefined;

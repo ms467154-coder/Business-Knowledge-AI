@@ -1,448 +1,61 @@
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { cn } from "@/lib/utils";
-import {
-  ArrowUp,
-  BookOpen,
-  CheckCircle2,
-  ChevronRight,
-  CircleAlert,
-  ExternalLink,
-  FileText,
-  Library,
-  Loader2,
-  Menu,
-  MessageSquare,
-  PanelLeftClose,
-  Plus,
-  Search,
-  Sparkles,
-  X,
-} from "lucide-react";
+import { BookOpen, CheckCircle2, ChevronRight, CircleAlert, ExternalLink, FileText, Library, Loader2, Menu, MessageSquare, Plus, Search, Sparkles, X } from "lucide-react";
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import { Streamdown } from "streamdown";
 
-type Citation = {
-  chunk_id: string;
-  source_title: string;
-  page: number | null;
-  chapter: string | null;
-  section: string | null;
-  official_book_url: string | null;
-};
+type Citation = { chunk_id: string; source_title: string; page: number | null; chapter: string | null; section: string | null; official_book_url: string | null };
+type Document = { chunk_id: string; text: string; page: number | null; chapter: Record<string, unknown> | string | null; section: Record<string, unknown> | string | null; rank: number };
+type Response = { conversation_id: string; answer: string | null; answer_status: "generated" | "unavailable"; citations: Citation[]; retrieved_documents: Document[]; reranked_documents: Document[]; generation: { status: "completed" | "unavailable"; detail: string } };
+type Message = { id: string; role: "user" | "assistant"; content: string; response?: Response };
+type Conversation = { id: string; title: string; messages: Message[] };
 
-type RetrievedDocument = {
-  chunk_id: string;
-  text: string;
-  page: number | null;
-  chapter: Record<string, unknown> | string | null;
-  section: Record<string, unknown> | string | null;
-  source: Record<string, unknown>;
-  rank: number;
-  bm25_score: number;
-};
+const STARTERS = ["What are the four functions of management?", "How does marketing create customer value?", "What is the difference between a sole proprietorship and a partnership?"];
+const CHAPTERS = [["1", "The Role of Business", "Foundation of business and its purpose."], ["3", "The Business Environment", "External forces shaping business decisions."], ["6", "Management and Leadership", "The nature of management and leadership."], ["10", "Entrepreneurship", "Starting and growing a new business."]] as const;
+const makeConversation = (): Conversation => ({ id: crypto.randomUUID(), title: "New conversation", messages: [] });
+const brief = (title: string) => title.length > 33 ? `${title.slice(0, 33)}…` : title;
+const value = (item: Document["chapter"]): string => !item ? "OpenStax source" : typeof item === "string" ? item : String(item.title ?? item.name ?? item.label ?? "OpenStax source");
 
-type ChatResponse = {
-  conversation_id: string;
-  question: string;
-  rewritten_query: string | null;
-  answer: string | null;
-  answer_status: "generated" | "unavailable";
-  citations: Citation[];
-  retrieved_documents: RetrievedDocument[];
-  reranked_documents: RetrievedDocument[];
-  pipeline: "deterministic_langgraph_rag";
-  retrieval: { status: "completed" | "unavailable"; detail: string };
-  reranking: { status: "completed" | "unavailable"; detail: string };
-  generation: { status: "completed" | "unavailable"; detail: string };
-};
-
-type ChatMessage = {
-  id: string;
-  role: "user" | "assistant";
-  content: string;
-  response?: ChatResponse;
-};
-
-type Conversation = {
-  id: string;
-  title: string;
-  messages: ChatMessage[];
-};
-
-const STARTER_QUESTIONS = [
-  "What are the four functions of management?",
-  "How does marketing create customer value?",
-  "What is the difference between a sole proprietorship and a partnership?",
-];
-
-function createConversation(): Conversation {
-  return {
-    id: crypto.randomUUID(),
-    title: "New conversation",
-    messages: [],
-  };
+function ResearchIndex({ conversations, activeId, select, newInquiry, close }: { conversations: Conversation[]; activeId: string; select: (id: string) => void; newInquiry: () => void; close?: () => void }) {
+  return <div className="flex h-full flex-col bg-[#fbfaf6]">
+    <div className="flex items-center justify-between border-b border-[#c74537]/35 px-4 py-4"><div><p className="ledger-kicker">Research index</p><p className="mt-1 text-xs text-[#6d625a]">OpenStax Introduction to Business</p></div>{close && <Button variant="ghost" size="icon" className="size-8 text-[#7b2b25] lg:hidden" onClick={close} aria-label="Close research index"><X className="size-4" /></Button>}</div>
+    <div className="space-y-2 border-b border-[#c74537]/25 px-4 py-3"><Button onClick={newInquiry} className="ledger-button h-10 w-full justify-start gap-2 rounded-none px-3 text-xs font-bold uppercase tracking-[0.08em]" aria-label="New conversation"><Plus className="size-4" />New inquiry</Button><div className="grid grid-cols-3 overflow-hidden border border-[#c74537]/30 text-[10px] font-semibold uppercase tracking-[0.08em] text-[#7f2a24]"><span className="flex items-center justify-center border-r border-[#c74537]/25 bg-[#a42e27] px-1 py-2 text-white"><MessageSquare className="mr-1 size-3" />Chats</span><span className="flex items-center justify-center border-r border-[#c74537]/25 px-1 py-2"><BookOpen className="mr-1 size-3" />Book</span><span className="flex items-center justify-center px-1 py-2"><FileText className="mr-1 size-3" />Saved</span></div></div>
+    <div className="min-h-0 flex-1 overflow-y-auto px-4 py-4"><nav aria-label="Conversation history" className="mb-5 border-b border-[#c74537]/25 pb-4"><p className="ledger-kicker mb-2">Your conversations</p><div className="space-y-1">{conversations.map((conversation) => <button key={conversation.id} onClick={() => select(conversation.id)} aria-current={conversation.id === activeId ? "page" : undefined} className={cn("flex w-full items-center gap-2 border-l-2 px-2 py-2 text-left text-xs transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#a42e27]", conversation.id === activeId ? "border-[#a42e27] bg-[#f5e8e3] font-semibold text-[#74241f]" : "border-transparent text-[#655c55] hover:border-[#c74537]/45 hover:bg-[#f5eee9]")}><MessageSquare className="size-3.5 shrink-0" /><span className="min-w-0 truncate">{brief(conversation.title)}</span></button>)}</div></nav>
+      <section aria-labelledby="chapter-index"><p id="chapter-index" className="ledger-kicker mb-2">Book chapters</p><div className="space-y-2">{CHAPTERS.map(([number, title, detail]) => <button key={number} type="button" className="group flex w-full gap-3 border border-[#b89d91]/45 bg-white/65 p-2.5 text-left transition-colors hover:border-[#a42e27] hover:bg-white focus:outline-none focus-visible:ring-2 focus-visible:ring-[#a42e27]"><span className="ledger-display border-r border-[#c74537]/30 pr-2 text-2xl leading-none text-[#a42e27]">{number}</span><span className="min-w-0 flex-1"><span className="block text-xs font-bold text-[#342b27]">{title}</span><span className="mt-0.5 line-clamp-2 block text-[11px] leading-4 text-[#756963]">{detail}</span></span><ChevronRight className="mt-1 size-3.5 shrink-0 text-[#a42e27]" /></button>)}</div></section></div>
+    <div className="m-4 border border-[#b89d91]/55 bg-[#f5eee7] p-3"><div className="mb-1 flex items-center gap-2 text-xs font-bold text-[#7d2923]"><Library className="size-3.5" />Source method</div><p className="text-[11px] leading-4 text-[#625750]">Answers are grounded in the OpenStax textbook. Citations retain the chapter and page for review.</p></div>
+  </div>;
 }
 
-function displayValue(value: Record<string, unknown> | string | null | undefined) {
-  if (!value) return "Not specified";
-  if (typeof value === "string") return value;
-  return String(value.title ?? value.name ?? value.label ?? "Not specified");
+function EvidenceRegister({ response }: { response?: Response }) {
+  const citations = response?.citations ?? [];
+  const documents = response ? (response.reranked_documents.length ? response.reranked_documents : response.retrieved_documents) : [];
+  return <aside className="border-t border-[#c74537]/35 bg-[#fcfbf7] lg:border-l lg:border-t-0" aria-label="Evidence register">
+    <div className="border-b border-[#c74537]/35 px-4 py-4"><div className="flex items-baseline justify-between gap-3"><div><p className="ledger-kicker">Evidence register</p><h2 className="ledger-display mt-1 text-2xl text-[#59251f]">Textbook sources</h2></div><span className="border border-[#c74537]/35 px-2 py-1 text-[10px] font-bold uppercase tracking-[0.08em] text-[#8d2c25]">{citations.length} source{citations.length === 1 ? "" : "s"}</span></div></div>
+    {citations.length ? <div className="divide-y divide-[#c74537]/25"><h3 className="sr-only">Source citations</h3>{citations.map((citation, index) => <a key={`${citation.chunk_id}-${index}`} href={citation.official_book_url || "https://openstax.org/details/books/introduction-business"} target="_blank" rel="noreferrer" className="group flex gap-3 px-4 py-4 transition-colors hover:bg-[#f7ebe6] focus:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[#a42e27]"><span className="ledger-display mt-0.5 text-2xl leading-none text-[#a42e27]">{index + 1}</span><span className="min-w-0 flex-1"><span className="flex items-start justify-between gap-2"><span className="text-xs font-bold leading-5 text-[#342b27]">{citation.source_title}</span><ExternalLink className="mt-0.5 size-3.5 shrink-0 text-[#a42e27]" /></span><span className="mt-1 block text-[11px] font-semibold uppercase tracking-[0.08em] text-[#9f2f27]">{citation.chapter || "OpenStax source"}{citation.page !== null ? ` · p. ${citation.page}` : ""}</span>{citation.section && <span className="mt-1 line-clamp-2 block text-[11px] leading-4 text-[#6e625b]">{citation.section}</span>}</span></a>)}</div> : <div className="px-4 py-7 text-center"><Search className="mx-auto size-5 text-[#a42e27]" /><p className="ledger-display mt-2 text-lg text-[#4b3731]">Evidence appears after an inquiry</p><p className="mx-auto mt-1 max-w-[24ch] text-xs leading-5 text-[#756963]">Each response retains its OpenStax chapter and page references here.</p></div>}
+    {documents.length > 0 && <section className="border-t border-[#c74537]/35 px-4 py-4" aria-labelledby="passage-heading"><div className="mb-2 flex items-center gap-2"><FileText className="size-3.5 text-[#a42e27]" /><h3 id="passage-heading" className="text-[10px] font-bold uppercase tracking-[0.12em] text-[#8d2c25]">Retrieved textbook passages</h3></div><div className="space-y-2">{documents.map((document) => <article key={document.chunk_id} className="border border-[#b89d91]/45 bg-[#f7f1eb] p-3"><p className="text-[10px] font-bold uppercase tracking-[0.08em] text-[#9f2f27]">Source {document.rank}{document.page !== null ? ` · p. ${document.page}` : ""}</p><p className="mt-1 line-clamp-3 text-xs leading-5 text-[#564a44]">{document.text}</p><p className="mt-1 text-[10px] text-[#7b6c63]">{value(document.chapter)}</p></article>)}</div></section>}
+  </aside>;
 }
 
-function conversationLabel(conversation: Conversation) {
-  return conversation.title.length > 34
-    ? `${conversation.title.slice(0, 34)}…`
-    : conversation.title;
-}
-
-function SourceMeta({ citation }: { citation: Citation }) {
-  return (
-    <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs text-slate-500">
-      {citation.page !== null && <span>Page {citation.page}</span>}
-      {citation.chapter && <><span aria-hidden="true">•</span><span>{citation.chapter}</span></>}
-      {citation.section && <><span aria-hidden="true">•</span><span>{citation.section}</span></>}
-    </div>
-  );
-}
-
-function SidebarContent({
-  conversations,
-  activeConversationId,
-  onSelect,
-  onNew,
-  onClose,
-}: {
-  conversations: Conversation[];
-  activeConversationId: string;
-  onSelect: (id: string) => void;
-  onNew: () => void;
-  onClose?: () => void;
-}) {
-  return (
-    <>
-      <div className="border-b border-slate-200/80 px-4 pb-5 pt-5">
-        <div className="mb-5 flex items-center justify-between gap-3">
-          <div className="flex min-w-0 items-center gap-2.5">
-            <div className="flex size-9 shrink-0 items-center justify-center rounded-xl bg-[#0b3d91] text-white shadow-[0_6px_16px_rgba(11,61,145,0.22)]">
-              <BookOpen className="size-[18px]" aria-hidden="true" />
-            </div>
-            <div className="min-w-0">
-              <p className="truncate text-sm font-semibold tracking-[-0.02em] text-slate-900">Business Knowledge AI</p>
-              <p className="mt-0.5 text-[11px] font-medium text-slate-500">OpenStax research assistant</p>
-            </div>
-          </div>
-          {onClose && (
-            <Button variant="ghost" size="icon" className="size-8 text-slate-500 lg:hidden" onClick={onClose} aria-label="Close conversations">
-              <X className="size-4" />
-            </Button>
-          )}
-        </div>
-        <Button className="h-10 w-full justify-start gap-2 rounded-xl bg-[#0b3d91] px-3 text-sm font-medium hover:bg-[#082f72]" onClick={onNew}>
-          <Plus className="size-4" aria-hidden="true" />
-          New conversation
-        </Button>
-      </div>
-
-      <div className="min-h-0 flex-1 overflow-y-auto px-3 py-4">
-        <p className="px-2 pb-2 text-[10px] font-semibold uppercase tracking-[0.14em] text-slate-400">Your conversations</p>
-        <nav aria-label="Conversation history" className="space-y-1">
-          {conversations.map((conversation) => {
-            const isActive = conversation.id === activeConversationId;
-            return (
-              <button
-                key={conversation.id}
-                onClick={() => onSelect(conversation.id)}
-                className={cn(
-                  "group flex w-full items-center gap-2.5 rounded-xl px-2.5 py-2.5 text-left text-sm transition-colors",
-                  isActive ? "bg-blue-50 font-medium text-[#0b3d91]" : "text-slate-600 hover:bg-slate-100 hover:text-slate-900",
-                )}
-              >
-                <MessageSquare className={cn("size-4 shrink-0", isActive ? "text-[#0b3d91]" : "text-slate-400")} aria-hidden="true" />
-                <span className="min-w-0 flex-1 truncate">{conversationLabel(conversation)}</span>
-              </button>
-            );
-          })}
-        </nav>
-      </div>
-
-      <div className="m-3 rounded-xl border border-blue-100 bg-blue-50/70 p-3.5">
-        <div className="mb-1.5 flex items-center gap-2 text-xs font-semibold text-[#0b3d91]">
-          <Library className="size-4" aria-hidden="true" />
-          Grounded source
-        </div>
-        <p className="text-xs leading-5 text-slate-600">Answers and sources are drawn from <span className="font-medium">OpenStax Introduction to Business</span>.</p>
-      </div>
-    </>
-  );
-}
-
-function AssistantResponse({ response }: { response: ChatResponse }) {
-  const citationRows = response.citations;
-  const documents = response.reranked_documents.length > 0 ? response.reranked_documents : response.retrieved_documents;
-
-  return (
-    <div className="space-y-3">
-      {response.answer_status === "generated" && response.answer ? (
-        <div className="prose prose-sm max-w-none prose-p:leading-7 prose-a:text-[#0b3d91] prose-strong:text-slate-900">
-          <Streamdown>{response.answer}</Streamdown>
-        </div>
-      ) : (
-        <div className="rounded-xl border border-amber-200 bg-amber-50 px-4 py-3.5 text-sm text-amber-950">
-          <div className="flex items-start gap-2.5">
-            <CircleAlert className="mt-0.5 size-4 shrink-0 text-amber-700" aria-hidden="true" />
-            <div>
-              <p className="font-semibold">A generated answer is unavailable</p>
-              <p className="mt-1 leading-6 text-amber-900/85">{response.generation.detail} The retrieved textbook passages below remain available for review.</p>
-            </div>
-          </div>
-        </div>
-      )}
-
-      {citationRows.length > 0 && (
-        <section aria-labelledby="citation-heading" className="pt-1">
-          <div className="mb-2 flex items-center gap-2">
-            <FileText className="size-3.5 text-[#0b3d91]" aria-hidden="true" />
-            <h3 id="citation-heading" className="text-xs font-semibold uppercase tracking-[0.11em] text-slate-500">Source citations</h3>
-          </div>
-          <div className="grid gap-2 sm:grid-cols-2">
-            {citationRows.map((citation, index) => (
-              <a
-                key={`${citation.chunk_id}-${index}`}
-                href={citation.official_book_url || "https://openstax.org/details/books/introduction-business"}
-                target="_blank"
-                rel="noreferrer"
-                className="group rounded-xl border border-slate-200 bg-white p-3.5 transition-all hover:-translate-y-0.5 hover:border-blue-200 hover:shadow-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-[#0b3d91]"
-              >
-                <div className="mb-2 flex items-start justify-between gap-3">
-                  <span className="line-clamp-2 text-sm font-semibold leading-5 text-slate-800">{citation.source_title}</span>
-                  <ExternalLink className="mt-0.5 size-3.5 shrink-0 text-slate-400 transition-colors group-hover:text-[#0b3d91]" aria-hidden="true" />
-                </div>
-                <SourceMeta citation={citation} />
-              </a>
-            ))}
-          </div>
-        </section>
-      )}
-
-      {documents.length > 0 && (
-        <section aria-labelledby="passage-heading" className="pt-1">
-          <div className="mb-2 flex items-center gap-2">
-            <Search className="size-3.5 text-[#0b3d91]" aria-hidden="true" />
-            <h3 id="passage-heading" className="text-xs font-semibold uppercase tracking-[0.11em] text-slate-500">Retrieved textbook passages</h3>
-          </div>
-          <div className="space-y-2">
-            {documents.map((document) => (
-              <article key={document.chunk_id} className="rounded-xl border border-slate-200 bg-slate-50/70 p-3.5">
-                <div className="mb-2 flex flex-wrap items-center gap-x-2 gap-y-1 text-xs text-slate-500">
-                  <span className="font-semibold text-[#0b3d91]">Source {document.rank}</span>
-                  {document.page !== null && <><span aria-hidden="true">•</span><span>Page {document.page}</span></>}
-                  <span aria-hidden="true">•</span><span>{displayValue(document.chapter)}</span>
-                  <span aria-hidden="true">•</span><span>{displayValue(document.section)}</span>
-                </div>
-                <p className="line-clamp-4 text-sm leading-6 text-slate-700">{document.text}</p>
-              </article>
-            ))}
-          </div>
-        </section>
-      )}
-    </div>
-  );
+function Welcome({ ask, disabled }: { ask: (question: string) => void; disabled: boolean }) {
+  return <section className="mx-auto max-w-3xl py-5 sm:py-10"><div className="mb-6 inline-flex items-center gap-2 border-y border-[#c74537]/35 py-2 text-[10px] font-bold uppercase tracking-[0.16em] text-[#8f2d26]"><BookOpen className="size-3.5" />OpenStax business research</div><h1 className="ledger-display max-w-3xl text-4xl leading-[0.95] text-[#2d2521] sm:text-6xl">Ask the textbook. <span className="text-[#a42e27]">Trace the evidence.</span></h1><p className="mt-5 max-w-2xl text-[15px] leading-7 text-[#655a54]">Business Knowledge AI turns questions into grounded research notes. Each response is paired with the OpenStax passages used to support it.</p><div className="mt-8 grid gap-3 sm:grid-cols-3">{STARTERS.map((question, index) => <button key={question} onClick={() => ask(question)} disabled={disabled} className="group border border-[#b89d91]/50 bg-white/65 p-4 text-left transition-colors hover:border-[#a42e27] hover:bg-[#fffdf9] disabled:cursor-not-allowed disabled:opacity-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#a42e27]"><span className="ledger-display block text-2xl text-[#a42e27]">0{index + 1}</span><span className="mt-2 block text-sm font-bold leading-5 text-[#463a34]">{question}</span><span className="mt-4 flex items-center gap-1 text-[10px] font-bold uppercase tracking-[0.1em] text-[#9f2f27]">Begin research <ChevronRight className="size-3.5" /></span></button>)}</div></section>;
 }
 
 export default function Chat() {
-  const [conversations, setConversations] = useState<Conversation[]>(() => [createConversation()]);
-  const [activeConversationId, setActiveConversationId] = useState(() => conversations[0]?.id ?? "");
-  const [input, setInput] = useState("");
-  const [isLoading, setIsLoading] = useState(false);
-  const [errorMessage, setErrorMessage] = useState<string | null>(null);
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-  const messageEndRef = useRef<HTMLDivElement>(null);
-
-  const activeConversation = useMemo(
-    () => conversations.find((conversation) => conversation.id === activeConversationId) ?? conversations[0],
-    [activeConversationId, conversations],
-  );
-
-  useEffect(() => {
-    messageEndRef.current?.scrollIntoView({ behavior: "smooth", block: "end" });
-  }, [activeConversation?.messages.length, isLoading]);
-
-  const updateActiveConversation = (updater: (conversation: Conversation) => Conversation) => {
-    setConversations((current) => current.map((conversation) => conversation.id === activeConversationId ? updater(conversation) : conversation));
-  };
-
-  const handleNewConversation = () => {
-    const nextConversation = createConversation();
-    setConversations((current) => [nextConversation, ...current]);
-    setActiveConversationId(nextConversation.id);
-    setInput("");
-    setErrorMessage(null);
-    setIsSidebarOpen(false);
-  };
-
-  const sendQuestion = async (question: string) => {
-    const trimmedQuestion = question.trim();
-    if (!trimmedQuestion || isLoading || !activeConversation) return;
-
-    const userMessage: ChatMessage = { id: crypto.randomUUID(), role: "user", content: trimmedQuestion };
-    updateActiveConversation((conversation) => ({
-      ...conversation,
-      title: conversation.messages.length === 0 ? trimmedQuestion : conversation.title,
-      messages: [...conversation.messages, userMessage],
-    }));
-    setInput("");
-    setErrorMessage(null);
-    setIsLoading(true);
-
-    try {
-      const response = await fetch("/api/chat", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ question: trimmedQuestion, top_k: 5, conversation_id: activeConversation.id }),
-      });
-
-      const payload = await response.json().catch(() => null) as ChatResponse | { detail?: string } | null;
-      if (!response.ok || !payload || !("answer_status" in payload)) {
-        const detail = payload && "detail" in payload && typeof payload.detail === "string" ? payload.detail : "The textbook service could not process that question.";
-        throw new Error(detail);
-      }
-
-      updateActiveConversation((conversation) => ({
-        ...conversation,
-        messages: [...conversation.messages, { id: crypto.randomUUID(), role: "assistant", content: payload.answer ?? "", response: payload }],
-      }));
-    } catch (error) {
-      setErrorMessage(error instanceof Error ? error.message : "The textbook service could not be reached. Please try again.");
-    } finally {
-      setIsLoading(false);
-    }
-  };
-
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    void sendQuestion(input);
-  };
-
+  const [conversations, setConversations] = useState<Conversation[]>(() => [makeConversation()]);
+  const [activeId, setActiveId] = useState(() => conversations[0]?.id ?? "");
+  const [input, setInput] = useState(""); const [loading, setLoading] = useState(false); const [error, setError] = useState<string | null>(null); const [indexOpen, setIndexOpen] = useState(false); const end = useRef<HTMLDivElement>(null);
+  const active = useMemo(() => conversations.find((conversation) => conversation.id === activeId) ?? conversations[0], [activeId, conversations]);
+  const activeConversation = active;
   const messages = activeConversation?.messages ?? [];
-
-  return (
-    <div className="min-h-[100dvh] bg-[#f7f9fc] text-slate-900">
-      <div className="flex min-h-[100dvh]">
-        <aside className="hidden w-[300px] shrink-0 flex-col border-r border-slate-200 bg-white lg:flex">
-          <SidebarContent conversations={conversations} activeConversationId={activeConversationId} onSelect={setActiveConversationId} onNew={handleNewConversation} />
-        </aside>
-
-        {isSidebarOpen && (
-          <div className="fixed inset-0 z-50 lg:hidden" role="dialog" aria-modal="true" aria-label="Conversation history">
-            <button className="absolute inset-0 bg-slate-950/35" aria-label="Close conversations" onClick={() => setIsSidebarOpen(false)} />
-            <aside className="relative flex h-full w-[min(88vw,330px)] flex-col bg-white shadow-2xl">
-              <SidebarContent conversations={conversations} activeConversationId={activeConversationId} onSelect={(id) => { setActiveConversationId(id); setIsSidebarOpen(false); }} onNew={handleNewConversation} onClose={() => setIsSidebarOpen(false)} />
-            </aside>
-          </div>
-        )}
-
-        <main className="flex min-w-0 flex-1 flex-col">
-          <header className="flex h-16 shrink-0 items-center justify-between border-b border-slate-200 bg-white/90 px-4 backdrop-blur sm:px-6 lg:px-10">
-            <div className="flex min-w-0 items-center gap-3">
-              <Button variant="ghost" size="icon" className="size-9 text-slate-600 lg:hidden" onClick={() => setIsSidebarOpen(true)} aria-label="Open conversations">
-                <Menu className="size-5" />
-              </Button>
-              <div className="min-w-0">
-                <div className="flex items-center gap-2">
-                  <h1 className="truncate text-sm font-semibold tracking-[-0.01em] text-slate-900 sm:text-base">Textbook research workspace</h1>
-                  <span className="hidden rounded-full bg-emerald-50 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-[0.08em] text-emerald-700 sm:inline">BM25 ready</span>
-                </div>
-                <p className="mt-0.5 hidden text-xs text-slate-500 sm:block">Deterministic retrieval from OpenStax Introduction to Business</p>
-              </div>
-            </div>
-            <div className="flex items-center gap-2 text-xs font-medium text-slate-500">
-              <CheckCircle2 className="size-4 text-emerald-600" aria-hidden="true" />
-              <span className="hidden sm:inline">Source-grounded</span>
-            </div>
-          </header>
-
-          <div className="flex min-h-0 flex-1 flex-col">
-            <div className="min-h-0 flex-1 overflow-y-auto">
-              <div className="mx-auto w-full max-w-4xl px-4 pb-6 pt-8 sm:px-7 sm:pt-12 lg:px-10">
-                {messages.length === 0 ? (
-                  <section className="mx-auto max-w-3xl py-5 sm:py-10">
-                    <div className="mb-7 flex size-12 items-center justify-center rounded-2xl bg-blue-100 text-[#0b3d91]">
-                      <Sparkles className="size-5" aria-hidden="true" />
-                    </div>
-                    <p className="mb-3 text-xs font-semibold uppercase tracking-[0.14em] text-[#0b3d91]">Business Knowledge AI</p>
-                    <h2 className="max-w-2xl text-3xl font-semibold tracking-[-0.045em] text-slate-900 sm:text-4xl">Explore business concepts with the textbook at hand.</h2>
-                    <p className="mt-4 max-w-2xl text-[15px] leading-7 text-slate-600">Ask a question and review the OpenStax passages used to support the response. When a generated answer is unavailable, you will still see the real retrieved textbook sources.</p>
-                    <div className="mt-8 grid gap-3 sm:grid-cols-3">
-                      {STARTER_QUESTIONS.map((question) => (
-                        <button key={question} onClick={() => void sendQuestion(question)} disabled={isLoading} className="group rounded-2xl border border-slate-200 bg-white p-4 text-left shadow-[0_1px_2px_rgba(15,23,42,0.04)] transition-all hover:-translate-y-0.5 hover:border-blue-200 hover:shadow-md disabled:cursor-not-allowed disabled:opacity-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#0b3d91]">
-                          <span className="block text-sm font-medium leading-5 text-slate-700 group-hover:text-[#0b3d91]">{question}</span>
-                          <span className="mt-3 flex items-center gap-1 text-xs font-medium text-[#0b3d91]">Explore source <ChevronRight className="size-3.5" aria-hidden="true" /></span>
-                        </button>
-                      ))}
-                    </div>
-                  </section>
-                ) : (
-                  <div className="space-y-7">
-                    {messages.map((message) => (
-                      <div key={message.id} className={cn("flex gap-3 sm:gap-4", message.role === "user" ? "justify-end" : "justify-start")}>
-                        {message.role === "assistant" && (
-                          <div className="mt-1 flex size-8 shrink-0 items-center justify-center rounded-xl bg-blue-100 text-[#0b3d91]">
-                            <BookOpen className="size-4" aria-hidden="true" />
-                          </div>
-                        )}
-                        <div className={cn("min-w-0", message.role === "user" ? "max-w-[85%] sm:max-w-[70%]" : "max-w-3xl flex-1")}>
-                          <p className={cn("mb-1.5 text-xs font-semibold", message.role === "user" ? "text-right text-slate-500" : "text-[#0b3d91]")}>{message.role === "user" ? "You" : "Business Knowledge AI"}</p>
-                          {message.role === "user" ? (
-                            <div className="rounded-2xl rounded-tr-md bg-[#0b3d91] px-4 py-3 text-sm leading-6 text-white shadow-[0_4px_12px_rgba(11,61,145,0.16)]">{message.content}</div>
-                          ) : message.response ? (
-                            <AssistantResponse response={message.response} />
-                          ) : null}
-                        </div>
-                      </div>
-                    ))}
-                    {isLoading && (
-                      <div className="flex gap-3 sm:gap-4">
-                        <div className="mt-1 flex size-8 shrink-0 items-center justify-center rounded-xl bg-blue-100 text-[#0b3d91]">
-                          <BookOpen className="size-4" aria-hidden="true" />
-                        </div>
-                        <div>
-                          <p className="mb-1.5 text-xs font-semibold text-[#0b3d91]">Searching the textbook</p>
-                          <div className="flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-3.5 py-3 text-sm text-slate-600">
-                            <Loader2 className="size-4 animate-spin text-[#0b3d91]" aria-hidden="true" />
-                            Retrieving grounded passages…
-                          </div>
-                        </div>
-                      </div>
-                    )}
-                    {errorMessage && (
-                      <div role="alert" className="rounded-xl border border-red-200 bg-red-50 px-4 py-3.5 text-sm text-red-800">
-                        <div className="flex items-start gap-2.5"><CircleAlert className="mt-0.5 size-4 shrink-0" aria-hidden="true" /><p><span className="font-semibold">Request unavailable.</span> {errorMessage}</p></div>
-                      </div>
-                    )}
-                  </div>
-                )}
-                <div ref={messageEndRef} />
-              </div>
-            </div>
-
-            <div className="shrink-0 border-t border-slate-200 bg-white px-4 py-4 sm:px-7 lg:px-10">
-              <form onSubmit={handleSubmit} className="mx-auto max-w-4xl">
-                <div className="rounded-2xl border border-slate-300 bg-white p-2 shadow-[0_8px_24px_rgba(15,23,42,0.06)] focus-within:border-[#0b3d91] focus-within:ring-4 focus-within:ring-blue-100">
-                  <Textarea value={input} onChange={(event) => setInput(event.target.value)} onKeyDown={(event) => { if (event.key === "Enter" && !event.shiftKey) { event.preventDefault(); void sendQuestion(input); } }} placeholder="Ask a business question about the OpenStax textbook…" aria-label="Business question" rows={1} className="min-h-12 max-h-32 resize-none border-0 bg-transparent px-3 py-2.5 text-[15px] leading-6 shadow-none focus-visible:ring-0" disabled={isLoading} />
-                  <div className="flex items-center justify-between gap-3 px-1 pb-1">
-                    <p className="pl-2 text-[11px] leading-4 text-slate-500">Enter to send <span className="hidden sm:inline">• Shift + Enter for a new line</span></p>
-                    <Button type="submit" size="icon" disabled={!input.trim() || isLoading} className="size-9 rounded-xl bg-[#0b3d91] shadow-none hover:bg-[#082f72]" aria-label="Send question">
-                      {isLoading ? <Loader2 className="size-4 animate-spin" /> : <ArrowUp className="size-4" />}
-                    </Button>
-                  </div>
-                </div>
-                <p className="mt-2 text-center text-[11px] leading-4 text-slate-500">This workspace only reports what the deterministic textbook pipeline returns; it does not invent answers or sources.</p>
-              </form>
-            </div>
-          </div>
-        </main>
-      </div>
-    </div>
-  );
+  const latest = useMemo(() => [...messages].reverse().find((message) => message.role === "assistant" && message.response)?.response, [messages]);
+  useEffect(() => { end.current?.scrollIntoView({ behavior: "smooth", block: "end" }); }, [messages.length, loading]);
+  const update = (fn: (conversation: Conversation) => Conversation) => setConversations((all) => all.map((conversation) => conversation.id === activeId ? fn(conversation) : conversation));
+  const newInquiry = () => { const next = makeConversation(); setConversations((all) => [next, ...all]); setActiveId(next.id); setInput(""); setError(null); setIndexOpen(false); };
+  const ask = async (raw: string) => { const question = raw.trim(); if (!question || loading || !activeConversation) return; update((conversation) => ({ ...conversation, title: conversation.messages.length ? conversation.title : question, messages: [...conversation.messages, { id: crypto.randomUUID(), role: "user", content: question }] })); setInput(""); setError(null); setLoading(true); try { const request = await fetch("/api/chat", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ question, top_k: 5, conversation_id: activeConversation.id }) }); const payload = await request.json().catch(() => null) as Response | { detail?: string } | null; if (!request.ok || !payload || !("answer_status" in payload)) throw new Error(payload && "detail" in payload && typeof payload.detail === "string" ? payload.detail : "The textbook service could not process that question."); update((conversation) => ({ ...conversation, messages: [...conversation.messages, { id: crypto.randomUUID(), role: "assistant", content: payload.answer ?? "", response: payload }] })); } catch (reason) { setError(reason instanceof Error ? reason.message : "The textbook service could not be reached. Please try again."); } finally { setLoading(false); } };
+  return <div className="ledger-page min-h-[100dvh] text-[#342b27]"><header className="border-y border-[#a42e27] bg-[#fffdf9] px-4 py-3 sm:px-6 lg:px-8"><div className="mx-auto grid max-w-[1600px] grid-cols-[1fr_auto] items-center gap-4 lg:grid-cols-[1fr_auto_1fr]"><div className="flex min-w-0 items-center gap-3"><Button variant="ghost" size="icon" className="size-8 text-[#7d2923] lg:hidden" onClick={() => setIndexOpen(true)} aria-label="Open research index"><Menu className="size-4" /></Button><div className="flex size-10 shrink-0 items-center justify-center border border-[#a42e27] text-[#a42e27]"><span className="ledger-display text-2xl">V</span></div><div className="min-w-0"><p className="ledger-display truncate text-xl leading-none text-[#2f2824] sm:text-2xl">Business Knowledge AI</p><p className="mt-1 truncate text-[9px] font-bold uppercase tracking-[0.12em] text-[#9f2f27]">AI-powered business textbook research</p></div></div><div className="hidden text-center lg:block"><p className="ledger-display text-4xl leading-none tracking-[0.12em] text-[#a42e27]">Vermillion Ledger</p><p className="mt-1 text-[9px] font-bold uppercase tracking-[0.22em] text-[#6f5d56]">Source-grounded insights · Timeless knowledge</p></div><div className="flex items-center justify-end gap-2 text-right"><CheckCircle2 className="size-4 text-[#a42e27]" /><div><p className="hidden text-[10px] font-bold uppercase tracking-[0.1em] text-[#6d625a] sm:block">Trusted sources</p><p className="text-[10px] font-semibold text-[#8d2c25]">Research integrity</p></div></div></div></header>
+    {indexOpen && <div className="fixed inset-0 z-50 lg:hidden" role="dialog" aria-modal="true" aria-label="Research index"><button className="absolute inset-0 bg-[#2d2521]/35" aria-label="Close research index" onClick={() => setIndexOpen(false)} /><aside className="relative h-full w-[min(88vw,340px)] bg-[#fbfaf6] shadow-2xl"><ResearchIndex conversations={conversations} activeId={activeId} select={(id) => { setActiveId(id); setIndexOpen(false); }} newInquiry={newInquiry} close={() => setIndexOpen(false)} /></aside></div>}
+    <main className="flex min-h-[calc(100dvh-69px)] flex-col"><div className="border-b border-[#c74537]/35 bg-[#fffdf9] px-4 py-4 sm:px-6 lg:px-8"><form onSubmit={(event) => { event.preventDefault(); void ask(input); }} className="mx-auto flex max-w-3xl border border-[#a42e27] bg-white focus-within:ring-2 focus-within:ring-[#a42e27]/35"><BookOpen className="m-3 size-5 shrink-0 text-[#a42e27]" /><Textarea value={input} onChange={(event) => setInput(event.target.value)} onKeyDown={(event) => { if (event.key === "Enter" && !event.shiftKey) { event.preventDefault(); void ask(input); } }} placeholder="Ask the OpenStax text a question" aria-label="Business question" rows={1} disabled={loading} className="min-h-12 max-h-28 flex-1 resize-none border-0 bg-transparent px-1 py-3 text-[15px] italic leading-6 text-[#342b27] shadow-none focus-visible:ring-0" /><Button type="submit" disabled={!input.trim() || loading} className="ledger-button m-1.5 h-10 rounded-none px-4 text-sm font-bold uppercase" aria-label="Send question">{loading ? <Loader2 className="size-4 animate-spin" /> : <>Ask<span className="sr-only"> question</span></>}</Button></form></div>
+      <div className="min-h-0 flex-1 overflow-y-auto"><div className="mx-auto grid w-full max-w-[1600px] grid-cols-1 lg:grid-cols-[250px_minmax(0,1fr)_340px] lg:border-x lg:border-[#c74537]/35"><aside className="hidden min-h-full lg:block"><ResearchIndex conversations={conversations} activeId={activeId} select={setActiveId} newInquiry={newInquiry} /></aside><section className="min-w-0 bg-[#fffdf9] px-5 py-7 sm:px-10 sm:py-10 lg:border-l lg:border-[#c74537]/25" aria-label="Research answer">{messages.length === 0 ? <Welcome ask={(question) => void ask(question)} disabled={loading} /> : <div className="mx-auto max-w-3xl space-y-10">{messages.map((message) => message.role === "user" ? <div key={message.id} className="border-y border-[#c74537]/30 py-3 text-center"><p className="ledger-kicker">Your question</p><button type="button" onClick={() => void ask(message.content)} disabled={loading} className="ledger-display mt-1 text-xl italic text-[#7d2923] transition-colors hover:text-[#a42e27] disabled:cursor-not-allowed sm:text-2xl">{message.content}</button></div> : message.response ? <div key={message.id}><div className="mb-3 flex items-center gap-2"><span className="flex size-7 items-center justify-center rounded-full border border-[#c74537]/50 text-[#a42e27]"><Sparkles className="size-3.5" /></span><p className="ledger-kicker">Research note</p></div>{message.response.answer_status === "generated" && message.response.answer ? <article className="ledger-answer-copy prose prose-sm max-w-none text-[#342b27] prose-p:leading-7 prose-a:text-[#9f2f27] prose-strong:text-[#7d2923]"><Streamdown>{message.response.answer}</Streamdown></article> : <div className="border border-[#c77f55] bg-[#fff7e7] px-4 py-4 text-sm text-[#6d3e16]"><div className="flex items-start gap-2.5"><CircleAlert className="mt-0.5 size-4 shrink-0 text-[#a75a18]" /><div><p className="font-bold">A generated answer is unavailable</p><p className="mt-1 leading-6">{message.response.generation.detail} The retrieved textbook passages remain available in the evidence register.</p></div></div></div>}</div> : null)}{loading && <div className="flex items-center gap-3 border border-[#b89d91]/55 bg-[#f8f2ed] px-4 py-3 text-sm text-[#655a54]"><Loader2 className="size-4 animate-spin text-[#a42e27]" /><div><p className="font-bold text-[#74241f]">Searching the textbook</p><p className="mt-0.5 text-xs">Retrieving grounded passages…</p></div></div>}{error && <div role="alert" className="border border-red-300 bg-red-50 px-4 py-3 text-sm text-red-800"><div className="flex items-start gap-2"><CircleAlert className="mt-0.5 size-4 shrink-0" /><p><span className="font-bold">Request unavailable.</span> {error}</p></div></div>}</div>}<div ref={end} /></section><EvidenceRegister response={latest} /></div></div><footer className="border-t border-[#c74537]/35 bg-[#fffdf9] px-4 py-3 text-center sm:px-6"><p className="text-[10px] font-semibold uppercase tracking-[0.1em] text-[#7c6b63]">This workspace reports what the deterministic textbook pipeline returns; it does not invent answers or sources.</p></footer></main>
+  </div>;
 }

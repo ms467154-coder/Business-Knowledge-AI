@@ -61,4 +61,8 @@ This concept fits Business Knowledge AI when the portfolio should emphasize **AI
 | **E — Vermillion Ledger** | Study, research, and academic portfolio storytelling | Excellent readability and source-centered editorial identity | The light composition requires discipline to stay visually distinctive |
 | **F — Violet Noir** | AI-product and innovation portfolio storytelling | Most original interaction model and intelligence-studio character | Must use restrained motion and glow to preserve readability |
 
-Choose **D**, **E**, or **F** to authorize implementation. Until a selection is explicit, the current application interface remains unchanged.
+## Selection and implementation record
+
+The user explicitly selected **Option E — Vermillion Ledger**. The approved frontend redesign is now implemented in the React chat workspace. It introduces the warm paper-and-vermilion design system, editorial masthead, responsive Research Index, inquiry surface, source-first Evidence Register, article-style research notes, and responsive mobile drawer.
+
+The implementation preserves the existing `POST /api/chat` contract, deterministic RAG behavior, generated-answer availability states, citation links, retrieved-passage evidence, conversation history, loading states, and request-error handling. No FastAPI, LangGraph, retrieval, reranking, citation schema, or data-model behavior was changed.
