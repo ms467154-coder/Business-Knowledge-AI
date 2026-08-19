@@ -129,3 +129,5 @@
 - [x] Record production verification and save the final published tracker state.
 - [x] Remove only the visible “Vermillion Ledger” text from the frontend while retaining the approved visual system, layout, and behavior.
 - [x] Validate, synchronize, checkpoint, and publish the narrow visible-title removal.
+- [x] Identify and remove only the obsolete Qwen-specific `notebooks/09_llm_generation.ipynb` notebook and direct references.
+- [x] Verify the active gpt-5-mini generation path, synchronize the cleanup, checkpoint, and publish it.
