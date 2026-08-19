@@ -127,3 +127,5 @@
 - [x] Document, synchronize to the connected local folder, checkpoint, and publish the approved Vermillion Ledger redesign.
 - [x] Verify the automatically published Vermillion Ledger redesign on the live production URL.
 - [x] Record production verification and save the final published tracker state.
+- [x] Remove only the visible “Vermillion Ledger” text from the frontend while retaining the approved visual system, layout, and behavior.
+- [x] Validate, synchronize, checkpoint, and publish the narrow visible-title removal.

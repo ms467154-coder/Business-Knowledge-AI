@@ -67,10 +67,10 @@ describe("grounded Chat workspace", () => {
     vi.restoreAllMocks();
   });
 
-  it("renders the Vermillion Ledger source-first research workspace before an inquiry", () => {
+  it("renders the source-first research workspace before an inquiry", () => {
     render(<Chat />);
 
-    expect(screen.getByText("Vermillion Ledger")).toBeInTheDocument();
+    expect(screen.getByText("Business Knowledge AI")).toBeInTheDocument();
     expect(screen.getByRole("heading", { name: "Ask the textbook. Trace the evidence." })).toBeInTheDocument();
     expect(screen.getByText("Evidence register")).toBeInTheDocument();
     expect(screen.getByText("Your conversations")).toBeInTheDocument();
