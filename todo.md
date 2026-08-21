@@ -131,3 +131,7 @@
 - [x] Validate, synchronize, checkpoint, and publish the narrow visible-title removal.
 - [x] Identify and remove only the obsolete Qwen-specific `notebooks/09_llm_generation.ipynb` notebook and direct references.
 - [x] Verify the active gpt-5-mini generation path, synchronize the cleanup, checkpoint, and publish it.
+- [x] Audit GitHub access and repository-ready project files before external publication.
+- [x] Prepare a professional GitHub README and repository metadata while preserving exclusions for large, generated, and secret-bearing files.
+- [ ] Create a GitHub repository and push the reviewed project history and current source.
+- [ ] Verify the remote repository presentation and record the published URL.

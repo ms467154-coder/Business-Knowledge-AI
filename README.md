@@ -1,273 +1,148 @@
 # Business Knowledge AI
 
-## Phase 01 — Verified source-book acquisition
+> A source-grounded business research workspace built around the OpenStax *Introduction to Business* textbook.
 
-This project has acquired the official OpenStax edition of *Introduction to Business* as the proposed primary business-textbook source. The PDF was obtained from an OpenStax-hosted asset endpoint linked to the official OpenStax book record; no third-party, pirated, or paywall-bypassing source was used. The official preface states that the title is available free in web view and PDF through OpenStax. [1] [2]
+[![Live application](https://img.shields.io/badge/live%20application-open-9d2b25?style=flat-square)](https://busknowai-gpcbrjgv.manus.space)
+[![Frontend](https://img.shields.io/badge/frontend-React%2019-61dafb?style=flat-square)](https://react.dev/)
+[![Backend](https://img.shields.io/badge/backend-FastAPI-009688?style=flat-square)](https://fastapi.tiangolo.com/)
+[![Workflow](https://img.shields.io/badge/workflow-LangGraph-1f2937?style=flat-square)](https://langchain-ai.github.io/langgraph/)
+[![License](https://img.shields.io/badge/code%20license-MIT-a42e27?style=flat-square)](LICENSE)
 
-| Field | Verified record |
+**Business Knowledge AI** answers business questions using retrieved passages from *Introduction to Business*. It presents generated responses as research notes with chapter, page, and source evidence, rather than treating the model output as an ungrounded answer.
+
+**Live application:** [busknowai-gpcbrjgv.manus.space](https://busknowai-gpcbrjgv.manus.space)
+
+## Why this project
+
+The project is designed to make the provenance of an AI answer visible. Each response is produced through a fixed, non-agentic workflow that retains source metadata from retrieval through the final interface.
+
+```text
+Question
+  → query processing
+  → BM25 retrieval over OpenStax chunks
+  → deterministic LangGraph orchestration
+  → grounded prompt construction
+  → gpt-5-mini generation
+  → answer with textbook citations and retrieved passages
+```
+
+| Area | Implementation |
 | --- | --- |
-| Title | *Introduction to Business* |
-| Authors | Lawrence J. Gitman; Carl McDaniel; Amit Shah; Monique Reece; Linda Koffel; Bethann Talsma; James C. Hyatt |
-| Publisher | OpenStax, Rice University |
-| Official book record | [OpenStax — Introduction to Business][1] |
-| Official content page | [OpenStax — Introduction][2] |
-| Official PDF asset | [OpenStax-hosted PDF][3] |
-| License | Creative Commons Attribution 4.0 International (**CC BY 4.0**) |
-| Download date | 2026-08-14 |
-| Local file | `data/raw/introduction-to-business-openstax.pdf` |
-| File size | 55,198,256 bytes |
-| SHA-256 | `46e718b187bad53055f60c74cc919acc411840c8531ef6033d6f21a7f1ba56b5` |
+| User experience | React 19, Tailwind CSS 4, an editorial research-desk interface, responsive source review |
+| Application host | Express 4 with a supervised FastAPI process and `POST /api/chat` proxy |
+| RAG orchestration | A forward-only LangGraph workflow: process → retrieve → rerank stage → prompt → generate → format |
+| Retrieval currently available | BM25 over provenance-preserving textbook chunks |
+| Generation | `gpt-5-mini` through the server-side Manus Forge OpenAI-compatible API |
+| Evidence | OpenStax source title, chapter, page, source URL, passage rank, and retrieved text |
+| Validation | Vitest contracts for chat behavior and backend artifacts, plus TypeScript validation |
 
-### Local source-file policy
+## Product experience
 
-The official PDF is retained locally at `data/raw/introduction-to-business-openstax.pdf` and is **intentionally excluded from Git**. At 55,198,256 bytes, it exceeds the repository upload limit; it has not been compressed, repackaged, or replaced with another copy to circumvent that limit. Its verified provenance, integrity hash, and official reacquisition location are preserved in [`data/raw/SOURCE.md`](data/raw/SOURCE.md). If the local file must be reacquired, use only the [official OpenStax book record][1] and [official OpenStax-hosted PDF][3].
+The current **Research Ledger** interface is a light editorial workspace built around three complementary views:
 
-### License and intended-use limitation
-
-OpenStax identifies the textbook content as CC BY 4.0 and permits distribution, remixing, and adaptation with attribution to OpenStax and its contributors. [1] The official attribution section additionally states:
-
-> “This book may not be used in the training of large language models or otherwise be ingested into large language models or generative AI offerings without OpenStax's permission.” [2]
-
-Accordingly, **no BGE-M3 embeddings, vector index, LLM prompting, or generative-AI processing has been run on the textbook content**. Local PDF parsing and chunking artifacts were created in Phases 02–03 at the user’s request, but they must not be promoted into a RAG or generative-AI offering without explicit OpenStax permission. The OpenStax name, logos, and book covers are also excluded from the CC license. [2]
-
-### Download validation
-
-The downloaded file begins with the expected `%PDF-` signature. `pdfinfo` successfully read the document and reports the title *Introduction to Business*, 744 pages, and no encryption. A text-extraction check on interior pages succeeded and exposed the book’s title page and author list. These checks confirm that the saved asset is a readable PDF appropriate for later text-extraction work, subject to the licensing limitation above.
-
-### Phase boundary
-
-Phase 01 is limited to lawful source acquisition, verification, and documentation. No RAG component, notebook, embedding, vector index, FastAPI service, or frontend implementation has been added.
-
-## Phase 02 — Document ingestion notebook
-
-`notebooks/01_document_ingestion.ipynb` is an executed, notebook-first PyMuPDF workflow that loads the retained OpenStax PDF, reports its page count, extracts text page-by-page, shows raw and cleaned page samples, flags obvious extraction issues, and saves structured records under `data/processed/`. Each record retains `page_number`, detected `chapter`, detected `section`, `source`, `extracted_text`, `cleaned_text`, `quality_flags`, and extraction metrics.
-
-| Processed artifact | Purpose |
+| View | Purpose |
 | --- | --- |
-| `data/processed/introduction_to_business_page_records.jsonl` | One structured, auditable page record per PDF page. |
-| `data/processed/introduction_to_business_ingestion_summary.json` | Page coverage, record-count, quality-flag, source, and scope summary. |
+| **Research Index** | Starts a new inquiry, preserves local conversation history, and keeps core textbook chapters in view. |
+| **Research Note** | Presents a question and its grounded response in a readable, article-like format. |
+| **Evidence Register** | Displays the retrieved OpenStax citations, chapter/page metadata, and supporting passages returned by the API. |
 
-Phase 02 contains **only** PDF extraction, conservative text cleanup, quality checks, contextual metadata detection, and structured-record persistence. It does not implement embeddings, Qdrant, sparse retrieval, reranking, LLM calls, LangGraph, prompting, or query functionality.
+The interface intentionally does not expose autonomous-agent controls. It emphasizes readable answers, traceable evidence, and explicit application states when a source or generation result is unavailable.
 
-## Phase 03 — Recursive chunking notebook
+## Architecture
 
-`notebooks/02_chunking.ipynb` reads the Phase 02 page records and uses LangChain `RecursiveCharacterTextSplitter` while keeping chunking within a single source page. It visibly compares three practical configurations: compact (500 characters / 75 overlap), balanced (900 / 150), and broad-context (1,400 / 200). The preliminary balanced configuration was selected as a documented context-versus-fragmentation trade-off, not from downstream retrieval or generation evaluation.
+```mermaid
+flowchart LR
+    UI[React research workspace] -->|POST /api/chat| HOST[Express host]
+    HOST --> API[FastAPI service]
+    API --> GRAPH[Deterministic LangGraph]
+    GRAPH --> RETRIEVE[BM25 retrieval]
+    RETRIEVE --> PROMPT[Grounded prompt]
+    PROMPT --> LLM[gpt-5-mini]
+    LLM --> RESPONSE[Answer + citations + passages]
+    RESPONSE --> UI
+```
 
-| Processed artifact | Purpose |
+The graph is intentionally deterministic. It has no autonomous agent, tool-calling loop, retrieval loop, self-correction loop, or model-directed routing.
+
+## Repository structure
+
+```text
+business-knowledge-ai/
+├── backend/                 # FastAPI RAG service and deterministic graph
+├── client/                  # React + Tailwind research workspace
+├── server/                  # Express host, proxy, lifecycle supervision, and tests
+├── notebooks/               # Notebook-first source, ingestion, retrieval, and graph study
+├── data/
+│   ├── raw/                 # Local source metadata; the large PDF is intentionally ignored
+│   └── processed/           # Auditable page, chunk, retrieval, and status artifacts
+├── drizzle/                 # Application schema and migrations
+├── .github/                 # Issue and pull-request templates
+└── README.md
+```
+
+## Local development
+
+### Prerequisites
+
+Use a current Node.js release with Corepack / pnpm, Python 3.11 or later, and the project’s server-side environment variables. The Manus-managed deployment supplies those variables automatically; a standalone local environment must supply its own authorized values.
+
+```powershell
+cd "C:\Users\AbdElhalk\OneDrive\Desktop\RAG & LLMS Projects\Business Knowledge AI"
+corepack enable
+pnpm install
+python -m pip install -r backend/requirements.txt
+pnpm dev
+```
+
+Open [http://localhost:3000](http://localhost:3000). The Express host starts and supervises the FastAPI service for the chat route.
+
+### Required server-side configuration
+
+| Variable | Purpose |
 | --- | --- |
-| `data/processed/introduction_to_business_chunks.jsonl` | 3,018 reusable final chunks, each with `chunk_id`, `text`, `source`, `page`, `chapter`, and `section`. |
-| `data/processed/introduction_to_business_chunking_summary.json` | Compared configuration metrics, selected configuration, chunk counts, and scope boundary. |
+| `RAG_GENERATION_MODEL` | Configured generation model. The deployed project uses `gpt-5-mini`. |
+| `BUILT_IN_FORGE_API_URL` | Server-side Forge API base URL. |
+| `BUILT_IN_FORGE_API_KEY` | Server-side Forge API credential. Never commit this value. |
+| `OPENSTAX_GENERATIVE_AI_PERMISSION_CONFIRMED` | Explicit authorization gate for enabling generative processing of the source material. |
 
-Phase 03 is limited to recursive text chunking and provenance preservation. It does not implement embeddings, Qdrant, retrieval, BM25, reranking, LLM calls, or LangGraph.
+Do not commit `.env` files, provider credentials, or the locally acquired textbook PDF.
 
-## Phase 04 — BGE-M3 embedding notebook
+## Quality checks
 
-`notebooks/03_embeddings.ipynb` contains the real dense-embedding implementation for the exact `BAAI/bge-m3` model. It loads the Phase 03 chunks, retains every source field, batches text with `BGEM3FlagModel`, validates the expected 1,024-dimensional dense vectors, and applies explicit L2 normalization before persistence. The BAAI model card documents this API and dimensionality. [4]
+```bash
+pnpm test
+pnpm check
+```
 
-| Artifact | Current verified state |
+The test suite covers the chat interface, API contracts, artifact integrity, and deterministic pipeline expectations. A successful local run should be accompanied by an actual `/api/chat` request when validating model access.
+
+## Source material and responsible use
+
+This project uses the official OpenStax *Introduction to Business* textbook as its source corpus. The textbook is openly accessible under **CC BY 4.0**, subject to the attribution and other conditions documented by OpenStax. The local PDF is deliberately excluded from Git because of its size and must be reacquired only from the official source.
+
+> OpenStax also states that the book may not be used to train or otherwise ingest into large language models or generative-AI offerings without OpenStax’s permission. This project keeps an explicit server-side authorization gate for generative use.
+
+| Source record | Location |
 | --- | --- |
-| `notebooks/03_embeddings.ipynb` | Executed. The visible preflight, batching, dimension checks, normalization code, sample-display logic, and no-substitution path are present. |
-| `data/processed/introduction_to_business_bge_m3_embedding_status.json` | Saved with `blocked_by_resource_preflight`; it records that no embeddings were generated. |
-| `data/processed/introduction_to_business_bge_m3_embeddings.jsonl` | Intentionally absent. It will be created only after the exact model successfully loads and produces real vectors. |
+| Official book page | [OpenStax — Introduction to Business](https://openstax.org/details/books/introduction-business) |
+| Local source metadata | [`data/raw/SOURCE.md`](data/raw/SOURCE.md) |
+| Expected local PDF path | `data/raw/introduction-to-business-openstax.pdf` |
+| Code license | [MIT](LICENSE) |
 
-The official model endpoint was accessible, but the official `pytorch_model.bin` is 2,271,145,830 bytes. The executed preflight found 1,818,836,992 bytes of available memory and requires at least 4,542,291,660 bytes for safe loading with runtime headroom. It therefore did not download or load a model that the current environment could not safely execute. **No substitute model and no fabricated embedding vector were used.**
+The **code** in this repository is MIT licensed. The OpenStax textbook and its associated licensing or permission conditions remain governed by their own terms and are not relicensed by this repository.
 
-Phase 04 does not implement Qdrant, a vector store, retrieval, BM25, reranking, LLM calls, or LangGraph. To generate the reusable embeddings artifact, rerun the notebook in a sufficiently provisioned environment after confirming the OpenStax permission required for the intended AI use.
+## Current limitations
 
-## Phase 05 — Qdrant indexing notebook
+The published system provides real BM25 retrieval and model-backed answer generation. Dense BGE-M3 retrieval, Qdrant-backed hybrid fusion, and BGE reranking are deliberately reported as unavailable unless their corresponding real artifacts have been produced. The application does not fabricate missing vectors, scores, passages, or citations.
 
-`notebooks/04_qdrant_indexing.ipynb` contains a real in-memory Qdrant indexing path that runs only when Phase 04 has produced an actual `BAAI/bge-m3` embedding artifact. It derives the collection vector dimension from the artifact, requires the expected 1,024-dimensional dense vector, configures cosine distance, upserts deterministic UUIDv5 point IDs, and stores `chunk_id`, `text`, `source`, `page`, `chapter`, and `section` in the payload. It then reports collection statistics, scrolls a chapter metadata filter, and re-upserts the same points to verify that the count remains stable. Qdrant documents local client use, collection configuration, point upserts, and payload filtering. [5] [6] [7]
+## Contributing
 
-| Artifact | Current verified state |
-| --- | --- |
-| `notebooks/04_qdrant_indexing.ipynb` | Executed. It visibly includes the real Qdrant path and strict preflight. |
-| `data/processed/introduction_to_business_qdrant_indexing_status.json` | Saved with `blocked_missing_real_embeddings`. |
-| In-memory collection | Intentionally not created: Phase 04 has no real BGE-M3 vectors. |
+Contributions are welcome. Please read [CONTRIBUTING.md](CONTRIBUTING.md) before opening an issue or pull request. Changes that affect retrieval, grounding, citations, source-data handling, or model generation must preserve the project’s provenance-first design.
 
-The Qdrant Python client is installed for the notebook’s real-indexing path, but the executed notebook detected that `introduction_to_business_bge_m3_embeddings.jsonl` does not exist and that Phase 04 recorded `embeddings_generated: false`. It therefore created **no collection, no points, and no substitute vectors**. Rerunning the notebook after real Phase 04 output exists will complete the collection-statistics, metadata-filter, and duplicate-free re-indexing checks.
+## License
 
-Phase 05 remains limited to collection-management verification; it does not implement user-query retrieval, BM25, hybrid search, reranking, LLM calls, or LangGraph.
+The application code is available under the [MIT License](LICENSE).
 
-## Phase 06 — Basic dense retrieval notebook
+---
 
-`notebooks/05_basic_retrieval.ipynb` contains the real dense-only retrieval workflow: sample business questions are encoded using the exact `BAAI/bge-m3` model, L2-normalized, searched against a reconstructed in-memory Qdrant cosine collection, and compared at Top-K values of 3, 5, and 8. When real artifacts are present, the notebook visibly reports the score, text, page, chapter, section, source, and chunk ID for every returned result, then creates a manual relevance, coverage, citation-metadata, and redundancy review worksheet.
-
-| Artifact | Current verified state |
-| --- | --- |
-| `notebooks/05_basic_retrieval.ipynb` | Executed. It includes the full real BGE-M3 → Qdrant → Top-K path, the sample question set, K experiments, and no-fabrication preflight. |
-| `data/processed/introduction_to_business_basic_retrieval_status.json` | Saved with `blocked_missing_real_bge_m3_embeddings`. |
-| `data/processed/introduction_to_business_basic_retrieval_results.json` | Intentionally absent. It will be written only after real query embeddings and Qdrant scores are produced. |
-
-The executed preflight confirmed the existing Phase 04 and Phase 05 limitations: there is no real BGE-M3 embedding artifact and therefore no eligible Qdrant collection. The notebook consequently created **no query vectors, no search scores, no Top-K chunks, and no fabricated quality assessment**. After exact BGE-M3 embeddings are generated in a suitable environment, rerun this notebook to perform the documented experiments and manual review.
-
-Phase 06 does not implement BM25, sparse or hybrid retrieval, result fusion, reranking, LLM calls, answer generation, or LangGraph.
-
-## Phase 07 — Hybrid retrieval notebook
-
-`notebooks/06_hybrid_retrieval.ipynb` implements the candidate-generation design requested for dense BGE-M3/Qdrant retrieval, BM25 sparse retrieval, and deterministic reciprocal-rank fusion (RRF). It runs the sparse path over the real Phase 03 chunk corpus and is prepared to execute the exact dense and fused paths only when a real BGE-M3 embedding artifact becomes available. RRF combines retrieval-list ranks through `1 / (60 + rank)` and does not perform learned reranking.
-
-| Path | Executed state | Evidence |
-| --- | --- | --- |
-| BM25 only | Completed on 3,018 real chunks | 15 runs across five business questions and K values of 3, 5, and 8 are saved in `data/processed/introduction_to_business_bm25_retrieval_results.json`. Each result retains score, text, source, page, chapter, and section. |
-| Dense only | Blocked | Phase 04 has not produced real 1,024-dimensional BGE-M3 vectors, so no Qdrant scores were fabricated. |
-| Hybrid (RRF) | Blocked | Fusion will run only after valid dense results and BM25 results both exist; no synthetic candidate set was created. |
-
-For example, the executed BM25 result set for “What role do businesses play in an economy?” retrieved a textbook chunk from page 193, Chapter 5, Section 5.4 with score `20.1628`; the result text directly discusses small businesses’ contribution to U.S. economic output. The notebook prints comparable text-and-score views for every test question at K=5 and persists all K=3, 5, and 8 result sets for manual review.
-
-| Artifact | Current verified state |
-| --- | --- |
-| `notebooks/06_hybrid_retrieval.ipynb` | Executed. It contains actual BM25 execution, exact dense/Qdrant code, RRF fusion logic, provenance-rich result displays, and manual review criteria. |
-| `data/processed/introduction_to_business_bm25_retrieval_results.json` | Saved with real BM25 chunks and scores. |
-| `data/processed/introduction_to_business_hybrid_retrieval_status.json` | Saved with `BM25 completed`, while exact dense and hybrid paths are `blocked_missing_real_bge_m3_embeddings`. |
-| `data/processed/introduction_to_business_hybrid_retrieval_results.json` | Intentionally absent until real dense vectors can be searched and fused. |
-
-Phase 07 does not implement reranking, LLM calls, answer generation, LangGraph, query rewriting, or agentic control flow.
-
-## Phase 08 — BGE reranking notebook
-
-`notebooks/07_reranking.ipynb` contains the exact cross-encoder reranking path for `BAAI/bge-reranker-v2-m3`. The official BGE documentation identifies it as a 568M multilingual cross-encoder and demonstrates `FlagReranker.compute_score` with normalized query-passage relevance scores. [8] The notebook loads only Phase 07’s real hybrid candidates, takes Top-N = 12 candidate chunks, batches query-passage scoring, preserves every candidate’s source fields, compares original hybrid rank with reranked rank, and selects Top-K = 5 final-context chunks.
-
-| Artifact | Current verified state |
-| --- | --- |
-| `notebooks/07_reranking.ipynb` | Executed. It includes the exact BGE reranker, batched scoring path, rank-change display, final-context selection, and strict hybrid-candidate preflight. |
-| `data/processed/introduction_to_business_reranking_status.json` | Saved with `blocked_missing_real_hybrid_candidates`; it records `FlagEmbedding` 1.4.0 and `reranking_performed: false`. |
-| `data/processed/introduction_to_business_reranked_contexts.json` | Intentionally absent. It will be written only after real BGE-M3/Qdrant/BM25 fused candidate runs are available. |
-
-The executed preflight found no Phase 07 hybrid-results artifact because Phase 04 has not generated real BGE-M3 vectors. Accordingly, the notebook created **no candidate ordering, no reranker score, and no final context**. It did not substitute sparse-only BM25 candidates for a hybrid candidate set and did not fabricate an example of changed ordering.
-
-Phase 08 does not implement LLM generation, prompt construction, answer generation, LangGraph, or agentic control flow.
-
-## Phase 09 — Grounded prompt-engineering notebook
-
-`notebooks/08_prompt_engineering.ipynb` is an executed, notebook-first prompt-engineering experiment for the requested exact generator identifier, `Qwen2.5-7B-Instruct`. It loads only the real Phase 07 BM25 Top-3 context run associated with the project’s business-foundations question. That context preserves the retrieved chunk IDs, pages, chapter and section metadata, and BM25 scores. Because Phase 07 has no dense BGE-M3 results, the notebook does not describe the context as hybrid or reranked and does not manufacture either artifact.
-
-| Artifact | Current verified state |
-| --- | --- |
-| `notebooks/08_prompt_engineering.ipynb` | Executed. It displays the real retrieved context and prepares basic, role, explicit-constraint, grounded, few-shot, citation, query-rewriting, and query-decomposition prompt variants. Every variant contains the same evidence-only rule, abstention condition, and chunk/page citation requirement. |
-| `data/processed/introduction_to_business_prompt_engineering_results.json` | Saved. It retains the exact prompt designs, real BM25 context metadata, technique trade-offs, and an explicit non-generation record for each of the eight techniques. |
-| `data/processed/introduction_to_business_prompt_engineering_status.json` | Saved with `blocked_exact_model_or_permission_preflight`; it records zero generated answers, no model substitution, and no LangGraph or agentic control flow. |
-
-The executed preflight queried the live sandbox model catalog and found no matching `Qwen2.5-7B-Instruct` identifier. It also found that explicit OpenStax generative-AI permission was not confirmed. The textbook’s attribution notice prohibits its ingestion into a generative-AI offering without OpenStax permission. [2] The notebook therefore did not send any textbook context to an LLM, did not substitute another model, and did not fabricate example answers, citation outputs, rewritten queries, or decomposed subquestions. It instead displays the truthful `NOT GENERATED` outcome beside every designed prompt.
-
-The notebook includes the real, single-pass exact-model invocation path behind both preflight checks. After explicit OpenStax permission is confirmed and `Qwen2.5-7B-Instruct` is present in the live model catalog, rerunning the notebook unchanged will produce auditable output for the eight prompt techniques. Phase 09 does not implement LangGraph, an agent, tool calling, autonomous retrieval, or a self-correcting loop.
-
-## Phase 10 — Grounded Qwen generation notebook
-
-`notebooks/09_llm_generation.ipynb` is an executed, notebook-first implementation of the requested single-pass generation stage: **retrieved context + grounded prompt → `Qwen2.5-7B-Instruct` → cited answer**. It reuses only the real Phase 07 BM25 Top-3 context for the business-foundations question and keeps its chunk IDs and page provenance. The notebook does not represent that context as dense, hybrid, or reranked, because those upstream artifacts have not been validly generated.
-
-| Artifact | Current verified state |
-| --- | --- |
-| `notebooks/09_llm_generation.ipynb` | Executed. It defines the exact Qwen invocation and experiments with temperatures `0.0`, `0.3`, and `0.7`; maximum token budgets `180`, `320`, and `480`; and concise-paragraph, evidence-bullet, and claim-to-evidence prompt structures. Each prompt requires the user’s language, retrieved-context-only claims, explicit insufficiency statements, and `[chunk_id, p. page]` citations. |
-| `data/processed/introduction_to_business_llm_generation_results.json` | Saved. It retains real BM25 context provenance, the full prompt/parameter matrix, and one truthful non-generation record per experiment. |
-| `data/processed/introduction_to_business_llm_generation_status.json` | Saved with `blocked_exact_model_or_permission_preflight`; it records `model_invocation_implemented: true`, `model_invocation_executed: false`, `generated_answer_count: 0`, no model substitution, and no LangGraph or agentic control flow. |
-
-The executed preflight again found no `Qwen2.5-7B-Instruct` identifier in the live sandbox catalog and no explicit OpenStax generative-AI permission confirmation. OpenStax’s attribution notice prohibits ingesting the textbook into a generative-AI offering without that permission. [2] Consequently, the notebook did not transmit textbook context to a model, substitute a different model, fabricate a generated answer or citation, or claim observed differences among the temperature, token, or prompt-structure conditions. It displays the real fixed invocation pathway plus `NOT GENERATED` records instead.
-
-After both conditions are satisfied, rerun the notebook unchanged to obtain exact-model, evidence-grounded output and inspect its automated citation format audit plus manual grounding review requirement. Phase 10 deliberately does not implement LangGraph, tool calling, autonomous agents, self-correcting retrieval, or multi-stage agentic control flow.
-
-## Phase 11 — LangGraph fundamentals notebook
-
-`notebooks/10_langgraph_basics.ipynb` is an executed, deterministic learning notebook for LangGraph fundamentals. It introduces a typed state schema, `StateGraph`, ordinary Python nodes, fixed edges, `START`, `END`, partial state updates with a list reducer, deterministic conditional routing, and in-memory checkpoint persistence. The notebook intentionally uses only small numerical and string examples; it does not access textbook data or any RAG artifact.
-
-| Artifact | Verified execution evidence |
-| --- | --- |
-| `notebooks/10_langgraph_basics.ipynb` | Executed. It visibly runs the requested `START → node_a → node_b → node_c → END` graph and prints its final message, counter, and accumulated node-step state. |
-| `data/processed/introduction_to_business_langgraph_basics_results.json` | Saved. The linear graph produced a counter of `3`; the conditional graph routed `8` to `even_node` and `7` to `odd_node`; and the checkpoint example persisted a doubled value of `12` under the `phase11-checkpoint-demo` thread. |
-| `data/processed/introduction_to_business_langgraph_basics_status.json` | Saved with `completed`; it records successful linear, conditional, and checkpoint graph execution while explicitly recording no RAG, LLM invocation, tool calling, or agentic control flow. |
-
-The notebook installs and uses LangGraph 1.2.11 in the sandbox, then demonstrates actual execution rather than pseudocode. Its `MemorySaver` checkpointer retains a thread-scoped snapshot and exposes a state-history count of `3` for the checkpoint example. This is an instructional persistence demonstration only: it does not add conversational memory, a database, retrieval history, hidden planning, automatic retries, agents, or tool selection.
-
-Phase 11 deliberately stops at foundational graph mechanics. It does not connect LangGraph to BM25, Qdrant, BGE-M3, the Qwen model, prompts, or the project’s textbook corpus. A later, explicitly requested phase can compose fixed retrieval and generation nodes into a deterministic RAG graph.
-
-## Phase 12 — Deterministic LangGraph RAG orchestration notebook
-
-`notebooks/11_langgraph_rag.ipynb` is an executed deterministic orchestration notebook that composes the requested single forward path: `START → process_query → retrieve → rerank → build_prompt → generate_answer → format_response → END`. Its typed graph state explicitly carries `question`, `rewritten_query`, `retrieved_documents`, `reranked_documents`, `prompt`, `answer`, `citations`, response statuses, and an append-only `stage_trace`. The `process_query` node only normalizes whitespace; it does not perform an LLM rewrite or alter the user’s meaning.
-
-| Artifact | Verified execution evidence |
-| --- | --- |
-| `notebooks/11_langgraph_rag.ipynb` | Executed. It explains every fixed node, renders the ordered graph, invokes two real textbook questions, and displays their per-node state-transition traces. |
-| `data/processed/introduction_to_business_langgraph_rag_flow.mmd` | Saved Mermaid specification of the exact fixed graph. |
-| `data/processed/introduction_to_business_langgraph_rag_flow.png` | Saved readable visualization of the requested forward-only node sequence. |
-| `data/processed/introduction_to_business_langgraph_rag_results.json` | Saved. It records two real Top-3 BM25 executions, the retrieved chunk IDs, all six transition events per question, final status payloads, and checkpoint snapshot counts. |
-| `data/processed/introduction_to_business_langgraph_rag_status.json` | Saved with `completed_with_verified_rerank_and_generation_limitations`; it records every prohibited agentic capability as `false`. |
-
-Both graph runs used real questions already present in `introduction_to_business_bm25_retrieval_results.json`. For each run, `retrieve` loaded three real OpenStax chunk records. The graph did not relabel BM25-only documents as hybrid or reranked context: `rerank` truthfully stopped because no real BGE-M3/Qdrant hybrid candidates exist. The prompt node then built an abstention-enforcing evidence contract with no reranked context, and `generate_answer` correctly refused to call anything other than `Qwen2.5-7B-Instruct` after its exact-model, permission, and context checks.
-
-The status record verifies that the exact Qwen model is unavailable in the live catalog and OpenStax generative-AI permission remains unconfirmed. Its attribution notice prohibits ingestion into a generative-AI offering without permission. [2] Therefore, the executed graph generated no answer and no citations; it did not substitute a model, manufacture a reranker ordering, manufacture citations, or fabricate state transitions. It contains no autonomous agents, tool calling, retrieval loops, self-correction loops, context grading, or agent decisions. When the upstream dense/hybrid, reranking, exact-model, and permission preconditions are genuinely satisfied, the existing guarded deterministic nodes can complete in the same fixed order without changing topology.
-
-## Phase 13 — LangGraph checkpointing and deterministic conversation memory
-
-`notebooks/12_memory.ipynb` is an executed, memory-only LangGraph learning notebook. Its fixed topology is `START → respond → END`, compiled with the in-memory `MemorySaver` checkpointer. It runs two conversational turns under the same `phase13-memory-demo` thread ID: the first establishes **customer value** as the phrase to remember, and the second correctly refers to that checkpointed first-turn answer.
-
-| Artifact | Verified execution evidence |
-| --- | --- |
-| `notebooks/12_memory.ipynb` | Executed. It defines a typed memory state, runs the two deterministic turns, inspects saved snapshots, and visibly asserts the separate state boundaries. |
-| `data/processed/introduction_to_business_memory_results.json` | Saved. It records both real graph outputs, six checkpoint snapshots, two persisted conversation turns, zero document-context records, and the follow-up answer’s `checkpointed_conversation_history` basis. |
-| `data/processed/introduction_to_business_memory_status.json` | Saved with `completed`; it records the same-thread two-turn execution, correct contextual follow-up, `MemorySaver` use, and every agentic/RAG capability as `false`. |
-
-The notebook separates `conversation_history` from `retrieved_document_context` in the graph state. Only the append-only conversation history is checkpointed as dialogue memory and read by the follow-up path. The retrieved-document-context field is supplied as an independent empty list, remains empty throughout the run, and is never read by the deterministic response node. This demonstrates that conversational continuity does not require treating remembered dialogue as document evidence.
-
-Phase 13 is not an agent and does not implement retrieval, RAG, an LLM call, tool calling, autonomous decisions, a control loop, or self-correction. The responses are fixed deterministic teaching outputs; no textbook content, retrieved chunks, or fabricated source citations are used.
-
-## Phase 14 — Reproducible source-grounded evaluation notebook
-
-`notebooks/13_evaluation.ipynb` is an executed, reproducible evaluation workflow grounded only in verified OpenStax *Introduction to Business* chunks and the real Phase 07 BM25 retrieval record. Its five evaluation examples use direct quotations that are asserted to exist in named source chunks; the dataset stores no generated or model-written reference answers. The official textbook provenance is retained in `data/raw/SOURCE.md`, and every evaluation anchor preserves its chunk ID, page, chapter, section, quotation, and official book URL. [1] [2]
-
-| Artifact | Verified execution evidence |
-| --- | --- |
-| `notebooks/13_evaluation.ipynb` | Executed. It builds and validates the source-anchor dataset, defines each metric, computes only eligible BM25 retrieval measurements, records unavailable variants, and contains a guarded Ragas integration path. |
-| `data/processed/introduction_to_business_evaluation_dataset.json` | Saved. It contains five direct, source-verified evidence anchors and explicitly stores `reference_answer: null` for every example. |
-| `data/processed/introduction_to_business_evaluation_results.json` | Saved. It contains per-query and macro BM25 Recall@K, Precision@K, MRR, and source-anchored context-relevance results, plus `null` generation metrics with recorded reasons. |
-| `data/processed/introduction_to_business_evaluation_bm25_metrics.png` | Saved chart of only the executed BM25 evidence-anchor metrics at K = 3, 5, and 8. |
-| `data/processed/introduction_to_business_evaluation_status.json` | Saved with `partially_evaluated_real_bm25_only`; it records all unavailable-artifact limitations. |
-
-The notebook calculated **actual** BM25 evidence-anchor macro metrics from 15 pre-existing retrieval runs: Recall@K = `0.80` at K = 3, 5, and 8; MRR = `0.4667`; Precision@K and source-anchored context relevance equal `0.2667`, `0.1600`, and `0.1000` at K = 3, 5, and 8 respectively. These narrow metrics assess whether each direct textbook evidence anchor was retrieved; they are not claims about dense, hybrid, reranked, or answer quality.
-
-Dense RAG, hybrid RAG, and hybrid-plus-reranking remain unevaluable because there are no real BGE-M3 embeddings, dense searches, hybrid candidates, or reranker outputs. The basic-prompt, prompt-engineering, and deterministic LangGraph-RAG generation variants also remain unevaluable because no valid Qwen answer artifact exists and OpenStax generative-AI permission is unconfirmed. Generation values for faithfulness, answer relevance, and context utilization are therefore recorded as `null`, never as zero or estimated scores. Ragas was installed for the guarded path but could not import in this environment because an optional `langchain_community.chat_models.vertexai` module is absent; this is likewise recorded as a limitation rather than bypassed with a substitute evaluator.
-
-Phase 14 does not fabricate ground truth, generated answers, citations, dense vectors, hybrid results, reranker scores, Ragas scores, or cross-variant comparisons. Full evaluation can run only after real upstream artifacts and explicit OpenStax permission exist; the same source-anchor dataset and metric definitions can then be reused unchanged.
-
-## Phase 15 — Production FastAPI deterministic RAG backend
-
-The modular service under `backend/` exposes the validated Phase 12 graph contract through `GET /api/health` and `POST /api/chat`. The application keeps the fixed `START → process_query → retrieve → rerank → build_prompt → generate_answer → format_response → END` sequence, adds append-only state transitions, and does not compile conditional, agent, tool-calling, self-correction, context-grading, or retrieval-loop edges. The Node/Express host launches FastAPI as a sibling process and proxies these two routes only; it does not implement retrieval or generation itself.
-
-| Backend component | Responsibility |
-| --- | --- |
-| `backend/app.py` | FastAPI application, CORS policy, `/api/health`, and `/api/chat` endpoint definitions. |
-| `backend/graph.py` | Typed deterministic `StateGraph` and its six fixed forward-only nodes. |
-| `backend/retrieval.py` | Real BM25 retrieval over the Phase 03 OpenStax chunks, with provenance-rich source records. |
-| `backend/generation.py` | Exact `Qwen2.5-7B-Instruct` preflight, grounded prompt construction, and honest unavailable-generation response. |
-| `backend/schemas.py` | Request, response, source-citation, stage-status, and health contracts. |
-| `backend/config.py` | Environment-backed artifact locations and no-substitution runtime configuration. |
-| `backend/tests/test_app.py` | Two FastAPI contract tests for the health and fixed graph response paths. |
-
-The live endpoint test confirmed `GET /api/health` responds with `status: ok`, BM25 `ready`, and generation `unavailable`. A real BM25-backed `POST /api/chat` request for “What is a small business?” returned three source-cited OpenStax chunks and all six fixed state transitions. Its answer remains an explicit unavailable response because the required hybrid candidate and reranking artifacts do not exist, the exact `Qwen2.5-7B-Instruct` model is unavailable, and OpenStax generative-AI permission is unconfirmed. The backend does not replace these prerequisites with BM25-only answer generation, a substitute model, synthetic citations, or fabricated outputs.
-
-The included production runtime package starts the existing Node host and FastAPI service in one container, using the platform-provided port. The source PDF remains Git-excluded; the backend consumes only processed artifacts. FastAPI endpoint contracts, TypeScript type checking, and the full project test suite were validated locally before synchronization.
-
-## Phase 16 — Source-grounded React chat frontend
-
-`client/src/pages/Chat.tsx` provides the primary Business Knowledge AI experience at `/` and `/chat`. It uses in-memory conversation history with a new-conversation action, a desktop sidebar, a mobile conversation drawer, distinct user and assistant message treatments, an inline retrieval loading state, and a clear request-error state. The interface calls `POST /api/chat` directly through the existing Node proxy with the active `conversation_id` and `top_k: 5`; it does not use tRPC for the Python service.
-
-| UI element | Verified behavior |
-| --- | --- |
-| Grounded answer state | When the backend reports `answer_status: generated`, the answer is rendered as Markdown with the accompanying source records. |
-| Honest unavailable state | When `answer_status: unavailable`, the UI shows the backend-provided reason and does not invent an answer. |
-| Citation cards | Each card exposes the OpenStax source title, page, chapter, section, and official book URL when provided by FastAPI. |
-| Retrieved passages | The real BM25 documents are rendered separately, including rank, page, chapter, section, and passage text. |
-| Responsive navigation | Conversation history is persistent on desktop and opens from a menu control on mobile. |
-
-The generic template `AIChatBox` and `DashboardLayout` components were evaluated but not used as the page shell because they do not expose the citation, retrieved-passage, unavailable-answer, and public no-sign-in behaviors required by this application. The Phase 16 component continues to use the existing shared UI primitives, theme tokens, icon set, and markdown renderer.
-
-Desktop, mobile, and live service checks were completed. A real query for “What are the four functions of management?” displayed the current truthful unavailable-generation notice, five OpenStax citation cards, and five retrieved textbook passages. This UI preserves the backend limitation: the exact Qwen model is unavailable and OpenStax generative-AI permission is not confirmed, so only sourced retrieval material is displayed. No autonomous agent UI, tool activity, hidden reasoning view, retrieval loop, self-correction control, model substitution, or fabricated citation was added. Detailed implementation and verification notes are retained in [`PHASE_16_FRONTEND.md`](PHASE_16_FRONTEND.md).
-
-## References
-
-[1]: https://openstax.org/books/introduction-business/pages/preface "OpenStax — Introduction to Business: Preface"
-[2]: https://openstax.org/books/introduction-business/pages/1-introduction "OpenStax — Introduction to Business: Chapter 1 Introduction"
-[3]: https://assets.openstax.org/oscms-prodcms/media/documents/IntroductionToBusiness-OP_8D04gAa.pdf "OpenStax-hosted Introduction to Business PDF"
-[4]: https://huggingface.co/BAAI/bge-m3 "BAAI/bge-m3 official model card"
-[5]: https://github.com/qdrant/qdrant-client "Qdrant Python client — local mode"
-[6]: https://qdrant.tech/documentation/manage-data/collections/ "Qdrant — Collections"
-[7]: https://qdrant.tech/documentation/search/filtering/ "Qdrant — Filtering"
-[8]: https://bge-model.com/tutorial/5_Reranking/5.2.html "BGE — Reranker tutorial"
+Built as a portfolio-ready, source-grounded AI application focused on transparent business research.
